@@ -9,9 +9,6 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import ko.co.mtcm.sms_example0225.databinding.ActivityMainBinding;
 
-/**
- * TODO 80 바이트 바인딩
- */
 public class MainActivity extends AppCompatActivity {
 
     private ActivityMainBinding bd;
@@ -25,6 +22,7 @@ public class MainActivity extends AppCompatActivity {
         setContentView(bd.getRoot());
 
         bd.editText.addTextChangedListener(new TextWatcher() {
+
             @Override
             public void beforeTextChanged(CharSequence s, int start, int count, int after) {
 
