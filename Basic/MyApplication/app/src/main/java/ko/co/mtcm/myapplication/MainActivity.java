@@ -25,11 +25,19 @@ public class MainActivity extends AppCompatActivity {
         Toast.makeText(this, "button click", Toast.LENGTH_SHORT).show();
     }
 
+    /**
+     *
+     * @param view
+     */
     public void func2(View view) {
         Intent myIntent = new Intent(Intent.ACTION_VIEW, Uri.parse("http://m.naver.com"));
         startActivity(myIntent);
     }
 
+    /**
+     *
+     * @param view
+     */
     public void func3(View view) {
         Intent myIntent = new Intent(Intent.ACTION_VIEW, Uri.parse("tel:" + bd.numEt.getText()));
         startActivity(myIntent);
