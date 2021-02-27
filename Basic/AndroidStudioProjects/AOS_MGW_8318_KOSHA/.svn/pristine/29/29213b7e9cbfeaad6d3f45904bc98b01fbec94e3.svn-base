@@ -1,0 +1,546 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title></title>
+<meta http-equiv="Content-Security-Policy" content="default-src *; style-src 'self' 'unsafe-inline'; script-src 'self' 'unsafe-inline' 'unsafe-eval'">
+<meta charset="utf-8" name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=5.0, user-scalable=yes" />
+<meta name="apple-mobile-web-app-capable" content="yes"/>
+<link rel="stylesheet" href="../../library/jquery.mobile-1.2.0.min.css" type="text/css" />
+<script type="text/javascript" src="../../library/jquery-1.8.2.min.js"></script>
+<script type="text/javascript" src="../../library/jquery.mobile-1.2.0.min.js"></script>
+<script type="text/javascript" src="../../cordova.js"></script>
+<script type="text/javascript" src="../../library/HMPHybrid.js"></script>
+<script>document.addEventListener("HMPPluginReady", function(){
+	GWPlugin.getImageDocViewerData(setDocData);
+});</script>
+<script type="text/javascript" src="../../js/HMPPlugin.js"></script>
+<script type="text/javascript" src="../../library/jquery.touchSwipe.min.js"></script>
+<script type="text/javascript" src="../../library/jquery.effects.core.js"></script>
+<script type="text/javascript" src="../../library/jquery.effects.slide.js"></script>
+</head>
+<script>
+var APP_INFO_SERVER;
+
+function initializeServerInfo(serverUrl){
+
+	console.log("APP_INFO_SERVER = " + serverUrl);
+    APP_INFO_SERVER = serverUrl;
+
+}
+
+var CURRENT_VIEW = 0;
+
+//이미지가 로딩되었는지? 의 정보를 저장하기위한
+var image_load_flag = {};
+
+//id 에 해당하는 인덱스의 이미지를 로딩
+function loadImage(id){
+	window.WebViewBridge.sendServerData();
+	var image = new Image();
+	image.onload = function(){
+		image_load_flag[id] = true;
+		$("#"+id).html("");
+		$("#"+id).css("background-image", "url(\""+image.src+"\")");
+	}
+	image.onerror = function(){
+		//이미지 로딩에 실패했을때 보여줄 화면, 이미지베이스에 버튼?을 둘 것인지...?
+		image_load_flag[id] = false;
+		$("#"+id).html(" <div align='center'  style='width:100%;height:100%;padding-top:150px'><input type='button' value='문서 변환중... 다시 로딩하기.'/></div>").bind("click", function(){
+			$(this).html("").unbind("click");
+			loadImage(id);
+		});
+	}
+
+	image.src = DOC_DATA.link[id];
+}
+
+function showDocViewerPage(pno){
+	if(DOC_DATA.type == "text" || DOC_DATA.type == "html"){
+		return;	
+	}	
+	showView(pno-1);
+}
+
+function showView(id){
+	newImageView(id, true);
+	$("#"+CURRENT_VIEW).hide();	
+	$("#"+id).show();
+	CURRENT_VIEW = id;
+}
+
+//뷰가 있으면 리턴, 없으면  복사
+//좌,우 의 뷰를 미리 로딩해 둘 것인지? 의 플래그를 발아서 미리 생성
+function newImageView(id, neighborCreation){
+	if(id < 0 || id == DOC_DATA.link.length)
+		return false;
+	
+	if($("#"+id).length != 0){
+		if(!image_load_flag[id]){
+			loadImage(id);
+		}
+		if(neighborCreation){
+			newImageView(id-1, false);
+			newImageView(id+1, false);
+		}
+		return true;
+	}else{
+		LOG.debug("creat:"+id);
+		var tmpView = $("#_IMG_TEMPLATE").clone();
+		tmpView.attr("id", id);
+		$("#doc_body").append(tmpView);
+		if(device.platform != "Android"){
+			tmpView.swipe(swipeOptions);
+		}
+				
+		loadImage(id);
+		if(neighborCreation){
+			newImageView(id-1, false);
+			newImageView(id+1, false);
+		}
+		return true;
+	}	
+}
+
+var swipeOptions = {
+	triggerOnTouchEnd : true,
+	swipeStatus : swipeStatus,
+	allowPageScroll : "auto",
+	threshold : 80
+};
+
+var LOG = {
+	loglevel: 1, //1: info, 2:error:, 3:debug
+	writeLog: function(msg){
+		try{
+			console.log("[MGW 2.0]" + msg)
+		}catch(e){
+			// console 객체를 지원하지 않는 뷰어이다.
+			if(window.console == undefined){ 
+				console = {log: function(){}}
+			}
+		}
+	},
+	debug: function(msg){
+		if(LOG.loglevel >= 3){
+			LOG.writeLog("[DEBUG] "+msg);	
+		}
+	},
+	error: function(msg){
+		if(LOG.loglevel >= 2){
+			LOG.writeLog("[ERROR] "+msg);	
+		}
+	},
+	info: function(msg){
+		if(LOG.loglevel >= 1){
+			LOG.writeLog("[INFO] "+msg);	
+		}
+	}, 
+}
+
+function isZooming(){
+	if(device.platform == "Android"){
+		return $("#"+CURRENT_VIEW).get(0).scrollWidth > $(window).width();
+	}else{
+		if(window.innerWidth > window.innerHeight){//landscape
+			return screen.height == window.innerWidth;
+		}else{ //portrait
+			return screen.width == window.innerWidth; 
+		}
+	}
+}
+
+// swipeStatus 이벤트 핸들러
+// 왼쪽인지 오른쪽인지를 판단하여 처리
+function swipeStatus(event, phase, direction, distance) {	
+	if (phase == "end") {
+		//이미지가 더 없으면 가지 않도록..
+		if ((direction == "left" && !(CURRENT_VIEW < (DOC_DATA.link.length-1)))
+				|| (direction == "right" && !(CURRENT_VIEW > 0))) return;
+		
+		//오른쪽 스왚이면, 왼쪽 이미지를 불러오도록..
+		if (direction == "right"){
+			if(newImageView(CURRENT_VIEW - 1, true)){
+				$("#"+(CURRENT_VIEW)).hide('slide', {direction: 'right'}, 200, function(){});
+				$("#"+(CURRENT_VIEW-1)).show('slide', {direction: 'left'}, 200, function(){});	
+			}
+			CURRENT_VIEW--;
+		}
+		//왼쪽 스왚이면, 오른쪽 이미지를 불러오도록..
+		else if (direction == "left"){
+			if(newImageView(CURRENT_VIEW + 1, true)){
+				$("#"+(CURRENT_VIEW)).hide('slide', {direction: 'left'}, 200, function(){});
+				$("#"+(CURRENT_VIEW+1)).show('slide', {direction: 'right'}, 200, function(){});
+			}
+			CURRENT_VIEW++;
+		}
+		setSelectBox();
+		isInProgress=false;
+	}
+};
+
+
+var _window_ = {
+	screen:{		
+		portrait:{ 
+			x:null,
+			y:null
+		},
+		landscape:{
+			x:null,
+			y:null
+		},
+		square:{
+			x:null,
+			y:null
+		}
+	},
+	getX:function(){
+		return _window_.screen[_window_.type].x;
+	},
+	getY:function(){
+		return _window_.screen[_window_.type].y;
+	},
+	scale:null,
+	type: null,
+	init: function(){
+		// 윈도우 초기 사이즈 정의	
+		var width = $(window).width();
+		var height = $(window).height();		
+		_window_.type = _window_.getType();
+		
+		_window_.screen[_window_.type].x = width;
+		_window_.screen[_window_.type].y = height;
+		
+	},
+	getType: function(){
+		var width = $(window).width();
+		var height = $(window).height();
+		var type;
+		if(width == height){		
+			type = "square";
+		}else if(width < height){
+			type = "portrait";
+		}else{
+			type = "landscape";
+		}
+		return type;
+	},
+	isViewportChanged: function(){		
+		var currentType = _window_.getType();
+		LOG.debug(_window_.type+"/"+currentType);
+		if(_window_.type != currentType){
+			if(_window_.screen[currentType].x == null){
+				_window_.screen[currentType].x = $(window).width();
+				_window_.screen[currentType].y = $(window).height();
+			}
+			
+			var width = $(window).width();
+			if(_window_.type == "portrait" && width == _window_.screen["portrait"].x)
+				return false;
+			else{
+				_window_.type = currentType;
+				return true;	
+			}
+		}else{
+			return false;
+		}
+	}
+};
+
+
+function setHeader(){
+	$(".title").html(DOC_DATA.filename);
+	var link_cnt = DOC_DATA.link.length;
+	if(link_cnt == undefined|| link_cnt == 1){
+		$("#toolbar").hide();
+	}else{
+		$("#toolbar").show();
+		var sel = $("#toolbar select");
+		var left = $("#toolbar .left")
+		var right= $("#toolbar .right")
+		for(var i = 0; i < link_cnt; i++){
+			var opt = new Option(i+1,i+1);			
+			sel.append(opt);
+		}
+		left.click(function(){
+			swipeStatus("", "end", "right","100");			
+		});
+		right.click(function(){
+			swipeStatus("", "end", "left","100");			
+		});
+		sel.change(function(){			
+			showView(sel.find("option:selected").val()-1);
+		});
+	}
+}
+
+function setSelectBox(){
+	if(GWPlugin.usePlugin){
+		GWPlugin.setDocViewerPageNo(CURRENT_VIEW+1);
+	}else{
+		var sel = $("#toolbar select");
+		sel.find("option:selected").attr("selected","false");
+		sel.find("option:eq("+CURRENT_VIEW+")").attr("selected","selected");
+	}
+}
+
+var zoomablePageMeta ="initial-scale=1.0, maximum-scale=3.0, minimum-scale=1.0, user-scalable=yes"; 
+var fixedPageMeta = "width=device-width, maximum-scale=1.0, minimum-scale=1.0, user-scalable=yes";
+function adjustView(){
+	// console.log($("#"+CURRENT_VIEW).get(0).scrollWidth +"//////////////////"+ $(window).width());
+	if($("#"+CURRENT_VIEW).get(0).scrollWidth > $(window).width()){		
+		$("meta[name=viewport]").attr("content", fixedPageMeta);
+		$("meta[name=viewport]").attr("content", zoomablePageMeta);		
+	}
+}
+function moveToLeft(){
+	adjustView();
+	swipeStatus("", "end", "right","100");
+}
+function moveToRight(){
+	adjustView();	
+	swipeStatus("", "end", "left","100");
+}
+
+</script>
+
+
+
+
+<script>// 데이터 드라이브 관련 로직 ///////////////////////////////////
+
+$(document).ready(function(){
+	document.addEventListener("backbutton", function(){
+		if(GWPlugin.usePlugin)
+		{
+			GWPlugin.closeImageDocViewer();
+		}
+	}, false);// ignore android back-button event.
+	$(".exit button").click(function(){
+		GWPlugin.closeImageDocViewer();		
+		return false;
+	});		
+});
+
+var DOC_DATA = {};
+var isPageLoaded = true;
+
+//App 에서 호출되는 함수
+function setDocData(dataObj){
+	//test code
+	/* dataObj = {doc_data:'{"docType":"image","docName":"Chrysanthemum.jpg",'+
+	'"docLink":{"linkList":["../../images/mail_new.png"],"count":1}}' }; */
+	
+	var data = JSON.parse(dataObj.doc_data);	
+	DOC_DATA["filename"] = data.docName;	
+	DOC_DATA["type"] = data.docType;
+	DOC_DATA["link"] = data.docLink.linkList;
+	initViewer();
+}
+
+var docViewerHeaderToggleFlag = true;
+function initViewer(data){
+	if(!GWPlugin.usePlugin){
+		showDocViewerHeader();
+		setHeader();
+		$("#doc_body").click(function(event){
+			LOG.debug("Toggle Header menu!");
+			event.cancelBubble = true;
+			if(!isInProgress){
+				$("#header").slideToggle("fast");
+			}
+			return false;		
+		});
+	}else{
+		// APP  헤더 세팅
+		GWPlugin.setDocViewerHeader(DOC_DATA.filename, DOC_DATA.link.length);
+		GWPlugin.showDocViewerHeader();		
+		$("#doc_body").click(function(event){
+			LOG.debug("Toggle Header menu!");
+			event.cancelBubble = true;
+			if(docViewerHeaderToggleFlag){
+				GWPlugin.hideDocViewerHeader();
+				docViewerHeaderToggleFlag = false;
+			}else{
+				GWPlugin.showDocViewerHeader();
+				docViewerHeaderToggleFlag = true;
+			}
+			return false;		
+		});
+	}
+	
+	_window_.init();//스크린정보 세팅
+	
+	if(DOC_DATA.type == "image"){	
+		SET_TO_IMAGE_VIEWER();
+	}else if(DOC_DATA.type == "text"){
+		SET_TO_TEXT_VIEWER();
+	}else if(DOC_DATA.type == "html"){
+		SET_TO_HTML_VIEWER();
+	}
+}
+
+//TEXT 뷰어 세팅
+function SET_TO_TEXT_VIEWER(){	
+	 $.ajax({
+         url : DOC_DATA.link[0],
+         dataType: "text",
+         success : function (data) {
+        	 $("#_TEXT_TEMPLATE")
+        	 	.css("height", _window_.screen[_window_.type].y)
+        	 	.css("margin","30px 5px 30px 5px")
+        	 	.css("white-space","pre")
+        	 	.text(data).show();
+         }
+     });
+	 setWindowResize();
+}
+
+//HTML 뷰어 세팅
+function SET_TO_HTML_VIEWER(){
+	$("#_HTML_TEMPLATE").css("height", _window_.screen[_window_.type].y)
+ 		.css("padding-top","20px").load(DOC_DATA.link[0]).show();
+	setWindowResize();
+}
+
+function setWindowResize(){	 
+	$(window).resize(function(){
+		isInProgress = true;
+		var width = $(window).width();
+		//hideDocViewerHeader();
+		//docViewerHeaderToggleFlag = false;
+		_window_.isViewportChanged();		
+		if(_window_.getX() == width){
+			isInProgress = false;
+			//showDocViewerHeader();
+		}		
+	});
+}
+function showDocViewerHeader(){
+	if(GWPlugin.usePlugin){
+		GWPlugin.showDocViewerHeader();
+	}else{
+		$("#header").slideDown("fast");		
+	}
+}
+
+function hideDocViewerHeader(){
+	if(GWPlugin.usePlugin){
+		GWPlugin.hideDocViewerHeader();	
+	}else{
+		$("#header").slideUp("fast");
+	}	
+}
+//이미지뷰어 세팅
+function SET_TO_IMAGE_VIEWER(){		
+	$(".img_page").css("width", _window_.screen[_window_.type].x);
+	$(".img_page").css("height", _window_.screen[_window_.type].y);	
+	
+	//윈도우 사이즈가 변하면? 뷰포트가 바뀐경우,
+	//이미지 div의 너비 높이를 다시 세팅하여 화면에 다시 그리도록,
+	$(window).resize(function(){
+		var width = $(window).width();
+		var height = $(window).height();
+		if($("#"+CURRENT_VIEW).get(0).scrollWidth == width){
+			//showDocViewerHeader();
+			isInProgress=false;
+		}		
+		LOG.debug("Resizing..... width:"+width+ "/ height:" + height +"/ isInProgress:"+isInProgress);
+		if(_window_.isViewportChanged()){			
+			$(".img_page").css("width", _window_.getX());			
+			$(".img_page").css("height", _window_.getY());
+		}else{
+			if($("#"+CURRENT_VIEW).get(0).scrollWidth > width){
+				//hideDocViewerHeader();
+				//docViewerHeaderToggleFlag = false;
+			}else{			
+				LOG.debug("_window_.getX():"+_window_.getX()+"  /  $(window).width():"+width);
+				if(_window_.getX() == width){
+					isInProgress = false;
+					//showDocViewerHeader();
+				}else{
+					isInProgress = true;
+				}
+			}
+		}
+		_window_.scale = _window_.getX()/width; 
+		LOG.debug("scale:"+_window_.scale);
+	}); 
+	showView(0); // 첫번째 이미지 뷰잉~
+}
+
+//문서가  줌 상태인지를 체크하기 위한 플래그
+var isInProgress = false;
+</script>
+
+<style>
+html{
+	
+}
+body {
+	margin: 0;
+	padding: 0;
+}
+
+.img_page {
+z-index:50;
+background:black;
+position:absolute;
+left:0px;
+top:0px;
+/* -webkit-transition-duration:0.2s; */
+background-repeat:no-repeat;
+background-size:contain;
+background-position: center;
+text-align: center;
+}
+
+.header{
+	display:none;
+	width:100%;
+	position:absolute;
+	top:0px;
+	left:0px;
+	z-index:100;
+	opacity:0.9;
+	background-color: #aaa;
+	border-bottom-right-radius: 7px;
+	border-bottom-left-radius: 7px;
+	box-shadow: 5px 5px 10px rgba(0,0,0,0.5)
+	/* -webkit-box-shadow: 5px 5px 10px rgba(0,0,0,0.5) */
+}
+.header #titlebar div{
+	float:left;
+	margin-left:20px;	
+}
+.header #toolbar div{
+	float:right;
+	margin-right:30px;
+}
+.header #toolbar{
+	background-color: #aaccff;	
+	clear:both;	
+}
+
+</style>
+<body>
+	<div id="header" class="header">
+		<div id="titlebar">
+			<div class="blank"></div>
+			<div class="exit"><button>종료</button></div>
+			<div class="title">파일이름</div>			
+		</div>
+		<div id="toolbar" style="display:none">
+			<div class="right"><button>&gt;</button></div>			
+			<div class="number"><select></select></div>
+			<div class="left"><button>&lt;</button></div>
+		</div>
+	</div>
+	<div id="doc_body">
+		<div id="_IMG_TEMPLATE" class="img_page" style="display:none"></div>
+		<div id="_TEXT_TEMPLATE" style="display:none"></div>
+		<div id="_HTML_TEMPLATE" style="display:none"></div>
+		<!-- <div id="_HTML_TEMPLATE" style="display:none"><iframe></iframe></div> -->
+	</div>
+	
+</body>

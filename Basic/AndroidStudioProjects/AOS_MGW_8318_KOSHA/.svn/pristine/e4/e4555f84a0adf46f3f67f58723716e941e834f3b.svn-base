@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/ID_LL_SP_SQUARE"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:gravity="center_vertical"
+    android:orientation="horizontal"
+    android:paddingTop="10dp"
+    android:paddingBottom="10dp">
+
+    <RelativeLayout
+        android:id="@+id/ID_RL_GROUP_BULLET"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:layout_marginBottom="2.5dp"
+        android:layout_marginLeft="13dp"
+        android:layout_marginRight="7.5dp"
+        android:layout_marginTop="2.5dp"
+        android:contentDescription="@string/dummy_string" >
+
+        <FrameLayout
+            android:id="@+id/ID_IMG_USER_MASK"
+            android:layout_width="39dp"
+            android:layout_height="39dp"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentTop="true"
+            android:layout_gravity="center"
+            android:foreground="@drawable/sp_user_img_mask"
+            android:foregroundGravity="center" >
+
+            <ImageView
+                android:id="@+id/ID_IMG_USER_ICON"
+                android:layout_width="39dp"
+                android:layout_height="39dp"
+                android:contentDescription="@string/dummy_string"
+                android:scaleType="centerCrop"
+                android:src="@drawable/sp_user_no_img" />
+        </FrameLayout>
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginBottom="2.5dp"
+        android:layout_marginRight="13dp"
+        android:layout_marginTop="2.5dp"
+        android:contentDescription="@string/dummy_string"
+        android:gravity="center_vertical" >
+
+        <TextView
+            android:id="@+id/ID_TV_USER_INFO"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentTop="true"
+            android:ellipsize="end"
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:textColor="#999999"
+            android:textSize="10sp" />
+
+        <com.hs.mobile.gw.fragment.squareplus.view.SpCompletionView
+            android:id="@+id/ID_TV_CONTENTS_BODY"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/ID_TV_USER_INFO"
+            android:ellipsize="end"
+            android:maxLines="1"
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:textColor="#404345"
+            android:textSize="12sp" />
+    </RelativeLayout>
+
+</LinearLayout>

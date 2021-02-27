@@ -1,0 +1,128 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/ID_LL_SP_SQUARE"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:gravity="center_vertical"
+    android:orientation="horizontal" >
+
+    <RelativeLayout
+        android:id="@+id/ID_RL_GROUP_BULLET"
+        android:layout_width="wrap_content"
+        android:layout_height="58dp"
+        android:layout_marginLeft="13dp"
+        android:layout_marginRight="7.5dp"
+        android:contentDescription="@string/dummy_string"
+        android:gravity="center_vertical" >
+
+        <ImageView
+            android:id="@+id/ID_IMG_GROUP_BULLET"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:contentDescription="@string/dummy_string"
+            android:src="@drawable/sp_new_bullet" />
+
+        <ImageView
+            android:id="@+id/ID_IMG_GROUP_ICON"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:contentDescription="@string/dummy_string"
+            android:src="@drawable/sp_group_basic" />
+    </RelativeLayout>
+
+    <LinearLayout
+        android:id="@+id/ID_LL_SP_SQUARE_CASE"
+        android:layout_width="match_parent"
+        android:layout_height="48dp"
+        android:background="@drawable/style_squarelist_background"
+        android:gravity="center_vertical"
+        android:orientation="horizontal" >
+
+        <RelativeLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="5dp"
+            android:layout_weight="1"
+            android:contentDescription="@string/dummy_string" >
+
+            <TextView
+                android:id="@+id/ID_TV_WORKGROUP_NAME"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:ellipsize="end"
+                android:maxLines="1"
+                android:textAppearance="?android:attr/textAppearanceMedium"
+                android:textColor="@color/black"
+                android:textSize="15.56sp" />
+
+            <TextView
+                android:id="@+id/ID_TV_WORKGROUP_COUNT"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:ellipsize="end"
+                android:maxLines="1"
+                android:layout_marginLeft="10dp"
+                android:layout_toRightOf="@id/ID_TV_WORKGROUP_NAME"
+                android:textAppearance="?android:attr/textAppearanceMedium"
+                android:textColor="#157DFB"
+                android:textSize="15.56sp" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentStart="true"
+                android:layout_below="@+id/ID_TV_WORKGROUP_NAME"
+                android:gravity="center_vertical"
+                android:orientation="horizontal"
+                android:visibility="gone" >
+
+                <TextView
+                    android:id="@+id/ID_TV_ADMIN_LABEL"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="#ffe67b7a"
+                    android:ellipsize="end"
+                    android:maxLines="1"
+                    android:text="@string/label_squareplus_member_admin"
+                    android:textAppearance="?android:attr/textAppearanceMedium"
+                    android:textColor="@color/white"
+                    android:textSize="8.89sp" />
+
+                <TextView
+                    android:id="@+id/ID_TV_ADMIN_LIST"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="5dp"
+                    android:layout_weight="1"
+                    android:ellipsize="end"
+                    android:maxLines="1"
+                    android:textAppearance="?android:attr/textAppearanceMedium"
+                    android:textColor="#ffb6b6b6"
+                    android:textSize="8.89sp" />
+            </LinearLayout>
+        </RelativeLayout>
+
+        <ImageView
+            android:id="@+id/ID_IMG_FAVORITE"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="13dp"
+            android:contentDescription="@string/dummy_string"
+            android:src="@drawable/sp_group_bookmark"
+            android:visibility="gone" />
+        
+        <TextView
+            android:id="@+id/ID_TV_GROUP_STATE"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="13dp"
+            android:text="@string/label_squareplus_org_group"
+            android:textColor="@color/white"
+            android:padding="3dp"
+            android:visibility="gone" />
+    </LinearLayout>
+
+</LinearLayout>

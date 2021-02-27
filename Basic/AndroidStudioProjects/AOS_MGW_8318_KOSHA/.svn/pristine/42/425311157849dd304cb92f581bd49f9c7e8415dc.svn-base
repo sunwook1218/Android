@@ -1,0 +1,28 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html>
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<meta name="viewport" content="initial-scale=0.75; maximum-scale=0.75; minimum-scale=0.75; user-scalable=no;" />
+	<title>HANDY Groupware Mobile</title>
+	<link rel="stylesheet" type="text/css" href="file:///android_asset/layout.css" />
+</head>
+
+<body class="grayBg">
+<h1>단말기 네트워크 ERROR
+<p class="failure">
+	<img src="file:///android_asset/warning.png" />
+	<strong>ERROR</strong>
+	
+단말기 네트워크 상태가 불안정하여<br/>
+정상적인 서비스가 안됩니다.<br/><br/>
+네트워크 상태를 확인하거나<br/>
+관리자에게 문의하여 주세요.
+</p>
+ 
+<div style="width:100%25;text-align:center;margin-top:20px;"> 
+	<a class="buttonL" align="center" style="float:none" href="goLogin"><span>로그인</span></a>
+</div>
+<br/>
+<input type="hidden" name="100" value="Open quote is expected for attribute &#034;LANGUAGE&#034; associated with an element type &#034;SCRIPT&#034;" />
+</body>
+</html>

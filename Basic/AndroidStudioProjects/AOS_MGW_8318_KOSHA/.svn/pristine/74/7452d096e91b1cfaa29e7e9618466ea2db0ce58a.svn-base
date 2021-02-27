@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/webviewContainer"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical" >
+
+    <include layout="@layout/fragment_sub_header"></include>
+
+    <RelativeLayout
+        android:layout_width="fill_parent"
+        android:layout_height="50dp"
+        android:background="@drawable/border_bottom" >
+
+        <Button
+            android:id="@+id/cancelWriteComment"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_centerVertical="true"
+            android:layout_margin="5dp"
+            android:background="@drawable/style_btn_basic"
+            android:text="@string/label_cancel"
+            android:textColor="@color/navibar_button_text_color" />
+
+        <TextView
+            style="@style/header_title_style"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_centerInParent="true"
+            android:paddingLeft="90dp"
+            android:paddingRight="90dp"
+            android:singleLine="true"
+            android:text="@string/label_write_comment"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            android:typeface="sans" />
+
+        <Button
+            android:id="@+id/confirmWriteComment"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:layout_margin="5dp"
+            android:background="@drawable/style_btn_basic"
+            android:text="@string/label_confirm"
+            android:textColor="@color/navibar_button_text_color" />
+    </RelativeLayout>
+
+    <CheckBox
+        android:id="@+id/CommentIntoDocument"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:text="의견본문 반영"
+        android:background="@color/white"
+        android:textColor="@color/black"/>
+
+    <EditText
+        android:id="@+id/writeCommentBody"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:gravity="top"        
+        android:hint="@string/message_hint_write_comment"
+        android:padding="10dp" />
+
+</LinearLayout>

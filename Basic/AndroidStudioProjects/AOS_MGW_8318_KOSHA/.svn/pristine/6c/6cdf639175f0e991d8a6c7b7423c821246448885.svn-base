@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.hs.mobile.gw.view.CheckableLinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:gravity="center_vertical"
+    android:orientation="horizontal" >
+
+    <CheckBox
+        android:id="@+id/ID_CB_MEMBER"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="10dp"
+        android:button="@drawable/style_btn_checkbox_blue" />
+
+    <RelativeLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginRight="10dp" >
+        
+        <FrameLayout
+            android:id="@+id/ID_IMG_PROFILE_MASK"
+            android:layout_width="39dp"
+            android:layout_height="39dp"
+            android:layout_gravity="center"
+            android:foreground="@drawable/sp_user_img_mask"
+            android:foregroundGravity="center" >
+
+            <ImageView
+                android:id="@+id/ID_IMG_PROFILE"
+                android:layout_width="39dp"
+                android:layout_height="39dp"
+                android:contentDescription="@string/dummy_string"
+                android:scaleType="centerCrop"
+                android:src="@drawable/sp_user_no_img" />
+        </FrameLayout>
+
+    </RelativeLayout>
+
+    <com.hs.mobile.gw.view.NameAndDepartmentView
+        android:id="@+id/ID_NAME_AND_DEPARTMENT_VIEW"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" >
+    </com.hs.mobile.gw.view.NameAndDepartmentView>
+
+</com.hs.mobile.gw.view.CheckableLinearLayout>

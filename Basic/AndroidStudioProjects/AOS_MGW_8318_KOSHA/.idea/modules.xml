@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/AOS_MGW_8318_KOSHA.iml" filepath="$PROJECT_DIR$/.idea/modules/AOS_MGW_8318_KOSHA.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/app/AOS_MGW_8318_KOSHA.app.iml" filepath="$PROJECT_DIR$/.idea/modules/app/AOS_MGW_8318_KOSHA.app.iml" />
+    </modules>
+  </component>
+</project>

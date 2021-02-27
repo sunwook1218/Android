@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android"
+    android:key="@string/preferenceScreen" >
+
+    <PreferenceCategory android:title="@string/nomal_setting" >
+        <CheckBoxPreference
+            android:key="@string/key_nomal_window_mode"
+            android:summary="@string/fuls_screen_mode_summary"
+            android:title="@string/full_screen_mode_title" />
+        <CheckBoxPreference
+            android:key="@string/key_nomal_login_mode"
+            android:summary="@string/login_mode_summary"
+            android:title="@string/login_mode_title" />
+    </PreferenceCategory>
+    <PreferenceCategory android:title="@string/saving_mode" >
+        <CheckBoxPreference
+            android:key="@string/key_save_mode"
+            android:summary="@string/save_summary"
+            android:title="@string/save_title" />
+    </PreferenceCategory>
+
+    <!--
+    <PreferenceCategory
+            android:title="@string/user_infomation">
+        <EditTextPreference
+			android:inputType="textPersonName"
+	        android:title="@string/user_name_title"
+	        android:summary="@string/user_name_summary"
+	        android:dialogTitle="@string/user_name_dialog_title" 
+	        android:key="@string/key_user_information_name" 
+	        android:dependency="@string/key_save_mode" 
+	        android:dialogIcon="@android:drawable/ic_input_add" />
+        <EditTextPreference
+            android:title="@string/user_password_title"
+            android:summary="@string/user_password_summary"
+            android:dialogTitle="@string/user_password_dialog_title" 
+            android:key="@string/key_user_information_password" 
+            android:dependency="@string/key_save_mode" 
+            android:password="true" 
+            android:dialogIcon="@android:drawable/ic_input_add" />
+    </PreferenceCategory>
+    -->
+
+    <PreferenceCategory
+        android:key="@string/key_noti_category"
+        android:title="@string/noti_mode" >
+        <CheckBoxPreference
+            android:defaultValue="true"
+            android:key="@string/key_noti_mode"
+            android:summary="@string/noti_summary"
+            android:title="@string/noti_title" />
+    </PreferenceCategory>
+
+</PreferenceScreen>

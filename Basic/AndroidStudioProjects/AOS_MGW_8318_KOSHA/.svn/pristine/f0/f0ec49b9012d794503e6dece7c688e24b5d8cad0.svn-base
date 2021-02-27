@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/gnb_group_container"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:id="@+id/gnb_group_title_wrap"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="#f1f1f1"
+        android:layout_gravity="center_vertical"
+        android:layout_marginBottom="1dp"
+        android:orientation="horizontal">
+
+        <TextView
+            android:id="@+id/gnb_group_title_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text=""
+            android:textSize="17dp"
+            android:paddingLeft="12dp"
+            android:paddingTop="15dp"
+            android:paddingBottom="20dp"
+            android:textColor="@color/gnb_title_color"
+            android:layout_columnWeight="1"
+            android:layout_weight="1"
+            android:textStyle="bold" />
+
+        <!-- toggle -->
+        <LinearLayout
+            android:id="@+id/btn_toggle"
+            android:layout_width="30dp"
+            android:layout_marginRight="15dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical">
+            <ImageView
+                android:id="@+id/ic_toggle_arrow"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:padding="5dp"
+                android:src="@drawable/gnb_arrow_up"/>
+        </LinearLayout>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/m_show_list"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"/>
+
+</LinearLayout>

@@ -1,0 +1,209 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="60dp"
+    android:background="@drawable/style_list_background"
+    android:padding="5dp" >
+
+    <ImageView
+        android:id="@+id/sign_indicator"
+        android:layout_width="12dp"
+        android:layout_height="17dp"
+        android:layout_alignParentRight="true"
+        android:layout_centerVertical="true"
+        android:layout_marginLeft="5dp"
+        android:layout_marginRight="13.3dp"
+        android:background="#00000000"
+        android:contentDescription="@string/dummy_string"
+        android:scaleType="center"
+        android:src="@drawable/indicator_hu" />
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_toLeftOf="@id/sign_indicator" >
+
+        <LinearLayout
+            android:id="@+id/sign_status_box"
+            android:layout_width="40dp"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_gravity="center_vertical"
+            android:layout_marginLeft="5dp"
+            android:layout_marginTop="5dp" >
+
+            <ImageView
+                android:id="@+id/sign_status"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="#00000000"
+                android:contentDescription="@string/dummy_string"
+                android:scaleType="center" />
+
+            <ImageView
+                android:id="@+id/sign_emergency"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="#00000000"
+                android:contentDescription="@string/dummy_string"
+                android:scaleType="center" />
+
+            <ImageView
+                android:id="@+id/sign_restricted"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="#00000000"
+                android:contentDescription="@string/dummy_string"
+                android:scaleType="center" />
+
+            <ImageView
+                android:id="@+id/sign_security"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="#00000000"
+                android:contentDescription="@string/dummy_string"
+                android:scaleType="center" />
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/sign_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:layout_marginLeft="5dp"
+            android:layout_marginTop="3dp"
+            android:layout_toRightOf="@id/sign_status_box"
+            android:singleLine="true"
+            android:textColor="@color/list_main_title"
+            android:textSize="16sp"
+            android:typeface="sans" />
+
+        <!-- <ImageView
+            android:id="@+id/sign_comment"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:layout_marginLeft="5dp"
+            android:layout_marginTop="3dp"
+            android:layout_toRightOf="@id/sign_title"
+            android:background="#00000000"
+            android:contentDescription="@string/dummy_string"
+            android:scaleType="center" /> -->
+
+        <ImageView
+            android:id="@+id/sign_attach"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_gravity="center_vertical"
+            android:layout_marginLeft="10dp"
+            android:layout_marginTop="3dp"
+            android:background="#00000000"
+            android:contentDescription="@string/dummy_string"
+            android:scaleType="center" />
+
+        <LinearLayout
+            android:id="@+id/sign_extrainfo"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/sign_title"
+            android:layout_marginLeft="5dp"
+            android:layout_marginTop="5dp"
+            android:layout_toRightOf="@id/sign_status_box"
+            android:gravity="center_vertical"
+            android:orientation="horizontal" >
+
+            <TextView
+                android:id="@+id/extrainfo_drafter"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@color/list_extra_info"
+                android:textSize="12sp"
+                android:typeface="sans" />
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="1dp"
+                android:contentDescription="@string/dummy_string"
+                android:src="@drawable/bar_lst_cell" />
+
+            <TextView
+                android:id="@+id/extrainfo_draftDate"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@color/list_extra_info"
+                android:textSize="12sp"
+                android:typeface="sans" />
+
+            <ImageView
+                android:id="@+id/img_divider_apprstatustext"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="1dp"
+                android:contentDescription="@string/dummy_string"
+                android:src="@drawable/bar_lst_cell"
+                android:visibility="gone" />
+
+            <TextView
+                android:id="@+id/extrainfo_apprstatustext"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@color/list_extra_info"
+                android:textSize="12sp"
+                android:typeface="sans" />
+
+            <ImageView
+                android:id="@+id/img_divider_apprtypetext"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="1dp"
+                android:contentDescription="@string/dummy_string"
+                android:src="@drawable/bar_lst_cell"
+                android:visibility="gone" />
+
+            <TextView
+                android:id="@+id/extrainfo_apprtypetext"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@color/list_extra_info"
+                android:textSize="12sp"
+                android:typeface="sans" />
+
+            <ImageView
+                android:id="@+id/img_divider_participantapprtypetext"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="1dp"
+                android:contentDescription="@string/dummy_string"
+                android:src="@drawable/bar_lst_cell"
+                android:visibility="gone" />
+
+            <TextView
+                android:id="@+id/extrainfo_participantapprtypetext"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@color/list_extra_info"
+                android:textSize="12sp"
+                android:typeface="sans" />
+            
+            <ImageView
+                android:id="@+id/img_divider_comment"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="1dp"
+                android:contentDescription="@string/dummy_string"
+                android:src="@drawable/bar_lst_cell"
+                android:visibility="gone" />
+
+            <TextView
+                android:id="@+id/extrainfo_comment"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@color/list_extra_info"
+                android:textSize="12sp"
+                android:typeface="sans" />
+        </LinearLayout>
+    </RelativeLayout>
+
+</RelativeLayout>

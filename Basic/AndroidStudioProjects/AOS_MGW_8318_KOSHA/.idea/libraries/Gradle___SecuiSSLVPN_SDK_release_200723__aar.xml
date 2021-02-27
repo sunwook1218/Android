@@ -1,0 +1,13 @@
+<component name="libraryTable">
+  <library name="Gradle: :SecuiSSLVPN_SDK-release-200723:@aar">
+    <CLASSES>
+      <root url="jar://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/c350589b6ffaab12cd240f45f6b70fd3/jetified-SecuiSSLVPN_SDK-release-200723/jars/classes.jar!/" />
+      <root url="file://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/c350589b6ffaab12cd240f45f6b70fd3/jetified-SecuiSSLVPN_SDK-release-200723/res" />
+      <root url="jar://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/0198424540d16fdce5657169304964b9/jetified-SecuiSSLVPN_SDK-release-200723/jars/classes.jar!/" />
+      <root url="file://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/0198424540d16fdce5657169304964b9/jetified-SecuiSSLVPN_SDK-release-200723/res" />
+      <root url="file://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/0198424540d16fdce5657169304964b9/jetified-SecuiSSLVPN_SDK-release-200723/AndroidManifest.xml" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>

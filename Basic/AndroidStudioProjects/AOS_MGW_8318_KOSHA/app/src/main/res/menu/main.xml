@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/logout"
+        android:icon="@android:drawable/ic_menu_revert"
+        android:title="@string/menu_logout" />
+    <item
+        android:id="@+id/exit"
+        android:icon="@android:drawable/ic_menu_close_clear_cancel"
+        android:title="@string/menu_exit" />
+    <item
+        android:id="@+id/main_menu"
+        android:icon="@android:drawable/ic_menu_preferences"
+        android:title="@string/menu_mainmenu" />
+    <item
+        android:id="@+id/initial_menu"
+        android:icon="@android:drawable/ic_menu_manage"
+        android:title="@string/menu_config_init_menu" />
+</menu>

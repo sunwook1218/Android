@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#5f5f5f"
+
+    android:orientation="vertical">
+
+    <RelativeLayout
+        android:layout_width="wrap_content"
+        android:layout_height="38dp"
+        android:layout_columnWeight="1"
+        android:layout_marginTop="0.35dp"
+        >
+
+        <com.google.android.material.appbar.AppBarLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingLeft="13.3dp"
+            android:layout_marginRight="38dp"
+            android:background="#e2e2e2"
+            app:elevation="0dp"
+            android:id="@+id/tab_app_bar"
+            android:theme="@style/ThemeOverlay.AppCompat">
+
+            <com.google.android.material.tabs.TabLayout
+                style="@style/AppTabLayout"
+                android:id="@+id/tabs"
+                app:tabTextAppearance="@style/AppTabTextAppearance"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="#e2e2e2"
+                app:elevation="0dp"
+                app:tabGravity="fill"
+                app:tabMode="scrollable"
+                app:tabIndicatorHeight="2.7dp"
+                app:tabSelectedTextColor="#056839"
+                app:tabTextColor="#555555" />
+
+        </com.google.android.material.appbar.AppBarLayout>
+
+        <LinearLayout
+            android:id="@+id/ID_BTN_MORE"
+            android:layout_width="38dp"
+            android:layout_height="?attr/actionBarSize"
+            android:gravity="center"
+            android:background="@drawable/style_home_more_btn_hu"
+            android:layout_alignParentRight="true"
+            >
+            <ImageView
+                android:layout_width="10.3dp"
+                android:layout_height="10.3dp"
+                android:padding="10dp"
+                android:contentDescription="@string/dummy_string"
+                android:scaleType="center"
+                android:layout_gravity="center_vertical"
+                android:src="@drawable/btn_more_new_50_b" />
+        </LinearLayout>
+
+    </RelativeLayout>
+
+    <FrameLayout
+        android:id="@+id/container"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+    </FrameLayout>
+
+    <!---->
+    <!--<FrameLayout-->
+    <!--android:id="@+id/container"-->
+    <!--android:layout_width="match_parent"-->
+    <!--android:layout_height="match_parent"-->
+    <!--app:layout_behavior="@string/appbar_scrolling_view_behavior">-->
+    <!--</FrameLayout>-->
+
+</LinearLayout>

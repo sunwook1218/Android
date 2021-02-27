@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="67.5dp"
+    android:layout_marginTop="8dp"
+    android:background="@drawable/style_urlpreview_background" >
+
+    <ImageView
+        android:id="@+id/ID_IMG_PREVIEW_THUMBNAIL"
+        android:layout_width="66.5dp"
+        android:layout_height="66.5dp"
+        android:layout_margin="0.5dp"
+        android:scaleType="fitCenter"
+        android:src="@drawable/sp_no_image" />
+
+    <TextView
+        android:id="@+id/ID_TV_PREVIEW_TITLE"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="8dp"
+        android:layout_marginRight="5dp"
+        android:layout_marginTop="5dp"
+        android:layout_toRightOf="@id/ID_IMG_PREVIEW_THUMBNAIL"
+        android:singleLine="true"
+        android:textColor="#404345"
+        android:textSize="13sp" />
+
+    <TextView
+        android:id="@+id/ID_TV_PREVIEW_CONTENT"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@id/ID_TV_PREVIEW_TITLE"
+        android:layout_below="@id/ID_TV_PREVIEW_TITLE"
+        android:layout_marginRight="5dp"
+        android:layout_marginTop="2dp"
+        android:textColor="#404345"
+        android:singleLine="true"
+        android:textSize="11sp" />
+
+    <TextView
+        android:id="@+id/ID_TV_PREVIEW_URL"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_below="@id/ID_TV_PREVIEW_CONTENT"
+        android:layout_marginRight="5dp"
+        android:layout_marginTop="5dp"
+        android:singleLine="true"
+        android:textColor="#939393"
+        android:textSize="9sp" />
+
+</RelativeLayout>

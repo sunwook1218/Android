@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:gravity="center_vertical"
+    android:orientation="horizontal"
+    android:padding="10dp" >
+
+    <ImageView
+        android:id="@+id/ID_IMG_FILE"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:contentDescription="@string/dummy_string"
+        android:src="@drawable/file_image" />
+
+    <LinearLayout
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="10dp"
+        android:layout_weight="1"
+        android:gravity="clip_vertical"
+        android:orientation="vertical" >
+
+        <TextView
+            android:id="@+id/ID_TV_FILE_NAME"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:ellipsize="middle"
+            android:maxLines="1"
+            android:text="네이버웍스 제품소개서.jpg"
+            android:textColor="@color/black" />
+
+        <TextView
+            android:id="@+id/ID_TV_FILE_INFO"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="305KB"
+            android:textColor="#9b9b9b"
+            android:textSize="12sp" />
+    </LinearLayout>
+
+    <CheckBox
+        android:id="@+id/ID_CB_FILE"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="5dp"
+        android:button="@drawable/style_btn_checkbox_blue" />
+
+    <ImageButton
+        android:id="@+id/ID_BTN_FILE_DELETE"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="5dp"
+        android:background="@color/transparent"
+        android:contentDescription="@string/dummy_string"
+        android:src="@drawable/btn_del" />
+
+</LinearLayout>

@@ -1,0 +1,12 @@
+<component name="libraryTable">
+  <library name="Gradle: :mvc_b2b2c_3.6.9.2297_200728_bd32:@aar">
+    <CLASSES>
+      <root url="jar://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/79930a0acd3af4f77ce5b429c3c13d52/jetified-mvc_b2b2c_3.6.9.2297_200728_bd32/jars/classes.jar!/" />
+      <root url="file://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/79930a0acd3af4f77ce5b429c3c13d52/jetified-mvc_b2b2c_3.6.9.2297_200728_bd32/res" />
+      <root url="jar://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/79930a0acd3af4f77ce5b429c3c13d52/jetified-mvc_b2b2c_3.6.9.2297_200728_bd32/jars/libs/mVaccine-library-20200728.jar!/" />
+      <root url="file://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/79930a0acd3af4f77ce5b429c3c13d52/jetified-mvc_b2b2c_3.6.9.2297_200728_bd32/AndroidManifest.xml" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>

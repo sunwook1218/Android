@@ -1,0 +1,142 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/boardmemo_item_template"
+    android:layout_width="fill_parent"
+    android:layout_height="56.7dp"
+    android:background="@drawable/style_list_background"
+    android:padding="5dp" >
+
+    <ImageView
+        android:id="@+id/board_memo_indicator"
+        android:layout_width="12dp"
+        android:layout_height="17dp"
+        android:layout_alignParentRight="true"
+        android:layout_centerVertical="true"
+        android:layout_marginLeft="5dp"
+		android:layout_marginRight="13.3dp"
+        android:background="#00000000"
+        android:contentDescription="@string/dummy_string"
+        android:scaleType="center"
+        android:src="@drawable/indicator_hu" />
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_toLeftOf="@id/board_memo_indicator" >
+
+        <LinearLayout
+            android:id="@+id/board_memo_status_box"
+            android:layout_width="40dp"
+            android:layout_marginLeft="5dp"
+            android:layout_marginTop="5dp"
+            android:layout_gravity="center_vertical"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true">
+
+            <ImageView
+                android:id="@+id/board_memo_status"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" 
+                android:background="#00000000"              
+                android:contentDescription="@string/dummy_string"
+                android:scaleType="center" />
+            
+            <ImageView
+                android:id="@+id/board_memo_emergency"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="#00000000"                
+                android:contentDescription="@string/dummy_string"
+                android:scaleType="center"/>
+            
+            <ImageView
+                android:id="@+id/board_memo_modified"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="#00000000"                
+                android:contentDescription="@string/dummy_string"
+                android:scaleType="center"/>
+        </LinearLayout>
+		
+        <ImageView
+            android:id="@+id/board_memo_attach"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_gravity="center_vertical"
+            android:layout_marginTop="5dp"
+            android:layout_marginLeft="5dp"
+            android:background="#00000000"
+            android:contentDescription="@string/dummy_string"
+            android:scaleType="center" />
+        
+        <TextView
+            android:id="@+id/board_memo_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:layout_marginLeft="5dp"
+            android:layout_marginTop="3dp"
+            android:layout_toRightOf="@id/board_memo_status_box"
+            android:layout_toLeftOf="@id/board_memo_attach"
+            android:singleLine="true"
+            android:textColor="@color/list_main_title"
+            android:textSize="13.3sp"
+            android:typeface="sans" />
+		<LinearLayout
+		    android:id="@+id/board_memo_extrainfo"
+		    android:layout_below="@id/board_memo_title"
+		    android:layout_toRightOf="@id/board_memo_status_box"
+		    android:layout_marginLeft="5dp"
+            android:layout_marginTop="5dp"
+            android:gravity="center_vertical"
+		    android:layout_width="wrap_content"
+		    android:layout_height="wrap_content"
+		    android:orientation="horizontal">
+            <TextView
+                android:id="@+id/extrainfo_brdname"      
+	            android:layout_width="wrap_content"
+	            android:layout_height="wrap_content"
+	            android:textColor="@color/list_extra_info"
+	            android:textSize="10.7sp"
+	            android:typeface="sans" />
+            <ImageView 
+                android:layout_width="wrap_content"
+	            android:layout_height="wrap_content"
+	            android:layout_marginTop="1dp"
+	            android:contentDescription="@string/dummy_string"
+	            android:src="@drawable/bar_lst_cell"/>
+            <TextView 
+                android:id="@+id/extrainfo_author"          
+	            android:layout_width="wrap_content"
+	            android:layout_height="wrap_content"
+	            android:textColor="@color/list_extra_info"	            
+	            android:textSize="10.7sp"
+	            android:typeface="sans" />
+            <ImageView 
+                android:layout_width="wrap_content"
+	            android:layout_height="wrap_content"
+	            android:layout_marginTop="1dp"
+	            android:contentDescription="@string/dummy_string"
+	            android:src="@drawable/bar_lst_cell"/>
+            <TextView            
+                android:id="@+id/extrainfo_pubdate"
+	            android:layout_width="wrap_content"
+	            android:layout_height="wrap_content"
+	            android:textColor="@color/list_extra_info"
+	            android:textSize="10.7sp"
+	            android:typeface="sans" />
+            <TextView            
+                android:id="@+id/extrainfo_cmntcnt"
+                android:layout_marginLeft="10dp"
+	            android:layout_width="wrap_content"
+	            android:layout_height="wrap_content"
+	            android:textColor="@color/list_cmnt_count"
+	            android:textStyle="bold"
+	            android:textSize="10.7sp"
+	            android:typeface="sans" />
+		</LinearLayout>
+        
+    </RelativeLayout>
+
+</RelativeLayout>

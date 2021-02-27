@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- 게시판 아이템 -->
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="60dip"
+    android:background="@drawable/style_list_background"
+    android:padding="5dp" >
+
+    <ImageView
+        android:id="@+id/boardfolder_indicator"
+        android:layout_width="12dp"
+        android:layout_height="17dp"
+        android:layout_alignParentRight="true"
+        android:layout_centerVertical="true"
+        android:layout_marginLeft="5dp"
+        android:layout_marginRight="13.3dp"
+        android:background="#00000000"
+        android:contentDescription="@string/dummy_string"
+        android:scaleType="center"
+        android:src="@drawable/indicator_hu" />
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_toLeftOf="@id/boardfolder_indicator" >
+
+        <ImageView
+            android:id="@+id/boardfolder_img"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="10.0dip"
+            android:background="#00000000"
+            android:contentDescription="@string/dummy_string"
+            android:scaleType="center"
+            android:src="@drawable/ic_board_folder" />
+
+        <TextView
+            android:id="@+id/boardfolder_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="15.0dip"
+            android:layout_toRightOf="@+id/boardfolder_img"
+            android:singleLine="true"
+            android:textColor="@color/list_main_title"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            android:typeface="sans" />
+    </RelativeLayout>
+
+</RelativeLayout>

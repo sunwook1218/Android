@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/main_content"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent" >
+	<androidx.drawerlayout.widget.DrawerLayout
+	    android:id="@+id/drawer_layout"
+	    android:layout_width="match_parent"
+	    android:layout_height="match_parent" >
+
+		<FrameLayout
+			android:id="@+id/stage"
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content"
+			android:background="#fff"
+			android:gravity="left|top"
+			android:orientation="vertical" >
+		</FrameLayout>
+
+		<include
+	        android:id="@+id/ID_LEFT_MENU"
+	        android:layout_width="360dp"
+	        android:layout_height="match_parent"
+	        android:layout_gravity="start"
+	        layout="@layout/main_left_menu_list" />
+	
+	</androidx.drawerlayout.widget.DrawerLayout>
+
+    <FrameLayout
+        android:id="@+id/popupWebviewContainer"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:visibility="gone" />
+
+    <LinearLayout
+        android:id="@+id/mainBg"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" >
+
+		<include layout="@layout/mgw_loading_bg" />
+    </LinearLayout>
+
+</FrameLayout>

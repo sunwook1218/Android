@@ -1,0 +1,13 @@
+<component name="libraryTable">
+  <library name="Gradle: :mtk_v4.6.0.48:@aar">
+    <CLASSES>
+      <root url="jar://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/b80fa6d1a30b2f74dbdedf9f0f4b83aa/jetified-mtk_v4.6.0.48/jars/classes.jar!/" />
+      <root url="file://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/b80fa6d1a30b2f74dbdedf9f0f4b83aa/jetified-mtk_v4.6.0.48/res" />
+      <root url="file://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/43a4870333b312aef70d9a4908c52284/jetified-mtk_v4.6.0.48/res" />
+      <root url="jar://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/43a4870333b312aef70d9a4908c52284/jetified-mtk_v4.6.0.48/jars/classes.jar!/" />
+      <root url="file://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/43a4870333b312aef70d9a4908c52284/jetified-mtk_v4.6.0.48/AndroidManifest.xml" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>

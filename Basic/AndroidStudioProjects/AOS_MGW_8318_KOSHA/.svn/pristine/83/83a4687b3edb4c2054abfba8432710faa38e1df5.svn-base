@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+   <!-- 리스트 아이템 -->
+<LinearLayout
+   	xmlns:android="http://schemas.android.com/apk/res/android"
+          android:id="@+id/blankList"
+          android:layout_width="match_parent"
+          android:layout_height="wrap_content"                    
+          android:background="@drawable/style_list_background"
+          android:padding="5dp"
+          android:orientation="vertical"
+          android:layout_gravity="top">          
+          <TextView
+              android:id="@+id/blankListMessage"              
+              android:layout_width="match_parent"
+              android:layout_height="wrap_content"
+              android:layout_margin="5dip"
+              android:text="@string/message_empty_list"
+              android:textColor="#444"
+              android:textSize="16sp"                
+              android:typeface="sans" />
+</LinearLayout>

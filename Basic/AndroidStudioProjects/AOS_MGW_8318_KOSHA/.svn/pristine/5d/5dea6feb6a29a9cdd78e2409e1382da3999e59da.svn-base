@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android" >
+
+    <item
+        android:id="@+id/ID_SP_MENU_FORDER_CREATE"
+        android:title="@string/label_squareplus_menu_groupfolder_create"/>
+    <item
+        android:id="@+id/ID_SP_MENU_FORDER_MOD"
+        android:title="@string/label_squareplus_menu_groupfolder_mod"/>
+    <item
+        android:id="@+id/ID_SP_MENU_FORDER_DEL"
+        android:title="@string/label_squareplus_menu_groupfolder_del"/>
+    
+</menu>

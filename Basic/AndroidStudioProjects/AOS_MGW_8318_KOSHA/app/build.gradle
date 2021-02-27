@@ -1,0 +1,74 @@
+apply plugin: 'com.android.application'
+
+android {
+    compileSdkVersion 28
+    defaultConfig {
+        applicationId "com.hs.mobile.gw.hsuco"
+        minSdkVersion 23 // update version 8 to 14, 18 to 21, 21 to 26
+        targetSdkVersion 28
+        versionCode 2   // 초기 2 hsuco
+        multiDexEnabled true
+        versionName "8.3.18.41" // 초기 8.3.18.41 hsuco
+        ndk {
+            abiFilters = ['armeabi-v7a']
+        }
+    }
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+    lintOptions {
+        abortOnError false
+    }
+    useLibrary 'org.apache.http.legacy' // SEOJAEHWA: Add Legacy HttpClient
+    applicationVariants.all { variant ->
+        def buildTypeName = variant.buildType.name
+        def versionName = variant.versionName
+        def customerName = project.ext.customerName
+        println "buildTypeName: " + buildTypeName
+        variant.outputs.all {
+            def formattedDate = new Date().format('yyyyMMdd')
+            outputFileName = "SOM_${versionName}_${customerName}_${formattedDate}.apk"
+            println "  > output: " + outputFileName
+        }
+    }
+    packagingOptions{
+        doNotStrip "*/armeabi-v7a/*.so"
+    }
+}
+
+buildscript {
+    ext {
+        customerName = "hsuco"
+        // dependencies versions
+        support_library = '28.0.0'
+        easypermissions = '1.2.0'
+        junit = '4.12'
+        test_runner = '1.0.2'
+        test_espresso = '3.0.2'
+    }
+}
+
+dependencies {
+    implementation 'androidx.multidex:multidex:2.0.0'
+    implementation fileTree(include: ['*.jar'], dir: 'libs')
+    /*implementation "com.android.support:appcompat-v7:$support_library"
+    implementation "com.android.support:design:$support_library"
+    implementation "com.android.support:support-media-compat:$support_library"
+    implementation "com.android.support:support-v4:$support_library"*/
+    implementation 'com.google.android.material:material:1.0.0'
+    implementation 'androidx.media:media:1.0.0'
+    implementation 'androidx.legacy:legacy-support-v4:1.0.0'
+    implementation "pub.devrel:easypermissions:$easypermissions"
+    implementation 'com.google.firebase:firebase-messaging:17.4.0'
+    implementation 'com.google.firebase:firebase-core:16.0.8'
+    implementation 'androidx.appcompat:appcompat:1.1.0'
+    implementation name: 'mvc_b2b2c_3.6.9.2297_200728_bd32', ext: 'aar'
+    implementation name: 'mtk_v4.6.0.48', ext: 'aar'
+    implementation files('libs/mVaccine-commons.jar')
+    api files('libs/RSLicenseSDK_1.0.3.jar')
+    implementation files('libs/mGuardSDK_v1.1.24.jar')
+    implementation name: 'SecuiSSLVPN_SDK-release-200723', ext: 'aar'
+}
+
+apply plugin: 'com.google.gms.google-services'

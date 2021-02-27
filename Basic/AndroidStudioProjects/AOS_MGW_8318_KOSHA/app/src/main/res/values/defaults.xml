@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="detault_maincontentview_spacing">64dip</dimen>
+    <dimen name="divider_size">.9dp</dimen>
+    
+    <attr name="spacing_type">
+        <enum name="right_offest" value="0" />
+        <enum name="actions_width" value="1" />
+    </attr>
+
+    <declare-styleable name="MainContentView">
+        <attr name="spacing_type" />
+        <attr name="spacing" format="dimension" />
+        <attr name="actions_layout" format="reference"/>
+        <attr name="content_layout" format="reference"/>
+        <attr name="content_layout_tablet" format="reference"/>
+    </declare-styleable>
+</resources>

@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <include layout="@layout/fragment_sub_header"></include>
+
+    <RelativeLayout
+        android:id="@+id/ID_LAY_R_NAVI"
+        android:layout_width="fill_parent"
+        android:layout_height="50dp"
+        android:background="@drawable/border_bottom"
+        android:visibility="visible" >
+        <LinearLayout
+            android:id="@+id/ID_LAY_L_NAVI_LEFT"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_centerVertical="true"
+            android:gravity="left"
+            android:orientation="horizontal"
+            android:visibility="gone" />
+
+        <TextView
+            android:id="@+id/ID_TV_TITLE"
+            style="@style/header_title_style"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_centerInParent="true"
+            android:ellipsize="end"
+            android:gravity="center"
+            android:maxLines="2"
+            android:paddingLeft="90dp"
+            android:paddingRight="90dp"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            android:typeface="sans" />
+
+        <LinearLayout
+            android:id="@+id/ID_LAY_L_NAVI_RIGHT"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:gravity="right"
+            android:orientation="horizontal"
+            android:visibility="gone" />
+    </RelativeLayout>
+    
+     <LinearLayout
+        android:id="@+id/ID_LAY_L_TAB"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="#444"
+        android:gravity="center_horizontal"
+        android:orientation="vertical" >
+
+        <com.hs.mobile.gw.view.CustomTabHost
+            android:id="@+id/tabhost"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="#444" >
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical" >
+
+                <TabWidget
+                    android:id="@android:id/tabs"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content" />
+                <!-- </HorizontalScrollView> -->
+
+                <FrameLayout
+                    android:id="@android:id/tabcontent"
+                    android:layout_width="fill_parent"
+                    android:layout_height="fill_parent"
+                    android:padding="5dp"
+                    android:visibility="gone" >
+                </FrameLayout>
+            </LinearLayout>
+        </com.hs.mobile.gw.view.CustomTabHost>
+    </LinearLayout>
+
+    <HorizontalScrollView
+        android:id="@+id/scrollableToolbar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:fillViewport="true"
+        android:scrollbars="none" >
+
+        <LinearLayout
+            android:id="@+id/ID_LAY_L_TOOL_BAR"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:background="@drawable/bg_toolbar"
+            android:orientation="horizontal"
+            android:visibility="gone" >
+        </LinearLayout>
+
+    </HorizontalScrollView>
+    <LinearLayout
+        android:orientation="vertical"
+        android:id="@+id/ID_WEBVIEW_CONTAINER"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
+
+</LinearLayout>

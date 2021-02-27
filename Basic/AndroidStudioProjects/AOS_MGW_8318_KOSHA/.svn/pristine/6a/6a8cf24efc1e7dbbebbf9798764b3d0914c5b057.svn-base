@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+   <!-- 게시판 글 아이템 -->
+<RelativeLayout
+   	xmlns:android="http://schemas.android.com/apk/res/android"         
+          android:layout_width="match_parent"
+          android:background="@drawable/board_header_background" 
+          android:layout_height="30dip"                    
+          android:padding="5dp">
+          <TextView
+              android:id="@+id/board_header"              
+              android:layout_width="match_parent"
+              android:layout_height="wrap_content"
+              android:layout_gravity="center_vertical"                
+              android:layout_marginLeft="5dip"
+              android:text="@string/label_low_board"
+              android:textColor="#ffffff"
+              android:textSize="14sp"                
+              android:typeface="sans" />
+</RelativeLayout>       

@@ -1,0 +1,137 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white"
+    android:orientation="vertical" >
+
+    <include layout="@layout/fragment_sub_header"></include>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="71dp"
+        android:paddingLeft="13.3dp"
+        android:paddingRight="13.3dp"
+        android:background="@drawable/border_bottom">
+
+        <ImageView
+            android:id="@+id/ID_BTN_BACK"
+            android:layout_width="39dp"
+            android:layout_height="46.17dp"
+            android:layout_centerVertical="true"
+            android:layout_marginRight="10dp"
+            android:padding="15dp"
+            android:contentDescription="@string/dummy_string"
+            android:src="@drawable/style_btn_back" />
+
+        <ImageView
+            android:id="@+id/ID_BTN_MENU"
+            android:layout_width="17.3dp"
+            android:layout_height="14dp"
+            android:layout_centerVertical="true"
+            android:layout_marginRight="10dp"
+            android:layout_toRightOf="@id/ID_BTN_BACK"
+            android:contentDescription="@string/dummy_string"
+            android:src="@drawable/style_btn_menu"
+            android:visibility="gone" />
+
+        <TextView
+            android:id="@+id/ID_TV_TITLE"
+            style="@style/header_title_style"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_centerInParent="true"
+            android:ellipsize="end"
+            android:gravity="center"
+            android:maxLines="2"
+            android:paddingLeft="45dp"
+            android:paddingRight="45dp"
+            android:text="@string/label_square_group_info_member"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            android:typeface="sans" />
+
+        <TextView
+            android:id="@+id/ID_BTN_DONE"
+            android:layout_width="62dp"
+            android:layout_height="27.3dp"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:background="@drawable/style_btn_basic_blue_hu"
+            android:text="확인"
+            android:gravity="center"
+            android:textColor="@color/white"
+            android:textSize="12sp"
+            android:textStyle="bold"
+            android:contentDescription="@string/dummy_string"
+            />
+
+        <TextView
+            android:id="@+id/ID_BTN_INVITE"
+            android:layout_width="62dp"
+            android:layout_height="27.3dp"
+            android:layout_alignWithParentIfMissing="true"
+            android:layout_centerVertical="true"
+            android:layout_marginRight="5dp"
+            android:layout_toLeftOf="@id/ID_BTN_DONE"
+            android:background="@drawable/style_btn_basic_blue_hu"
+            android:contentDescription="@string/dummy_string"
+            android:gravity="center"
+            android:text="@string/label_square_member_select_invite"
+            android:textColor="@color/white"
+            android:textStyle="bold" />
+    </RelativeLayout>
+
+    <ListView
+        android:id="@+id/ID_LV_PARTICIPANT"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:fadingEdge="none" >
+    </ListView>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="#f1f1f1"/>
+
+    <LinearLayout
+        android:id="@+id/ID_LAY_L_FUNCTION"
+        android:layout_width="match_parent"
+        android:layout_height="50dip"
+        android:background="#fff"
+        android:gravity="center" >
+
+        <TextView
+            android:id="@+id/ID_BTN_OUT"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="5dp"
+            android:background="@drawable/btn_btm_out_set"
+            android:gravity="center"
+            android:textColor="#994140"
+            android:textSize="12sp" />
+
+        <TextView
+            android:id="@+id/ID_BTN_ADMIN"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="5dp"
+            android:background="@drawable/btn_btm_master_set"
+            android:gravity="center"
+            android:textColor="#3A4E69"
+            android:textSize="12sp" />
+
+        <TextView
+            android:id="@+id/ID_BTN_NORMAL"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="5dp"
+            android:background="@drawable/btn_btm_master_set"
+            android:gravity="center"
+            android:textColor="#3A4E69"
+            android:textSize="12sp" />
+    </LinearLayout>
+
+</LinearLayout>

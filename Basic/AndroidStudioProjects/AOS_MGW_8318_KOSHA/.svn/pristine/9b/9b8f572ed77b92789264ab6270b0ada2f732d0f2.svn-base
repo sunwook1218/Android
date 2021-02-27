@@ -1,0 +1,228 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#E6E6E6"
+    android:focusable="true"
+    android:focusableInTouchMode="true"
+    android:orientation="vertical" >
+
+    <include layout="@layout/fragment_sub_header"></include>
+    
+    <RelativeLayout
+        android:id="@+id/ID_LAY_R_TOP_BAR"
+        android:layout_width="match_parent"
+        android:layout_height="71dp"
+        android:layout_marginTop="60dp"
+        android:paddingLeft="13.3dp"
+        android:paddingRight="13.3dp"
+        android:background="@drawable/border_bottom" >
+
+        <ImageView
+            android:id="@+id/ID_BTN_BACK"
+            android:layout_width="39dp"
+            android:layout_height="46.17dp"
+            android:layout_centerVertical="true"
+            android:layout_marginRight="10dp"
+            android:padding="15dp"
+            android:contentDescription="@string/dummy_string"
+            android:src="@drawable/style_btn_back" />
+
+        <ImageView
+            android:id="@+id/ID_BTN_MENU"
+            android:layout_width="17.3dp"
+            android:layout_height="14dp"
+            android:layout_centerVertical="true"
+            android:layout_marginRight="10dp"
+            android:layout_toRightOf="@id/ID_BTN_BACK"
+            android:contentDescription="@string/dummy_string"
+            android:src="@drawable/style_btn_menu"
+            android:visibility="gone" />
+
+        <TextView
+            android:id="@+id/ID_TV_TITLE"
+            style="@style/header_title_style"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_centerInParent="true"
+            android:ellipsize="end"
+            android:gravity="center"
+            android:maxLines="2"
+            android:paddingLeft="45dp"
+            android:paddingRight="45dp"
+            android:tag="title"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            android:typeface="sans" />
+
+        <TextView
+            android:id="@+id/ID_BTN_MORE"
+            android:layout_width="62dp"
+            android:layout_height="27.3dp"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:background="@drawable/style_btn_basic_white_hu"
+            android:text="더보기"
+            android:gravity="center"
+            android:textColor="#056839"
+            android:textSize="12sp"
+            android:textStyle="bold"
+             />
+
+       <!-- <ImageView tkofs
+            android:id="@+id/ID_BTN_MORE"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:layout_margin="5dp"
+            android:contentDescription="@string/dummy_string"
+            android:src="@drawable/btn_more_menu_set" />-->
+    </RelativeLayout>
+
+    <!-- <LinearLayout
+        android:id="@+id/ID_LAY_L_NOTICE"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/ID_LAY_R_TOP_BAR"
+        android:layout_marginBottom="5dp"
+        android:background="@color/white"
+        android:padding="10dp"
+        android:visibility="visible" >
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" >
+
+            <ImageView
+                android:id="@+id/ID_IMG_MEGAPHONE"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/sp_group_notice" />
+
+            <ImageView
+                android:id="@+id/ID_IMG_RIGHT_ARROW"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:layout_centerVertical="true"
+                android:layout_marginRight="5dp"
+                android:src="@drawable/sp_main_file_goto" />
+
+            <LinearLayout
+                android:id="@+id/ID_LAY_L_NOTICE_TEXT"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="5dp"
+                android:layout_marginRight="5dp"
+                android:layout_toLeftOf="@id/ID_IMG_RIGHT_ARROW"
+                android:layout_toRightOf="@id/ID_IMG_MEGAPHONE"
+                android:orientation="vertical" >
+
+                <TextView
+                    android:id="@+id/ID_TV_NOTICE_COUNT"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="#842dcd"
+                    android:textSize="12sp" 
+                    android:text="@string/label_squareplus_menu_notice"/>
+
+                <TextView
+                    android:id="@+id/ID_TV_NOTICE_TITLE"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:ellipsize="end"
+                    android:maxLines="1"
+                    android:textColor="#404345"
+                    android:textSize="13sp" />
+            </LinearLayout>
+        </RelativeLayout>
+    </LinearLayout> -->
+
+    <LinearLayout
+        android:id="@+id/ID_LAY_L_BOTTOM_TOOL_BAR"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:layout_marginTop="1dp"
+        android:layout_alignParentBottom="true"
+        android:background="#FFF9F9F9" >
+
+        <ImageButton
+            android:id="@+id/ID_BTN_WORKFEED"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:background="#00000000"
+            android:src="@drawable/sp_tool_work_set"
+            android:text="워크피드" />
+
+        <ImageButton
+            android:id="@+id/ID_BTN_FAVORITE"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:background="#00000000"
+            android:src="@drawable/sp_tool_bookmark_set"
+            android:text="모아보기" />
+
+        <ImageButton
+            android:id="@+id/ID_BTN_DUMMY"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:background="#00000000"
+            android:clickable="false"
+            android:text="dummy" />
+
+        <ImageButton
+            android:id="@+id/ID_BTN_MENTION"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:background="#00000000"
+            android:src="@drawable/sp_tool_mention_set"
+            android:text="멘션" />
+
+        <ImageButton
+            android:id="@+id/ID_BTN_FILE"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:background="#00000000"
+            android:src="@drawable/sp_tool_file_set"
+            android:text="파일" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@id/ID_LAY_R_TOP_BAR"
+        android:layout_above="@id/ID_LAY_L_BOTTOM_TOOL_BAR" >
+
+        <com.hs.mobile.gw.view.pulltorefresh.library.PullToRefreshListView
+            android:id="@+id/ID_LV_SP_CONTENTS"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="#E6E6E6"
+            android:fadingEdge="none"
+            android:paddingBottom="1dp"
+            android:scrollingCache="false" >
+        </com.hs.mobile.gw.view.pulltorefresh.library.PullToRefreshListView>
+    </LinearLayout>
+
+    <ImageButton
+        android:id="@+id/ID_BTN_WRITE"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBaseline="@id/ID_LAY_L_BOTTOM_TOOL_BAR"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="10dp"
+        android:layout_weight="1"
+        android:background="#00000000"
+        android:src="@drawable/sp_btn_write"
+        android:text="글쓰기" />
+
+</RelativeLayout>

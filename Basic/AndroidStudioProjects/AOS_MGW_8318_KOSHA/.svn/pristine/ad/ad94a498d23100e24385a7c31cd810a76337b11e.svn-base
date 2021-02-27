@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android" >
+
+    <item
+        android:id="@+id/ID_TOPIC_MODIFY"
+        android:title="@string/label_squareplus_topic_modify"/>
+    <item
+        android:id="@+id/ID_TOPIC_DELETE"
+        android:title="@string/label_squareplus_topic_delete"/>
+
+</menu>

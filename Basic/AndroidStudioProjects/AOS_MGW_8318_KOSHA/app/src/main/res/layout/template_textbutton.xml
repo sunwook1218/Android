@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.hs.mobile.gw.view.CustomTextButton  xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/toolbarButton"
+    android:layout_width="wrap_content"
+    android:layout_height="27.3dp"
+    android:layout_centerVertical="true"
+    android:layout_marginRight="10dp"
+    android:gravity="center"
+    android:textColor="#393939"
+    android:paddingRight="10dp"
+    android:paddingLeft="10dp"
+    android:textSize="12sp"
+    android:textStyle="bold"
+    android:background="@drawable/style_btn_gr_background"
+/>

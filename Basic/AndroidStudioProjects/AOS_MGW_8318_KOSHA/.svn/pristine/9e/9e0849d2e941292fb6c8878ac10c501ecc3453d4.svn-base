@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_marginLeft="10dp"
+    android:layout_marginTop="10dp" >
+
+   <FrameLayout
+       android:id="@+id/ID_IMG_PROFILE_MASK"
+       android:layout_width="45dp"
+       android:layout_height="45dp"
+       android:layout_alignParentLeft="true"
+       android:layout_alignParentTop="true"
+       android:layout_gravity="center"
+       android:foregroundGravity="center" >
+
+       <ImageView
+           android:id="@+id/ID_IMG_PROFILE"
+           android:layout_width="match_parent"
+           android:layout_height="match_parent"
+           android:scaleType="centerCrop"
+           android:src="@drawable/user_defalut" />
+       
+       <ImageView 
+           android:layout_width="match_parent"
+           android:layout_height="match_parent"
+           android:src="@drawable/sp_user_img_mask"/>
+   </FrameLayout>
+    
+    <!-- <ImageView
+        android:id="@+id/ID_IMG_PROFILE"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentTop="true"
+        android:contentDescription="@string/dummy_string"
+        android:src="@drawable/user_defalut" /> -->
+
+    <TextView
+        android:id="@+id/ID_TV_USER_NAME"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@id/ID_IMG_PROFILE_MASK"
+        android:layout_alignRight="@id/ID_IMG_PROFILE_MASK"
+        android:layout_below="@id/ID_IMG_PROFILE_MASK"
+        android:ellipsize="end"
+        android:gravity="center_horizontal"
+        android:maxLines="1"
+        android:textColor="@color/black" />
+
+    <ImageView
+        android:id="@+id/ID_IMG_CHECK"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentTop="true"
+        android:contentDescription="@string/dummy_string"
+        android:src="@drawable/icon_checked" />
+
+    <ImageView
+        android:id="@+id/ID_IMG_MASTER"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@+id/ID_IMG_PROFILE_MASK"
+        android:layout_alignLeft="@id/ID_IMG_PROFILE_MASK"
+        android:contentDescription="@string/dummy_string"
+        android:src="@drawable/icon_master" />
+
+</RelativeLayout>

@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent" 
+    android:orientation="vertical">
+
+    <RelativeLayout
+        android:id="@+id/ID_LAY_L_NOTICE"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="5dp"
+        android:padding="10dp"
+        android:background="@color/white" >
+
+        <ImageView
+            android:id="@+id/ID_IMG_MEGAPHONE"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/sp_group_notice" />
+
+        <ImageView
+            android:id="@+id/ID_IMG_RIGHT_ARROW"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:layout_marginRight="5dp"
+            android:src="@drawable/sp_main_file_goto" />
+
+        <LinearLayout
+            android:id="@+id/ID_LAY_L_NOTICE_TEXT"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="5dp"
+            android:layout_marginRight="5dp"
+            android:layout_toLeftOf="@id/ID_IMG_RIGHT_ARROW"
+            android:layout_toRightOf="@id/ID_IMG_MEGAPHONE"
+            android:orientation="vertical" >
+
+            <TextView
+                android:id="@+id/ID_TV_NOTICE_COUNT"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/label_squareplus_menu_notice"
+                android:textColor="#842dcd"
+                android:textSize="10sp" />
+
+            <com.hs.mobile.gw.fragment.squareplus.view.SpCompletionView
+                android:id="@+id/ID_TV_NOTICE_TITLE"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:ellipsize="end"
+                android:maxLines="1"
+                android:textColor="#404345"
+                android:textSize="12sp" />
+
+        </LinearLayout>
+    </RelativeLayout>
+
+</LinearLayout>

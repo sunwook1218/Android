@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<!-- ARGB -->
+<!-- 참고 : Alpha 값 00(투명) ~ FF(불투명) -->
+<resources>
+    <color name="login_text_color">#636363</color>
+    <!-- white: "#ffffff" / black: "#000000" -->
+    <color name="home_grid_bg">#fff1f1f1</color>
+
+    <color name="colorAccent">#D81B60</color>
+    <color name="orange">#ea5d10</color>
+    <color name="ored">#980f15</color>
+
+    <color name="divider">#ffcccccc</color>
+    <color name="bottom_bar_text">#ff888888</color>
+    <color name="bottom_bar_bg">#fff1f1f1</color>
+    <color name="actions_bg">#ff3c3c3c</color>
+    <color name="actions_divider">#ff888888</color>
+    <color name="menu_text_color_up">#ffffff</color>
+    <color name="menu_text_color_pressed">#ffffff</color>
+    <color name="menu_title_text_color">#aaaeb2</color>
+    <color name="menu_count">#76cbdc</color>
+    <color name="menu_count2">#81DAF5</color>
+    <color name="dark_gray">#444</color>
+    <color name="light_gray">#DDD</color>
+    
+    <color name="toolbar_button_text_color">#3c506b</color>
+    <color name="navibar_button_text_color">#EFEFEF</color>
+    <color name="default_back_color">#777777</color>
+    
+    <color name="list_main_title">#363636</color>
+    <color name="list_extra_info">#959595</color>
+    <color name="list_cmnt_count">#ff8000</color>
+    <color name="black">#ff000000</color>
+    <color name="white">#ffffffff</color>
+    <color name="transparent">#00ffffff</color>
+    
+    <!-- Background의 drawable selector 에서 사용하기 위함 -->
+    <drawable name="dummy_background">#0FFF</drawable>    
+    <drawable name="default_list">#ffffff</drawable>
+    <drawable name="default_list_pressed">#eaf1f9</drawable>
+    <drawable name="default_list_selected">#eaf1f9</drawable>
+    
+    <drawable name="default_folderlist">#E6E6E6</drawable>
+    <drawable name="default_folderlist_pressed">#D8D8D8</drawable>    
+    
+    <drawable name="header_background">#444444</drawable> 
+    <drawable name="board_header_background">#777777</drawable>
+    <drawable name="board_memo_header_background">#495057</drawable>
+    
+    <drawable name="basic_color_red">#F00</drawable>
+    <drawable name="basic_color_blue">#00F</drawable>
+    <drawable name="basic_color_green">#0F0</drawable>
+    <drawable name="basic_color_yellow">#0FF</drawable>
+    
+    <color name="dragndrop_background">#e0103010</color>
+    <color name="square_tab_bg_color">#495057</color>
+    <color name="red">#FF0000</color>
+    <color name="squareplus_org_group_background">#157DFB</color>
+    <color name="squareplus_public_group_background">#AAAAAA</color>
+    <color name="gnb_title_color">#222222</color>
+    <color name="gnb_item_bg">#ffffff</color>
+
+    <color name="sub_head">#056839</color>
+</resources>

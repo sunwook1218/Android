@@ -1,0 +1,139 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingLeft="10dp"
+    android:paddingRight="10dp"
+    android:paddingTop="10dp" >
+
+    <ImageView
+        android:id="@+id/ID_IMG_PROFILE"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginBottom="10dip"
+        android:layout_marginRight="10dip"
+        android:contentDescription="@string/dummy_string"
+        android:src="@drawable/user_defalut" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignTop="@id/ID_IMG_PROFILE"
+        android:layout_toRightOf="@id/ID_IMG_PROFILE"
+        android:gravity="center_vertical"
+        android:orientation="horizontal" >
+
+        <com.hs.mobile.gw.view.NameAndDepartmentView
+            android:id="@+id/ID_LAY_L_NAME_AND_DEPARTMENT"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1" >
+        </com.hs.mobile.gw.view.NameAndDepartmentView>
+
+        <com.hs.mobile.gw.view.BookmarkAndOptionView
+            android:id="@+id/ID_BOOKMARK_AND_OPTION_VIEW"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/ID_LAY_L_TOPIC"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/ID_IMG_PROFILE"
+        android:layout_marginRight="10dp"
+        android:layout_toRightOf="@+id/ID_IMG_PROFILE"
+        android:background="#F8F8F8"
+        android:gravity="center_vertical"
+        android:orientation="horizontal" >
+
+        <RelativeLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" >
+
+            <ImageView
+                android:id="@+id/imageView2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:contentDescription="@string/dummy_string"
+                android:src="@drawable/icon_category_topic" />
+        </RelativeLayout>
+
+        <TextView
+            android:id="@+id/ID_TV_TITLE"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:ellipsize="end"
+            android:maxLines="1"
+            android:textColor="#333333"
+            android:textSize="13sp"
+            android:textStyle="bold" />
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/ID_TV_BODY"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/ID_LAY_L_TOPIC"
+        android:layout_marginTop="5dp"
+        android:layout_toRightOf="@+id/ID_IMG_PROFILE"
+        android:autoLink="web"
+        android:text="토픽 본문"
+        android:textColor="@color/black"
+        android:textSize="13sp" />
+
+    <TextView
+        android:id="@+id/ID_TV_DATE"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/ID_TV_BODY"
+        android:layout_marginRight="5dp"
+        android:layout_toRightOf="@+id/ID_IMG_PROFILE"
+        android:text="12:00"
+        android:textColor="#959595"
+        android:textSize="12sp"
+        android:textStyle="italic"
+        android:typeface="sans" />
+
+    <LinearLayout
+        android:id="@+id/ID_LAY_L_BUTTONS"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/ID_TV_DATE"
+        android:layout_marginBottom="5dp"
+        android:layout_marginTop="5dp"
+        android:layout_toRightOf="@+id/ID_IMG_PROFILE"
+        android:orientation="horizontal" >
+
+        <TextView
+            android:id="@+id/ID_BTN_OPINION"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/btn_comment"
+            android:text="@string/label_square_opinion_write"
+            android:textColor="#3D506E"
+            android:textSize="12sp" />
+
+        <TextView
+            android:id="@+id/ID_BTN_FILE"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:background="@drawable/btn_file"
+            android:text="@string/label_square_attach_file"
+            android:textSize="12sp" />
+    </LinearLayout>
+
+    <com.hs.mobile.gw.view.FileAttachArea
+        android:id="@+id/ID_LAY_FILE_ATTACH_AREA"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/ID_LAY_L_BUTTONS"
+        android:layout_toRightOf="@+id/ID_IMG_PROFILE" >
+    </com.hs.mobile.gw.view.FileAttachArea>
+
+</RelativeLayout>

@@ -1,0 +1,29 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#f1f1f1"
+    android:orientation="vertical"
+    android:theme="@style/Theme.AppCompat"
+    tools:context="com.hs.mobile.gw.fragment.HomeFragment">
+
+    <!-- Header -->
+    <include layout="@layout/fragment_home_header" />
+
+    <!-- Quick Menu -->
+    <include layout="@layout/fragment_home_favorite" />
+    <!-- TabList -->
+
+    <include
+        layout="@layout/activity_main_tab"
+        android:background="#e2e2e2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+
+    <!--include layout="@layout/fragment_home_tabhost"></include-->
+    <!-- TabList -->
+    <include android:background="#fff" layout="@layout/fragment_home_tablist" />
+    <!-- ListView -->
+    <include android:background="#fff" layout="@layout/fragment_home_listview" />
+
+</LinearLayout>

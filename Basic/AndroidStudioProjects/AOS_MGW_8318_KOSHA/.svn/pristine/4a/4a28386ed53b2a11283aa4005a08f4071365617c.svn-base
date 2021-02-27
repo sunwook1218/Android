@@ -1,0 +1,532 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/default_list"
+    android:focusableInTouchMode="true"
+    android:orientation="vertical" >
+
+    <include layout="@layout/fragment_sub_header"></include>
+    <!-- 네비바 -->
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="71dp"
+        android:paddingLeft="13.3dp"
+        android:paddingRight="13.3dp"
+        android:background="@drawable/border_bottom"
+        >
+
+        <ImageView
+            android:id="@+id/middleBackButton"
+            android:layout_width="39dp"
+            android:layout_height="46.17dp"
+            android:layout_centerVertical="true"
+            android:layout_marginRight="10dp"
+            android:contentDescription="@string/dummy_string"
+            android:padding="15dp"
+            android:src="@drawable/style_btn_back"
+            android:visibility="visible" />
+
+        <ImageView
+            android:id="@+id/middleGoMainMenuButton"
+            android:layout_width="17.3dp"
+            android:layout_height="14dp"
+            android:layout_centerVertical="true"
+            android:layout_marginRight="10dp"
+            android:layout_toRightOf="@id/middleBackButton"
+            android:contentDescription="@string/dummy_string"
+            android:src="@drawable/style_btn_menu"
+            android:visibility="gone" />
+
+        <TextView
+            android:id="@+id/middleNavibarTitle"
+            style="@style/header_title_style"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_centerInParent="true"
+            android:ellipsize="end"
+            android:gravity="center"
+            android:maxLines="2"
+            android:paddingLeft="45dp"
+            android:paddingRight="45dp"
+            android:textStyle="bold"
+            android:text="게시물 읽기"
+            android:typeface="sans" />
+
+        <ImageView
+            android:id="@+id/middleEditMailList"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:layout_marginRight="10dp"
+            android:contentDescription="@string/dummy_string"
+            android:text="@string/label_edit_maillist" />
+        
+        <ImageView
+            android:id="@+id/middleSpMenu"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:layout_marginRight="10dp"
+            android:contentDescription="@string/dummy_string" 
+            android:visibility="gone"/>
+
+        <Spinner
+            android:id="@+id/middleSendingDept"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:visibility="gone" />
+        
+ <!-- 편집/취소 -->
+    </RelativeLayout>
+    <!-- 메일 검색 -->
+
+    <LinearLayout
+        android:id="@+id/mailSearchContainer"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="#F0F0F0"
+        android:orientation="vertical"
+        android:visibility="gone" >
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center_vertical"
+            android:orientation="horizontal"
+            android:paddingBottom="0dip"
+            android:paddingLeft="3dip"
+            android:paddingRight="3dip"
+            android:paddingTop="3dip" >
+
+            <Button
+                android:id="@+id/cancelSearchMailList"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:text="@string/label_cancel"
+                android:visibility="gone" />
+
+            <EditText
+                android:id="@+id/inputKeywordMail"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_toLeftOf="@id/cancelSearchMailList"
+                android:hint="@string/label_mail_search_hint"
+                android:imeOptions="actionSearch"
+                android:singleLine="true" >
+            </EditText>
+        </RelativeLayout>
+
+        <!-- 메일검색 옵션 -->
+
+        <RadioGroup
+            android:id="@+id/mailSearchOptions"
+            android:layout_width="match_parent"
+            android:layout_height="35dip"
+            android:gravity="center_horizontal"
+            android:orientation="horizontal" >
+
+            <RadioButton
+                android:id="@+id/mailSearchOptionTitle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="6dp"
+                android:button="@drawable/style_btn_checkbox_blue"
+                android:checked="true"
+                android:paddingLeft="30dp"
+                android:text="@string/label_mail_search_option_title"
+                android:textColor="#444"
+                android:textSize="16sp" />
+
+            <RadioButton
+                android:id="@+id/mailSearchOptionUser"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="20dp"
+                android:button="@drawable/style_btn_checkbox_blue"
+                android:paddingLeft="30dp"
+                android:text="@string/label_mail_search_option_from"
+                android:textColor="#444"
+                android:textSize="16sp" />
+        </RadioGroup>
+    </LinearLayout>
+    <!-- 게시물 검색 -->
+
+    <LinearLayout
+        android:id="@+id/boardSearchContainer"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="#F0F0F0"
+        android:orientation="vertical"
+        android:visibility="gone" >
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center_vertical"
+            android:orientation="horizontal"
+            android:paddingBottom="0dip"
+            android:paddingLeft="3dip"
+            android:paddingRight="3dip"
+            android:paddingTop="3dip" >
+
+            <Button
+                android:id="@+id/cancelSearchBoard"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:text="@string/label_cancel"
+                android:visibility="gone" />
+
+            <EditText
+                android:id="@+id/inputKeywordBoard"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_toLeftOf="@id/cancelSearchBoard"
+                android:hint="@string/label_board_search_hint"
+                android:imeOptions="actionSearch"
+                android:singleLine="true" >
+            </EditText>
+        </RelativeLayout>
+
+        <!-- 게시물 검색 옵션 -->
+
+        <RadioGroup
+            android:id="@+id/boardSearchOptions"
+            android:layout_width="match_parent"
+            android:layout_height="35dip"
+            android:gravity="center_horizontal"
+            android:orientation="horizontal" >
+            <RadioButton
+                android:id="@+id/boardSearchOptionTitle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="6dp"
+                android:button="@drawable/style_btn_checkbox_blue"
+                android:checked="true"
+                android:paddingLeft="15dp"
+                android:text="@string/label_board_search_option_title"
+                android:textColor="#444"
+                android:textSize="16sp" />
+            <RadioButton
+                android:id="@+id/boardSearchOptionPoster"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="20dp"
+                android:button="@drawable/style_btn_checkbox_blue"
+                android:paddingLeft="15dp"
+                android:text="@string/label_board_search_option_poster"
+                android:textColor="#444"
+                android:textSize="16sp" />
+            <RadioButton
+                android:id="@+id/boardSearchOptionDept"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="20dp"
+                android:button="@drawable/style_btn_checkbox_blue"
+                android:paddingLeft="15dp"
+                android:text="@string/label_board_search_option_dept"
+                android:textColor="#444"
+                android:textSize="16sp" />
+        </RadioGroup>
+    </LinearLayout>
+    <!-- 주소록 검색 -->
+
+    <LinearLayout
+        android:id="@+id/contactSearchContainer"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="#F0F0F0"
+        android:orientation="vertical"
+        android:visibility="gone" >
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center_vertical"
+            android:orientation="horizontal"
+            android:paddingBottom="0dip"
+            android:paddingLeft="3dip"
+            android:paddingRight="3dip"
+            android:paddingTop="3dip" >
+
+            <Button
+                android:id="@+id/cancelSearchContact"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:text="@string/label_cancel"
+                android:visibility="gone" />
+
+            <EditText
+                android:id="@+id/inputKeywordContact"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_toLeftOf="@id/cancelSearchContact"
+                android:hint="@string/label_contact_search_hint"
+                android:imeOptions="actionSearch"
+                android:singleLine="true" >
+            </EditText>
+        </RelativeLayout>
+
+        <!-- 주소록 검색 옵션 -->
+
+        <RadioGroup
+            android:id="@+id/contactSearchOptions"
+            android:layout_width="match_parent"
+            android:layout_height="35dip"
+            android:gravity="center_horizontal"
+            android:orientation="horizontal" >
+
+            <RadioButton
+                android:id="@+id/contactSearchOptionName"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:button="@drawable/style_btn_checkbox_blue"
+                android:checked="true"
+                android:text="@string/label_contact_search_option_name"
+                android:textColor="#444"
+                android:textSize="16sp" />
+
+            <RadioButton
+                android:id="@+id/contactSearchOptionEmail"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:button="@drawable/style_btn_checkbox_blue"
+                android:text="@string/label_contact_search_option_email"
+                android:textColor="#444"
+                android:textSize="16sp" />
+
+            <RadioButton
+                android:id="@+id/contactSearchOptionCompany"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:button="@drawable/style_btn_checkbox_blue"
+                android:text="@string/label_contact_search_option_company"
+                android:textColor="#444"
+                android:textSize="16sp" />
+
+            <RadioButton
+                android:id="@+id/contactSearchOptionPhone"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:button="@drawable/style_btn_checkbox_blue"
+                android:text="@string/label_contact_search_option_phone"
+                android:textColor="#444"
+                android:textSize="16sp" />
+        </RadioGroup>
+    </LinearLayout>
+    <!--
+                쉐도우
+	            <View				    
+				    android:layout_width="match_parent"
+				    android:layout_height="2dp"
+				    android:background="@drawable/drop_shadow"
+				    >
+				</View>
+    -->
+    
+
+ <!-- 결재 문서 검색 -->
+
+    <LinearLayout
+        android:id="@+id/signSearchContainer"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="#F0F0F0"
+        android:orientation="vertical"
+        android:visibility="gone" >
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center_vertical"
+            android:orientation="horizontal"
+            android:paddingBottom="0dip"
+            android:paddingLeft="3dip"
+            android:paddingRight="3dip"
+            android:paddingTop="3dip" >
+
+            <Button
+                android:id="@+id/cancelSearchSign"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:text="@string/label_cancel"
+                android:visibility="gone" />
+
+            <EditText
+                android:id="@+id/inputKeywordSign"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_toLeftOf="@id/cancelSearchSign"
+                android:hint="@string/label_sign_search_hint"
+                android:imeOptions="actionSearch"
+                android:singleLine="true" >
+            </EditText>
+        </RelativeLayout>
+
+        <!-- 결제 문서 검색 옵션 -->
+
+        <RadioGroup
+            android:id="@+id/signSearchOptions"
+            android:layout_width="match_parent"
+            android:layout_height="35dip"
+            android:gravity="center_horizontal"
+            android:orientation="horizontal" >
+            <RadioButton
+                android:id="@+id/signSearchOptionTitle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="6dp"
+                android:button="@drawable/style_btn_checkbox_blue"
+                android:checked="true"
+                android:paddingLeft="15dp"
+                android:text="@string/label_sign_search_option_title"
+                android:textColor="#444"
+                android:textSize="16sp" />
+            <RadioButton
+                android:id="@+id/signSearchOptionDrafter"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="20dp"
+                android:button="@drawable/style_btn_checkbox_blue"
+                android:paddingLeft="15dp"
+                android:text="@string/label_sign_search_option_drafter"
+                android:textColor="#444"
+                android:textSize="16sp" />
+        </RadioGroup>
+    </LinearLayout>
+    
+    
+    <!-- 결재 필터 -->
+
+    <LinearLayout
+        android:id="@+id/signFilterContainer"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:background="@drawable/bg_toolbar"
+        android:orientation="horizontal"
+        android:visibility="gone" >
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_gravity="center_vertical"
+            android:layout_margin="10dp"
+            android:text="@string/label_filter_sign"
+            android:textColor="@color/list_main_title"
+            android:textSize="16sp" />
+
+        <TextView
+            android:id="@+id/selectedSignFilterName"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_gravity="center_vertical"
+            android:layout_margin="5dp"
+            android:background="@drawable/style_combo_bl"
+            android:clickable="true"
+            android:gravity="center_vertical|center_horizontal"
+            android:textColor="@color/list_main_title"
+            android:textSize="15sp" />
+    </LinearLayout>
+    
+    
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" >
+
+        <RelativeLayout
+            android:id="@+id/deleteMailFooter"
+            android:layout_width="match_parent"
+            android:layout_height="50dip"
+            android:layout_alignParentBottom="true"
+            android:background="#ddd"
+            android:visibility="gone" >
+
+            <Button
+                android:id="@+id/btnDeleteMail"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_alignParentLeft="true"
+                android:background="@drawable/style_btn_delete_mail"
+                android:textColor="@color/toolbar_button_text_color"
+                android:textSize="16sp" 
+                android:layout_marginLeft="10dp"/>
+            
+            <Button
+                android:id="@+id/btnReadMail"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_alignParentRight="true"
+                android:background="@drawable/btn_btm_master_set"
+                android:textColor="@color/toolbar_button_text_color"
+                android:textSize="16sp" 
+                android:layout_marginRight="10dp"/>
+            
+        </RelativeLayout>
+
+        <LinearLayout
+            android:id="@+id/saveContactFooter"
+            android:layout_width="match_parent"
+            android:layout_height="50dip"
+            android:layout_alignParentBottom="true"
+            android:background="#ddd"
+            android:gravity="center|center_vertical"
+            android:visibility="gone" >
+
+            <Button
+                android:id="@+id/btnSaveContact"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical|center_horizontal"
+                android:background="@drawable/style_btn_save_contact"
+                android:textColor="@color/toolbar_button_text_color"
+                android:textSize="16sp" />
+        </LinearLayout>
+
+        <com.hs.mobile.gw.view.FooterToolBar
+            android:id="@+id/listFooter"
+            android:layout_width="match_parent"
+            android:layout_height="50dip"
+            android:layout_above="@id/deleteMailFooter"
+            android:layout_alignParentBottom="true" />
+        <!--
+                    쉐도우
+	            	<View
+	            	    android:id="@+id/middle_list_shadow" 
+	            	    android:layout_above="@id/listFooter"				    
+					    android:layout_width="match_parent"
+					    android:layout_height="3dp"
+					    android:background="@drawable/up_shadow">
+					</View>
+        -->
+
+        <ViewFlipper
+            android:id="@+id/middle_list_menu"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_above="@id/listFooter" >
+
+            <!-- 동적으로 생성되는 리스트 뷰가 들어간 레이아웃이 동적으로 추가되는 자리 -->
+
+
+
+        </ViewFlipper>
+    </RelativeLayout>
+
+</LinearLayout>

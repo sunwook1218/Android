@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android" >
+
+    <item
+        android:id="@+id/ID_MENU_SEARCH"
+        android:title="@string/label_squareplus_menu_search"/>
+    <item
+        android:id="@+id/ID_MENU_POPULAR_TAG"
+        android:title="@string/label_squareplus_menu_popular_tag"/>
+    <item
+        android:id="@+id/ID_MENU_SETTING"
+        android:title="@string/label_squareplus_menu_group_info"/>
+
+</menu>

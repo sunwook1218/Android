@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:clickable="true" >
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/white" >
+
+        <!-- middle List menu!! -->
+        <com.hs.mobile.gw.view.MiddleMenuContainer
+            android:id="@+id/middleMenuContainer"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" >
+        </com.hs.mobile.gw.view.MiddleMenuContainer>
+
+        <FrameLayout
+            android:id="@+id/webviewContainer"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="#333"
+            android:orientation="vertical" />
+
+        <LinearLayout
+            android:id="@+id/customWebviewContainer"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:visibility="visible" >
+
+            <RelativeLayout
+                android:layout_width="fill_parent"
+                android:layout_height="50dp"
+                android:background="@drawable/bg_header" >
+
+                <ImageView
+                    android:id="@+id/customMiddleGoMainMenuButton"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_margin="5dp"
+                    android:contentDescription="@string/dummy_string"
+                    android:src="@drawable/style_btn_menu" />
+
+                <TextView
+                    android:id="@+id/customNavibarTitle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerHorizontal="true"
+                    android:layout_centerInParent="true"
+                    android:ellipsize="end"
+                    android:gravity="center"
+                    android:maxLines="2"
+                    android:paddingLeft="90dp"
+                    android:paddingRight="90dp"
+                    android:textColor="#ffffff"
+                    android:textSize="18sp"
+                    android:textStyle="bold"
+                    android:typeface="sans" />
+
+                <LinearLayout
+                    android:id="@+id/navibarRightButtons"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentRight="true"
+                    android:layout_centerVertical="true"
+                    android:gravity="right"
+                    android:orientation="horizontal"
+                    android:visibility="gone" />
+            </RelativeLayout>
+
+            <WebView
+                android:id="@+id/customWebView"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent" />
+        </LinearLayout>
+    </FrameLayout>
+
+</RelativeLayout>

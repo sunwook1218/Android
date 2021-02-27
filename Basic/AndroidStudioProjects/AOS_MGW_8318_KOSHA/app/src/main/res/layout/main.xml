@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:clickable="true" >
+
+    <!-- 메뉴 뷰 -->
+
+    <RelativeLayout
+        android:id="@+id/mainViewContainer"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" >
+
+        <LinearLayout
+            android:id="@+id/bottomBar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:background="@color/bottom_bar_bg"
+            android:orientation="horizontal"
+            android:visibility="gone" />
+
+        <View
+            android:id="@+id/divider"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/divider_size"
+            android:layout_above="@id/bottomBar"
+            android:background="@color/divider"
+            android:visibility="gone" />
+
+        <com.hs.mobile.gw.view.MainContentView
+            android:id="@+id/main_right_content"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_above="@id/divider"
+            android:background="#000"
+            app:actions_layout="@layout/main_left_actions"
+            app:content_layout="@layout/main_right_content"
+            app:content_layout_tablet="@layout/main_right_content_tablet" />
+    </RelativeLayout>
+
+    <!-- 글쓰기 뷰 -->
+
+    <com.hs.mobile.gw.view.PopupWebViewContainer
+        android:id="@+id/popupWebviewContainer"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:visibility="gone" />
+
+    <LinearLayout
+        android:id="@+id/mainBg"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" >
+
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:scaleType="fitXY"
+            android:src="@drawable/bg_loading" />
+    </LinearLayout>
+
+</FrameLayout>

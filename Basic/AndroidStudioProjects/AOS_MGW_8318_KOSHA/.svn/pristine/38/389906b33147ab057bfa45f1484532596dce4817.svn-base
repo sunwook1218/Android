@@ -1,0 +1,136 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- 메일리스트 아이템 -->
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/maillist_item_template"
+    android:layout_width="match_parent"
+    android:layout_height="60dip"
+    android:background="@drawable/style_list_background"
+    android:padding="5dp" >
+
+    <ImageView
+        android:id="@+id/mail_indicator"
+        android:layout_width="12dp"
+        android:layout_height="17dp"
+        android:layout_alignParentRight="true"
+        android:layout_centerVertical="true"
+        android:layout_marginLeft="5dp"
+        android:layout_marginRight="13.3dp"
+        android:background="#00000000"
+        android:contentDescription="@string/dummy_string"
+        android:scaleType="center"
+        android:src="@drawable/indicator_hu" />
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_toLeftOf="@id/mail_indicator" >
+
+        <CheckBox
+            android:id="@+id/mailCheckBox"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:button="@drawable/style_btn_checkbox_red"
+            android:focusable="true"
+            android:visibility="gone" />
+
+        <LinearLayout
+            android:id="@+id/mail_status_box"
+            android:layout_width="40dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"            
+            android:layout_marginLeft="5dp"         
+            android:layout_marginTop="1dp"   
+            android:layout_toRightOf="@+id/mailCheckBox" >
+
+            <!-- 메일 상태 -->
+
+            <ImageView
+                android:id="@+id/mail_status"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="#00000000"
+                android:contentDescription="@string/dummy_string"
+                android:scaleType="center" />
+            <!-- 메일 긴급 -->
+
+            <ImageView
+                android:id="@+id/mail_emergency"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"                
+                android:background="#00000000"
+                android:contentDescription="@string/dummy_string"
+                android:scaleType="center" />
+            <!-- 메일 전달 -->
+
+            <ImageView
+                android:id="@+id/mail_forward"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"                
+                android:background="#00000000"
+                android:contentDescription="@string/dummy_string"
+                android:scaleType="center" />
+            <!-- 메일 보안 -->
+
+            <ImageView
+                android:id="@+id/mail_security"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"                
+                android:background="#00000000"
+                android:contentDescription="@string/dummy_string"
+                android:scaleType="center" />
+        </LinearLayout>
+
+        <ImageView
+            android:id="@+id/mail_attach"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:layout_marginTop="3dp"
+            android:layout_marginLeft="10dp"
+            android:layout_toLeftOf="@+id/mail_date"
+            android:background="#00000000"
+            android:contentDescription="@string/dummy_string"
+            android:scaleType="center" />
+        
+        <TextView
+            android:id="@+id/mail_from"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:layout_marginLeft="5dp"            
+            android:layout_toRightOf="@id/mail_status_box"
+            android:singleLine="true"
+            android:layout_toLeftOf="@id/mail_attach"
+            android:textColor="@color/list_main_title"
+            android:textSize="16sp"
+            android:textStyle="bold"
+            android:typeface="sans" />
+
+        <TextView
+            android:id="@+id/mail_date"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_gravity="center_vertical"
+            android:layout_marginTop="3dp"
+            android:layout_marginLeft="4dp"
+            android:textColor="@color/list_extra_info"
+            android:textSize="12sp"
+            android:typeface="sans" />
+
+        <TextView
+            android:id="@+id/mail_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/mail_from"            
+            android:layout_marginLeft="5dp"
+            android:layout_marginTop="5dp"            
+            android:layout_toRightOf="@id/mail_status_box"
+            android:singleLine="true"
+            android:textColor="@color/list_extra_info"
+            android:textSize="14sp"
+            android:typeface="sans" />
+    </RelativeLayout>
+
+</RelativeLayout>

@@ -1,0 +1,4 @@
+<resources>
+    <string name="app_name">Login</string>
+    <string name="error_deaccurateLogininfo">아이디 또는 비밀번호가 일치하지 않습니다.</string>
+</resources>

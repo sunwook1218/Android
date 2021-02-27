@@ -1,0 +1,218 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white"
+    android:orientation="vertical" >
+
+    <!-- android:background="@drawable/dummy_mailsend" -->
+
+    <!-- Header -->
+    <include layout="@layout/fragment_sub_header"></include>
+
+    <RelativeLayout
+        android:layout_width="fill_parent"
+        android:layout_height="50dp"
+        android:background="@drawable/border_bottom"
+        android:visibility="visible">
+
+        <Button
+            android:id="@+id/ID_BTN_CANCEL"
+            style="@style/header_button"
+            android:layout_centerVertical="true"
+            android:text="@string/label_cancel" />
+
+        <TextView
+            style="@style/header_title_style"
+            android:id="@+id/ID_TV_NAVI_TITLE"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_centerInParent="true"
+            android:ellipsize="end"
+            android:gravity="center"
+            android:maxLines="2"
+            android:paddingLeft="45dp"
+            android:paddingRight="45dp"
+            android:text="@string/label_square_add_topic_title"
+            android:textColor="#ffffff"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            android:typeface="sans" />
+
+        <Button
+            android:id="@+id/ID_BTN_MAKE_TOPIC"
+            style="@style/header_button"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:text="@string/label_square_new_work_group_done" />
+
+        <Button
+            android:id="@+id/BTN_LNB_OPEN"
+            style="@style/header_button"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:text="@string/label_square_new_work_group_done" />
+    </RelativeLayout>
+
+    <FrameLayout
+        android:id="@+id/ID_LAY_F_MAILWRITE"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" >
+
+        <ScrollView
+            android:id="@+id/ID_SCROLL_VIEW"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:fillViewport="true"
+            android:transcriptMode="alwaysScroll" >
+
+            <LinearLayout
+                android:id="@+id/ID_LAY_L_INNERSCROLL"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical" >
+
+                <LinearLayout
+                    android:id="@+id/ID_LAY_L_TITLE"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical" >
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="40dp"
+                        android:gravity="center_vertical"
+                        android:orientation="horizontal" >
+
+                        <TextView
+                            android:id="@+id/TextView001"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="15dip"
+                            android:layout_marginRight="15dip"
+                            android:text="@string/label_mail_search_option_title"
+                            android:textColor="@color/dark_gray"
+                            android:textSize="12sp" />
+
+                        <EditText
+                            android:id="@+id/ID_ED_TOPIC_TITLE"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_margin="5dip"
+                            android:background="@color/white"
+                            android:ems="10"
+                            android:inputType="text"
+                            android:textColor="@color/black"
+                            android:textSize="15sp" >
+
+                            <requestFocus />
+                        </EditText>
+                    </LinearLayout>
+
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="1dip"
+                        android:background="@color/light_gray" >
+                    </View>
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/LinearLayout01"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical" >
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="40dp"
+                        android:gravity="center_vertical" >
+
+                        <TextView
+                            android:id="@+id/TextView03"
+                            android:layout_width="0dip"
+                            android:layout_height="wrap_content"
+                            android:layout_marginBottom="5dip"
+                            android:layout_marginLeft="15dip"
+                            android:layout_marginRight="15dip"
+                            android:layout_marginTop="5dip"
+                            android:layout_weight="1"
+                            android:text="@string/label_square_add_command_attach_file"
+                            android:textColor="@color/dark_gray"
+                            android:textSize="12sp" />
+
+                        <Button
+                            android:id="@+id/ID_BTN_FILE_ADD"
+                            android:layout_width="30dp"
+                            android:layout_height="30dp"
+                            android:layout_marginBottom="3dip"
+                            android:layout_marginRight="5dip"
+                            android:layout_marginTop="3dip"
+                            android:background="@drawable/btn_plus" />
+                    </LinearLayout>
+
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="1dip"
+                        android:background="@color/light_gray" >
+                    </View>
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/ID_LAY_L_FILE_ATTACH_LAYOUT"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical" >
+
+                    <LinearLayout
+                        android:id="@+id/ID_LAY_L_FILE_ATTACH_AREA"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical" >
+                    </LinearLayout>
+
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="1dip"
+                        android:background="@color/light_gray"
+                        android:orientation="vertical" >
+                    </View>
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/ID_LAY_L_CONTENT"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="vertical" >
+
+                    <TextView
+                        android:id="@+id/TextView0001"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="15dip"
+                        android:layout_marginRight="15dip"
+                        android:layout_marginTop="5dip"
+                        android:text="@string/label_square_add_topic_content"
+                        android:textColor="@color/dark_gray"
+                        android:textSize="12sp" />
+
+                    <EditText
+                        android:id="@+id/ID_ED_TOPIC_DESC"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_marginLeft="15dip"
+                        android:layout_marginRight="15dip"
+                        android:layout_marginTop="5dip"
+                        android:background="@color/white"
+                        android:ems="10"
+                        android:gravity="top|left"
+                        android:inputType="textMultiLine|textWebEditText"
+                        android:textColor="@color/black"
+                        android:textSize="15sp" >
+                    </EditText>
+                </LinearLayout>
+            </LinearLayout>
+        </ScrollView>
+    </FrameLayout>
+
+</LinearLayout>

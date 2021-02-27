@@ -1,0 +1,254 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#E6E6E6"
+    android:focusable="true"
+    android:focusableInTouchMode="true"
+    android:orientation="vertical" >
+
+    <include layout="@layout/fragment_sub_header"></include>
+
+    <RelativeLayout
+        android:id="@+id/ID_LAY_R_TOP_BAR"
+        android:layout_width="match_parent"
+        android:layout_height="71dp"
+        android:layout_marginTop="60dp"
+        android:paddingLeft="13.3dp"
+        android:paddingRight="13.3dp"
+        android:background="@drawable/border_bottom">
+
+        <ImageView
+            android:id="@+id/ID_BTN_BACK"
+            android:layout_width="39dp"
+            android:layout_height="46.17dp"
+            android:layout_centerVertical="true"
+            android:layout_marginRight="10dp"
+            android:padding="15dp"
+            android:contentDescription="@string/dummy_string"
+            android:src="@drawable/style_btn_back" />
+
+        <ImageView
+            android:id="@+id/ID_BTN_MENU"
+            android:layout_width="17.3dp"
+            android:layout_height="14dp"
+            android:layout_centerVertical="true"
+            android:layout_marginRight="10dp"
+            android:layout_toRightOf="@id/ID_BTN_BACK"
+            android:contentDescription="@string/dummy_string"
+            android:src="@drawable/style_btn_menu"
+            android:visibility="gone" />
+
+        <TextView
+            android:id="@+id/ID_TV_TITLE"
+            style="@style/header_title_style"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_centerInParent="true"
+            android:ellipsize="end"
+            android:gravity="center"
+            android:singleLine="true"
+            android:paddingLeft="45dp"
+            android:paddingRight="45dp"
+            android:tag="title"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            android:typeface="sans" />
+
+        <TextView
+            android:id="@+id/ID_BTN_MORE"
+            android:layout_width="62dp"
+            android:layout_height="27.3dp"
+            android:layout_centerVertical="true"
+            android:background="@drawable/style_btn_basic_white_hu"
+            android:text="더보기"
+            android:gravity="center"
+            android:textColor="#056839"
+            android:textSize="12sp"
+            android:textStyle="bold"
+            android:visibility="gone"
+            />
+       <!-- <ImageView
+            android:id="@+id/ID_BTN_MORE"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:layout_margin="5dp"
+            android:contentDescription="@string/dummy_string"
+            android:src="@drawable/btn_more_menu_set"
+            android:visibility="gone" />-->
+
+        <TextView
+            android:id="@+id/ID_BTN_TYPE"
+            style="@style/header_button"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:layout_width="62dp"
+            android:layout_height="27.3dp"
+            android:background="@drawable/style_btn_basic_blue_hu"
+            android:gravity="center"
+            android:text="@string/label_square_favorite_type"
+            android:textColor="@color/white"
+            android:textStyle="bold"
+            android:visibility="gone"
+            />
+
+    </RelativeLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_above="@id/ID_LAY_L_BOTTOM_TOOL_BAR"
+        android:layout_below="@id/ID_LAY_R_TOP_BAR"
+        android:orientation="vertical" >
+
+        <LinearLayout
+            android:id="@+id/ID_LL_FAVORITE_TAB_CONTENTS"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:baselineAligned="false"
+            android:orientation="horizontal"
+            android:visibility="gone" >
+
+            <LinearLayout
+                android:id="@+id/ID_LL_FAVORITE_CONTENTS"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:background="@drawable/square_tab_bg"
+                android:clickable="true"
+                android:gravity="center"
+                android:orientation="vertical"
+                android:padding="5dp" >
+<!-- 
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:clickable="false"
+                    android:src="@drawable/ico_file_all_set"
+                    android:contentDescription="@string/dummy_string" />
+ -->
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:clickable="false"
+                    android:text="@string/label_squareplus_favorite_contents"
+                    android:textColor="@color/white" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/ID_LL_FAVORITE_FILE"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:background="@drawable/square_tab_bg"
+                android:clickable="true"
+                android:gravity="center"
+                android:orientation="vertical"
+                android:padding="5dp" >
+<!-- 
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:clickable="false"
+                    android:src="@drawable/ico_file_mine_set" 
+                    android:contentDescription="@string/dummy_string"/>
+ -->
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:clickable="false"
+                    android:text="@string/label_squareplus_favorite_file"
+                    android:textColor="@color/white" />
+            </LinearLayout>
+        </LinearLayout>
+        
+        <LinearLayout
+            android:id="@+id/ID_LL_SEARCH_TAB_CONTENTS"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:baselineAligned="false"
+            android:orientation="horizontal"
+            android:visibility="gone" >
+
+            <LinearLayout
+                android:id="@+id/ID_LL_SEARCH_CONTENTS"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:background="@drawable/square_tab_bg"
+                android:clickable="true"
+                android:gravity="center"
+                android:orientation="vertical"
+                android:padding="5dp" >
+<!-- 
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:clickable="false"
+                    android:src="@drawable/ico_file_all_set"
+                    android:contentDescription="@string/dummy_string" />
+ -->
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:clickable="false"
+                    android:text="@string/label_squareplus_contents"
+                    android:textColor="@color/white" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/ID_LL_SEARCH_FILE"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:background="@drawable/square_tab_bg"
+                android:clickable="true"
+                android:gravity="center"
+                android:orientation="vertical"
+                android:padding="5dp" >
+<!-- 
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:clickable="false"
+                    android:src="@drawable/ico_file_mine_set" 
+                    android:contentDescription="@string/dummy_string"/>
+ -->
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:clickable="false"
+                    android:text="@string/label_squareplus_file"
+                    android:textColor="@color/white" />
+            </LinearLayout>
+        </LinearLayout>
+
+        <com.hs.mobile.gw.view.pulltorefresh.library.PullToRefreshListView
+            android:id="@+id/ID_LV_SP_CONTENTS"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="#E6E6E6"
+            android:fadingEdge="none"
+            android:paddingBottom="1dp"
+            android:scrollingCache="false" >
+        </com.hs.mobile.gw.view.pulltorefresh.library.PullToRefreshListView>
+    </LinearLayout>
+
+    <ImageView
+        android:id="@+id/ID_BTN_WRITE"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBaseline="@id/ID_LAY_L_BOTTOM_TOOL_BAR"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="10dp"
+        android:background="#00000000"
+        android:src="@drawable/sp_btn_write"
+        android:contentDescription="@string/dummy_string"
+        android:visibility="gone"
+        android:focusable="false" />
+
+</RelativeLayout>

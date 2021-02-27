@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">ViewPager&amp;Nav</string>
+    <string name="nav_recommend">추천인재</string>
+    <string name="nav_chat">채팅</string>
+    <string name="nav_alert">알림</string>
+    <string name="nav_myinfo">내 정보</string>
+</resources>

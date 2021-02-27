@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@android:color/black"
+    android:orientation="horizontal">
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/exit"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:background="?selectableItemBackground"
+        android:drawableTop="@android:drawable/ic_menu_close_clear_cancel"
+        android:drawablePadding="8dp"
+        android:gravity="center"
+        android:minHeight="96dp"
+        android:padding="16dp"
+        android:text="@string/menu_exit"
+        android:textColor="@android:color/white" />
+
+    <View
+        android:layout_width="2dp"
+        android:layout_height="match_parent"
+        android:background="#FF222222" />
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/initial_menu"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:background="?selectableItemBackground"
+        android:drawableTop="@android:drawable/ic_menu_manage"
+        android:drawablePadding="8dp"
+        android:gravity="center"
+        android:minHeight="96dp"
+        android:padding="16dp"
+        android:text="@string/menu_config_init_menu"
+        android:textColor="@android:color/white" />
+</LinearLayout>

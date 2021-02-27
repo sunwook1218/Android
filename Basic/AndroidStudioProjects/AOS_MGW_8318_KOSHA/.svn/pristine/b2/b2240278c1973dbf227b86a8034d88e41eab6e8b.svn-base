@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "546553506779",
+    "firebase_url": "https://mgw-hsuco.firebaseio.com",
+    "project_id": "mgw-hsuco",
+    "storage_bucket": "mgw-hsuco.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:546553506779:android:271284d0eed38178e555fe",
+        "android_client_info": {
+          "package_name": "com.hs.mobile.gw.hsuco"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "546553506779-st5efqh2dvutaouj9dlfs7u5c1d9nuqc.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCOSzId9rdLjDBmelLAZubweYi6UwtCYR8"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "546553506779-st5efqh2dvutaouj9dlfs7u5c1d9nuqc.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

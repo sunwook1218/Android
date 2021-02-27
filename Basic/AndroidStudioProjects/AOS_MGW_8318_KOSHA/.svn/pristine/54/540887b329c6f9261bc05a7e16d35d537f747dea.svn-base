@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginBottom="5dp"
+    android:background="@color/white"
+    android:orientation="horizontal"
+    android:paddingBottom="10dp"
+    android:paddingLeft="10dp"
+    android:paddingTop="10dp" >
+
+    <ImageView
+        android:id="@+id/ID_IMG_FILE_TYPE"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginRight="5dp"
+        android:contentDescription="@string/dummy_string"
+        android:src="@drawable/sp_filter_file_etc" />
+
+    <LinearLayout
+        android:id="@+id/ID_LL_SP_ATTACH_CASE"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@drawable/style_squarelist_background"
+        android:gravity="center_vertical"
+        android:orientation="horizontal" >
+
+        <RelativeLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="5dp"
+            android:layout_weight="1"
+            android:contentDescription="@string/dummy_string" >
+
+            <TextView
+                android:id="@+id/ID_TV_FILENAME"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentTop="true"
+                android:layout_marginBottom="2dp"
+                android:ellipsize="end"
+                android:maxLines="1"
+                android:textAppearance="?android:attr/textAppearanceMedium"
+                android:textColor="@color/black"
+                android:textSize="15.56sp" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentStart="true"
+                android:layout_below="@+id/ID_TV_FILENAME"
+                android:gravity="center_vertical"
+                android:orientation="horizontal" >
+
+                <TextView
+                    android:id="@+id/ID_TV_DESCRIPTION"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textAppearance="?android:attr/textAppearanceMedium"
+                    android:textColor="#aaaaaa"
+                    android:textSize="12sp" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="5dp"
+                    android:layout_marginRight="5dp"
+                    android:text="@string/label_gubun"
+                    android:textColor="#aaaaaa"
+                    android:textSize="12sp" />
+
+                <TextView
+                    android:id="@+id/ID_TV_AUTHORNAME"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:ellipsize="end"
+                    android:maxLines="1"
+                    android:textColor="#aaaaaa"
+                    android:textSize="12sp" />
+            </LinearLayout>
+        </RelativeLayout>
+
+        <ImageView
+            android:id="@+id/ID_BTN_FAVORITE"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@color/transparent"
+            android:clickable="true"
+            android:contentDescription="@string/dummy_string"
+            android:paddingRight="10dp"
+            android:src="@drawable/sp_cont_bookmark_set" />
+
+        <ImageView
+            android:id="@+id/ID_BTN_MORE"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@color/transparent"
+            android:clickable="true"
+            android:contentDescription="@string/dummy_string"
+            android:paddingLeft="10dp"
+            android:paddingRight="10dp"
+            android:src="@drawable/sp_cont_menu_more"
+            android:visibility="gone" />
+    </LinearLayout>
+
+</LinearLayout>

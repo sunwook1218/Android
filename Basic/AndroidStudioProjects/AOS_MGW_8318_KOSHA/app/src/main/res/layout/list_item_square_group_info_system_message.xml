@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/RelativeLayout1"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:paddingLeft="10dp"
+    android:paddingRight="10dp"
+    android:paddingTop="10dp" >
+
+    <ImageView
+        android:id="@+id/ID_IMG_PROFILE"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginRight="10dp"
+        android:contentDescription="@string/dummy_string"
+        android:src="@drawable/icon_new_group" />
+
+    <LinearLayout
+        android:id="@+id/linearLayout00"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignTop="@+id/ID_IMG_PROFILE"
+        android:layout_marginTop="5dp"
+        android:layout_toRightOf="@+id/ID_IMG_PROFILE"
+        android:gravity="center_vertical"
+        android:orientation="vertical" >
+
+        <TextView
+            android:id="@+id/ID_TV_GROUP_TITLE"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="중기청 과제"
+            android:textColor="#1581CA"
+            android:textSize="18sp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/ID_TV_GROUP_MESSAGE"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/label_square_new_work_group_done_msg" />
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/ID_TV_GROUP_DESCRIPTION"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/linearLayout00"
+        android:layout_below="@+id/linearLayout00"
+        android:layout_marginTop="10dp"
+        android:autoLink="web"
+        android:text="팀 그룹 내의 어쩌구 저쩌구"
+        android:textColor="@color/black" />
+
+    <TextView
+        android:id="@+id/ID_TV_DATE"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/ID_TV_GROUP_DESCRIPTION"
+        android:layout_below="@+id/ID_TV_GROUP_DESCRIPTION"
+        android:layout_marginBottom="5dp"
+        android:layout_marginRight="5dp"
+        android:text="오전 09:54"
+        android:textColor="#959595"
+        android:textSize="12sp"
+        android:textStyle="italic"
+        android:typeface="sans" />
+
+    <TextView
+        android:id="@+id/ID_TV_MEMBER_LABEL"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/ID_TV_DATE"
+        android:layout_below="@+id/ID_TV_DATE"
+        android:drawableLeft="@drawable/ico_group_member"
+        android:drawablePadding="5dp"
+        android:text="@string/label_square_group_info_member"
+        android:textColor="@color/black" />
+
+    <TextView
+        android:id="@+id/ID_TV_MEMBERS"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/ID_TV_MEMBER_LABEL"
+        android:layout_below="@+id/ID_TV_MEMBER_LABEL"
+        android:layout_marginTop="3dp"
+        android:text="김명진(제품기획팀/팀장), 이순신(제품기획팀/차장), 김유신(제품기획팀/과장)"
+        android:textColor="@color/black" />
+
+</RelativeLayout>

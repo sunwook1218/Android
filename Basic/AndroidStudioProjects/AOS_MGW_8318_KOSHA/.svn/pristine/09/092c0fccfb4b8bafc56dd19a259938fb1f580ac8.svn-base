@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white"
+    android:orientation="vertical" >
+
+    <LinearLayout
+        android:id="@+id/ID_LAY_L_SEARCH_LAYOUT"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:padding="10dp" >
+
+        <TextView
+            android:id="@+id/ID_TV_TYPE"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="#FF7086D3"
+            android:textSize="15sp" />
+
+        <EditText
+            android:id="@+id/ID_ED_SEARCH"
+            android:singleLine="true"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/white"
+            android:textColor="#FF7086D3"
+            android:textSize="15sp" />
+    </LinearLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="@color/light_gray" />
+
+    <ListView
+        android:id="@+id/ID_LV_SEARCH_RESULT_MENTION"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1" >
+    </ListView>
+
+    <ExpandableListView
+        android:id="@+id/ID_LV_SEARCH_RESULT_TAG"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:groupIndicator="@null" >
+    </ExpandableListView>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center_vertical|right"
+        android:orientation="vertical" >
+
+        <TextView
+            android:id="@+id/ID_TV_CLOSE"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="10dp"
+            android:text="닫기"
+            android:textColor="@color/black" >
+        </TextView>
+    </LinearLayout>
+
+</LinearLayout>

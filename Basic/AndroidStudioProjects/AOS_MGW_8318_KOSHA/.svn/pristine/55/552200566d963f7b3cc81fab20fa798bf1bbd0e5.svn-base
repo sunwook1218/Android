@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>   
+<com.hs.mobile.gw.view.CustomImageButton  xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/btn_navi_back"
+    android:layout_width="39dp"
+    android:layout_height="46.17dp"
+    android:layout_centerVertical="true"
+    android:layout_marginRight="10dp"
+    android:padding="15dp"
+    android:contentDescription="@string/dummy_string"
+    android:src="@drawable/style_btn_back"
+/>
+

@@ -1,0 +1,289 @@
+@charset "utf-8";
+/*   
+theme name: HANDY Groupware Mobile
+author: handysoft
+version: 1.0
+date: 2010-3
+*/
+
+
+html, body{height: 100%;margin: 0;}
+ul{margin:0; padding:0; list-style:none;}
+a{text-decoration:none;}
+img{border:none;}
+.darkBg{background:#000 url(../images/bg.jpg) repeat-x;}
+.homeBg{background:#233763;} 
+.grayBg{background:#eee;}
+.contentWrap{padding:10px;} 
+select{height:25px; font-size:13px; vertical-align:middle;}
+
+/*Login*/
+.login{width:185px; margin:0 auto; padding-top:90px;}
+.loginOpt{width:185px; text-align:left; margin-top:10px;}
+.loginOpt label{color:#a8cbe4; font-size:13px;}
+.loginInput{border:0; margin:0 0 6px 0; padding:8px 0 0 20px; background:url(../images/loginBtn.png) left top no-repeat; height:25px; font-size:15px;}
+.loginBtn{display:block; background:url(../images/loginBtn.png) left bottom no-repeat; height:37px; width:185px;}
+.loginSelect{width:180px; margin:10px 0 6px 0; height:25px; font-size:13px;}
+.checkPw{display:block;background:url(../images/false.png) left 3px no-repeat; padding:0 0 0 22px; color:#fff; font-size:12px; margin:0 0 10px 0; font-weight:100;}
+.checkSame{display:block;background:url(../images/people.png) left 3px no-repeat; padding:0 0 0 22px; color:#fff; font-size:12px; margin:0 0 10px 0; font-weight:100;}
+
+/*Home*/
+.app{padding:5px 7px 0 7px;}
+.app li{background:#3a66a3 url(../images/menuBg.png); height:59px; margin-top:5px; padding:0; list-style:none;}
+.app li a{background:url(../images/menuL.png) left top no-repeat; display:block; height:59px; padding:0 0 0 0; color:#bed8f8; font-size:12px;}
+.app li a span.count{padding:23px 26px 0 0; background:url(../images/menuR.png) right top no-repeat; display:block;height:36px; text-align:right;}
+.app li a span.uncount{padding:23px 26px 0 0; background:url(../images/menuR.png) right -63px no-repeat; display:block;height:36px; text-align:right;}
+.app li a span.count span{padding:0 0 0 20px; font:14px arial; display:block; width:15px; height:15px; float:right;}
+.app li a.board{background-position:0 -63px;}
+.app li a.approv{background-position:0 -126px;}
+.app li a.org{background-position:0 -188px;}
+.app li a.cal{background-position:0 -250px;}
+.app li a.kms{background-position:0 -311px;}
+.app li a.pre{background-position:0 -372px;}
+
+
+/*Mail*/
+h1{background:#1f4688 url(../images/topBg.gif); height:33px; margin:0; padding:0; text-align:center; font-size:20px; color:#fff; padding-top:10px;}
+h1 a.backBtn{display:block; width:44px; height:42px; background:url(../images/topBtn.gif) left top no-repeat; position:absolute; left:0; top:0;}
+h1 a.homeBtn{display:block; width:44px; height:42px; background:url(../images/topBtn.gif) left -42px no-repeat; position:absolute; right:0; top:0;}
+h2{margin:6px 0; font-size:18px; padding:0 0 5px 0;}
+h2 span{display:block; font-size:13px; color:#999; height:12px;}
+
+.mailHome, .boardHome, .appHome, .preHome, .kmsHome, .calHome{padding:0 0 23px 0; background:url(../images/homeBg.png) left bottom;}
+.mailHome li, .boardHome li, .appHome li, .preHome li, .kmsHome li, .calHome li{background:#f2f2f2 url(../images/mailBg.gif) left bottom repeat-x; height:55px; padding:0; list-style:none;}
+.mailHome li a{background:url(../images/mailCon.gif) left top no-repeat; display:block; height:40px; padding:15px 0 0 0; color:#000; font-size:22px; text-indent:55px;}
+.mailHome li a span, .boardHome li a span, .appHome li a span, .preHome li a span, .kmsHome li a span, .calHome li a span{padding:0 26px 0 0; background:url(../images/listArrow.png) right 5px no-repeat; display:block; height:50px; text-align:right; float:right;}
+
+.mailHome li a.takeMail{background-position:0 -55px;}
+.mailHome li a.sendMail{background-position:0 -110px;}
+.mailHome li a.etcMail{background-position:0 -165px; color:#ccc;}
+
+.mailList li{ background:#fff; border-bottom:1px solid #ccc; padding:10px 0 0 10px;list-style:none; display:block;}
+.mailList li a{color:#1b1b1b; font-size:16px; padding:0; display:block; margin-left:25px; text-indent:5px;}
+.mailList li span{font-size:13px; display:block; color:#666;padding:3px 0 10px 0; text-indent:33px; width:95%; clear:both;}
+.mailList li span.file{background:url(../images/icon.gif) right -87px no-repeat;}
+.mailList li.read a{color:#999;}
+.mailList li input{float:left;position:absolute; left:7px;}
+.mailList li a.urgent{background:url(../images/icon.gif) left 2px no-repeat; padding:0 0 0 8px; text-indent:0;}
+.mailOpt{color:#ea2305;}
+.basicRow li{background: url(../images/rowBg.gif) left bottom repeat-x; padding:10px 0 6px 7px; list-style:none; line-height:1.3; font-size:14px;}
+.basicRow li a{color:#002fb7;}
+a.download{display:block; background:url(../images/bottomBtn.gif) left bottom no-repeat; height:30px; line-height:30px; padding:0 0 0 28px; margin:5px 0 0 0;}
+
+.btnArea{background:#d7dfe6 url(../images/btnArea.gif); height:38px; padding:9px 7px 0 7px;}
+.descript{padding:7px; line-height:1.5; color:#444; font-size:14px; margin:0 0 10px; 0}
+a.search{display:inline-block; width:22px; height:23px; background:url(../images/iconSquare.png) left top no-repeat;vertical-align:middle;}
+a.calBtn{display:inline-block; width:22px; height:23px; background:url(../images/iconSquare.png) left -29px no-repeat; vertical-align:middle;}
+.ricon{float:right; margin:0 7px 0 0;}
+
+input.wInput{padding:0 0 0 3px; height:25px; width:62%; font-size:14px; border:1px solid #ccc;}
+label.wLabel{display:inline-block; width:70px; float:left; padding:0 5px 0 0; line-height:1.5;}
+input.subject{padding:0 0 0 3px; height:25px;width:97%; color:#777; border:1px solid #ccc;}
+textarea.desc{width:95%; border:1px solid #ccc; }
+
+.page{padding:12px 15px 0 15px;height:50px;}
+.page a{display:block; background:url(../images/pageBtn.png) no-repeat; width:80px; height:35px; float:left;}
+.page a.next{background-position:0 -35px; float:right;}
+
+
+/*board*/
+
+.boardAll li{background:#f3f3f3 url(../images/rowBg.gif) left top repeat-x; padding:0; list-style:none; line-height:34px; font-size:14px; height:34px;}
+.boardAll li a{background:url(../images/boardDepth.gif) left top no-repeat; text-indent:40px; display:block; color:#000; float:left; width:100%;}
+.boardAll li a.nt{background:url(../images/boardDepth.gif) left bottom no-repeat;}
+
+.boardAll li a.userCount{padding:0 13px 0 0; background:url(../images/countBtn.png) right bottom no-repeat; color:#434343; font:13px arial;
+display:block; width:57px; line-height:22px; height:22px; text-align:right; position:absolute; right:10px; margin-top:6px;}
+
+/*.boardAll li, .boardFavo li{background:#f3f3f3 url(../images/rowBg.gif) left top repeat-x; padding:0; list-style:none; line-height:34px; font-size:14px; height:34px;}*/
+/*.boardAll li a.nt{background:url(../images/boardDepth.gif) left bottom no-repeat;}*/
+
+.pathBar{ font-size:13px; float:left;}
+.pathBar a{background:url(../images/pathBg.png) right top no-repeat; height:30px; display:block;float:left; padding:0 10px 0 3px; margin:0; color:#666; line-height:31px;}
+.pathBar a.depth01{background:url(../images/pathBg.png) right -30px;}
+.pathBar a.depth02{background:url(../images/pathBg.png) right -60px; color:#fff; margin:0;}
+.pathBar a.depthAlon{background:url(../images/pathBg.png) right bottom;}
+.pathHome{display:block; width:30px; float:left; background:url(../images/pathBg.png) left top no-repeat!important;}
+
+a.ct{display:block; float:right; width:20px; height:21px; background:url(../images/iconSquare.png) right top no-repeat; padding:2px 0 0 32px; font:15px arial; color:#fff; margin-top:-7px;}
+
+.comList li{background:url(../images/comBullet.gif) 7px 14px no-repeat; padding:16px 7px 10px 60px; font-size:14px; border-bottom:1px dotted #ddd; line-height:1.3; color:#444;}
+.comList li span{display:block; font-size:13px; color:#999; padding:8px 0 0 0;}
+.comTop{background:url(../images/comTop.gif) left bottom repeat-x; height:41px; padding:0 5px 0 0;}
+.comCount{display:block;height:41px; background:url(../images/comTop.gif) 40px top no-repeat; float:left; padding:0 0 0 25px; font:15px arial; color:#0042ff;}
+.comPut{padding:7px;}
+
+.boardHome li a{background:url(../images/boardCon.gif) left top no-repeat; display:block; height:40px; padding:15px 0 0 0; color:#000; font-size:22px; text-indent:55px;}
+.boardHome li a.newBoard{background-position:0 -55px;}
+.boardHome li a.allBoard{background-position:0 -110px;}
+.boardHome li a.favoBoard{background-position:0 -165px;}
+
+/*approval*/
+.appHome li a{background:url(../images/appCon.gif) left top no-repeat; display:block; height:40px; padding:15px 0 0 0; color:#000; font-size:22px; text-indent:55px;}
+.appHome li a.appWait{background-position:0 -55px;}
+.appHome li a.appIng{background-position:0 -110px;}
+.appHome li a.acceptWait{background-position:0 -165px;}
+.appHome li a.acceptIng{background-position:0 -165px;}
+.selApp{float:left;}
+
+.appList li{ background:#fff; border-bottom:1px solid #ccc; padding:10px 0 0 10px;list-style:none; display:block;}
+.appList li a{color:#1b1b1b; font-size:16px; padding:0; display:block; margin-left:42px;}
+.appList li span{font-size:13px; display:block; color:#666;padding:3px 0 10px 0; text-indent:43px; width:95%; clear:both;}
+.appList li span.file{background:url(../images/icon.gif) right -87px no-repeat;}
+.appList li.read a{color:#999;}
+.appList li.read a{color:#999;}
+.appList li b{float:left;position:absolute; left:7px; font-size:14px; font-weight:100; color:#0d41ac;}
+
+.appSbox{height:110px; ;position:absolute; top:90px; z-index:100; }
+.selBox{background:#dfe3e6;width:300px;padding:10px;}
+.sboxUser{background:url(../images/orgTab.png) left bottom no-repeat; display:inline-block;width:70px; height:27px; padding:10px 0 0 0; text-align:center; font-size:13px; color:#000;}
+.sboxTeam{background:url(../images/orgTab.png) right top no-repeat; display:inline-block;width:70px; height:27px; padding:10px 0 0 0; text-align:center; font-size:13px; color:#000;}
+.sboxUser.selActive {background:url(../images/orgTab.png) left top no-repeat!important;}
+.sboxTeam.selActive {background:url(../images/orgTab.png) right bottom no-repeat;} 
+a.selActive{color:#fff;}
+.selOpt{background:url(../images/searchPop.png) left bottom no-repeat;width:300px;padding:10px 10px 0 10px; height:66px;}
+
+
+/*pre*/
+input.cInput{padding:0 0 0 3px; height:25px; width:25%; font-size:14px;border:1px solid #ccc;}
+input.rInput{padding:0 0 0 3px; height:25px; width:62%; font-size:14px;border:1px solid #ccc;}
+input.gInput{padding:0 0 0 3px; height:25px; width:98%; font-size:14px;border:1px solid #ccc;}
+input.sInput{padding:0 0 0 3px; height:25px; width:43%; font-size:14px;border:1px solid #ccc;}
+input.bInput{padding:0 0 0 3px; height:25px; width:55%; font-size:14px;border:1px solid #ccc; color:#666;}
+
+li.rowHeader{background: url(../images/rowBgtop.gif) left bottom repeat-x; padding:7px 0 7px 7px; list-style:none; line-height:1.3; font-size:14px; text-align:center;}
+.photo{width:82px; height:92px; float:left; margin:0 10px 0 0;}
+.profile{font-size:20px;}
+.profile span{font-size:15px; display:block; color:#666; margin:10px 0 0 0;}
+.userInfo{ clear:both; padding:10px 0 0 0;}
+.userInfo li input {margin:3px 0; color:#ccc; padding:0 0 0 3px;}
+
+.preHome li a{background:url(../images/preCon.gif) left top no-repeat; display:block; height:40px; padding:15px 0 0 0; color:#000; font-size:22px; text-indent:55px;}
+.preHome li a.preUserinfo{background-position:0 -55px;}
+.preHome li a.prePassword{background-position:0 -110px;}
+
+
+/*org*/
+.orgSearch{display:block; width:32px; height:32px; background:url(../images/iconSquare.png) right bottom no-repeat; vertical-align:middle; position:absolute; right:0;}
+
+.orgTab{width:48px; position:absolute; left:0; background:url(../images/tab.png) left top no-repeat; margin:2px 0 0 0; }
+.orgTab a{height:51px; display:block;}
+.orgTab.tabUser{background-position:-55px 0;}
+.orgTab.tabGroup{background-position:-110px 0;}
+
+.orgAll{padding-left:48px;background:#efefef url(../images/tabBg.gif) left top repeat-y;margin:2px 0 0 0;}
+.orgAll li{background:#f3f3f3 url(../images/rowBg.gif) left top repeat-x; padding:0; list-style:none; line-height:34px; font-size:14px; height:34px;}
+.orgAll li a{background:url(../images/boardDepth.gif) left top no-repeat; text-indent:40px; display:block; color:#000; float:left; width:93%; }
+.orgAll li a.nt{background:url(../images/boardDepth.gif) left bottom no-repeat;}
+.orgAll li a.userCount{padding:0 13px 0 0; background:url(../images/countBtn.png) right top no-repeat; color:#434343; font:13px arial;
+display:block; width:57px; line-height:22px; height:22px; text-align:right; position:absolute; right:10px; margin-top:6px;}
+
+.noneTap{padding-left:0!important;}
+
+.orgCheck li input{float:left; margin:5px 8px 0 5px;}
+.orgCheck li a{background:none!important; text-indent:0; display:block; color:#000; float:left; width:89%; }
+.orgCheck li a.userCount{background:url(../images/countBtn.png) right top no-repeat!important;}
+.rootAll{color:#004986!important;}
+
+.orgSbox{height:110px; ;position:absolute; top:90px; z-index:100; }
+.selBox{background:#dfe3e6;width:300px;padding:10px;}
+.sboxUser{background:url(../images/orgTab.png) left bottom no-repeat; display:inline-block;width:70px; height:27px; padding:10px 0 0 0; text-align:center; font-size:13px; color:#000;}
+.sboxTeam{background:url(../images/orgTab.png) right top no-repeat; display:inline-block;width:70px; height:27px; padding:10px 0 0 0; text-align:center; font-size:13px; color:#000;}
+.sboxUser.selActive {background:url(../images/orgTab.png) left top no-repeat!important;}
+.sboxTeam.selActive {background:url(../images/orgTab.png) right bottom no-repeat;} 
+a.selActive{color:#fff;}
+.selOpt{background:url(../images/searchPop.png) left bottom no-repeat;width:300px;padding:10px 10px 0 10px; height:66px;}
+
+.userList{padding:0 0 0 48px;background:#efefef url(../images/tabBg.gif) left top repeat-y;margin:2px 0 0 0;}
+.userList li{background:#f2f2f2 url(../images/userBg.gif) left bottom repeat-x; height:68px; padding:0; list-style:none;}
+.userList li a{background:url(../images/photoBg.gif) left top no-repeat; display:block; height:68px; padding:0 0 0 75px; color:#173a5d; font-size:18px; }
+.userList li img{float:left}
+.userList li input{display:absolute; left:48px;}
+
+.userList h2{margin:0; padding:15px 5px 0 0;float:left; }
+.userJob{font-size:13px;color:#333;display:block; font-weight:100;padding:15px 0 0 0;; height:22px;}
+
+.userPhone{background:url(../images/userIcon.png) left 5px no-repeat; padding:5px 0 0 14px; margin:0; display:inline-block; font:11px arial; color:#333; line-height:12px; }
+.userMobile{background:url(../images/userIcon.png) left -15px no-repeat; padding:5px 0 0 13px; display:inline-block; font:11px arial; color:#333; line-height:12px;}
+.userList li input{ position:absolute; z-index:1000000; margin:42px 0 0 40px;}
+
+.orgSelect{background:#fff; padding:6px; margin:3px;
+	-webkit-border-radius: 6px;  /* safari */
+   -moz-border-radius: 6px;  /* firefox */
+   border: 1px solid #aaa; }
+
+.orgBtn,
+.orgBtn *{ position:relative; margin:0; padding:0; display:-moz-inline-stack; display:inline-block; text-decoration:none !important; 
+border:0; font-size:11px; white-space:nowrap; background:url(../images/orgSelect.png) no-repeat; vertical-align:top; overflow:visible; color:#333; float:left;}
+.orgBtn { margin:0 10px 4px 0;}
+.orgBtn *{ left:8px; cursor:pointer; _cursor:hand;}
+.orgBtn, .orgBtn *{ height:22px; line-height:22px;}
+.orgBtn { background-position:left 0;}
+.orgBtn *{padding:0 16px 0 2px; background-position:right 0;}
+
+.selectBtn{ float:right;}
+.orgDel{display:block; width:26px; height:26px; float:right; background:url(../images/orgSelect.png) left -23px; no-repeat; margin-left:7px;}
+.orgOk{display:block; width:26px; height:26px; float:right; background:url(../images/orgSelect.png) left -51px; no-repeat; margin-left:7px;}
+
+.profile{background:#eee url(../images/profileBg.gif) left top repeat-x; padding:0; float:left; color:#113059; width:100%;}
+.profileHeader{margin-top:30px;padding:0 0 0 30px; }
+.profile h2{font-size:24px; margin:0; padding:0;}
+.profile span{ color:#113059;}
+.profileImg{float:left; margin:0 15px 0 0; border:1px solid #97a0aa;}
+.profile ul{clear:both; margin:10px 0 0 0;padding:0 0 0 30px; }
+.profile ul li{display:block; background:url(../images/profileLine.png) left top no-repeat; padding:2px 0 4px 0;}
+.profile ul li span{display:block; background:url(../images/profileBullet.gif) left top no-repeat; padding:0 0 0 24px; font:14px arial; color:#113059;}
+
+.profile ul li span.mobile{background-position:left -32px}
+.profile ul li span.mail{background-position:left -71px}
+.profile ul li span.job{background-position:left -104px; margin:10px 30px 30px 0;}
+.call{background:url(../images/call.png) left top no-repeat; display:block; width:50px; height:22px; position:absolute; right:26px; margin:10px 0 0 0;}
+
+.profile ul li label{display:block; float:left; font-size:14px; width:75px; height:30px; line-height:30px;}
+
+/*kms*/
+.kmsHome li a{background:url(../images/kmsCon.gif) left top no-repeat; display:block; height:40px; padding:15px 0 0 0; color:#000; font-size:22px; text-indent:55px;}
+.kmsHome li a.ksearch{background-position:0 -55px;}
+.kmsHome li a.qna{background-position:0 -110px;}
+.kmsHome li a.cop{background-position:0 -165px;}
+.waitService{color:#ccc!important;}
+
+
+/*calendar*/
+.calHome li a{background:url(../images/calendarCon.gif) left top no-repeat; display:block; height:40px; padding:15px 0 0 0; color:#000; font-size:22px; text-indent:55px;}
+.calHome li a.newCal{background-position:0 -55px;}
+.calHome li a.searchCal{background-position:0 -110px;}
+.calHome li a.viewTodo{background-position:0 -165px;}
+.calHome li a.newTodo{background-position:0 -220px;}
+
+
+/*etc*/
+.failure{background:#eee url(../images/profileBg.gif) left top repeat-x; padding:30px 0 0 0; color:#113059; width:100%; text-align:center; margin:0;}
+.failure strong{display:block; font:27px arial; padding-bottom:10px;}
+
+
+/* Button*/
+.button,
+.button *{ position:relative; margin:0; padding:0; display:-moz-inline-stack; display:inline-block; text-decoration:none !important; 
+border:0; font-size:12px; white-space:nowrap; background:url(../images/button.png) no-repeat; vertical-align:top; overflow:visible; color:#333; float:left;}
+.button { margin-right:8px;}
+.button *{ left:8px; cursor:pointer; _cursor:hand;}
+.button, .button *{ height:31px; line-height:31px;}
+.button { background-position:left 0;}
+.button *{padding:0 12px 0 6px; background-position:right 0;}
+
+.button.blue, .button.blue *{ height:31px; line-height:31px; color:#fff;}
+.button.blue { background-position:left -31px;}
+.button.blue *{ padding:0 12px 0 6px; background-position:right -31px;}
+
+.button.iconList, .button.iconList *{ height:30px; width:30px;}
+.button.iconList, .button.iconList * { background-position:right bottom;}
+.button.iconList *{ padding:0; background-position:left bottom;}
+
+.button.iconFavo, .button.iconFavo *{ height:30px; width:30px;}
+.button.iconFavo, .button.iconFavo * { background-position:right bottom;}
+.button.iconFavo *{ padding:0; background-position:-40px bottom;}
+
+.rbutton{float:right;}
+
+

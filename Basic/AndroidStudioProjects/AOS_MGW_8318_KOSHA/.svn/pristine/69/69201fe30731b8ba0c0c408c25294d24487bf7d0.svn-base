@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:layout_columnWeight="1"
+    android:layout_weight="1">
+
+    <LinearLayout
+        android:id="@+id/item_wrap"
+        android:layout_width="match_parent"
+        android:layout_height="48dp"
+        android:layout_columnWeight="1"
+        android:layout_marginRight="1dp"
+        android:layout_marginBottom="1dp"
+        android:layout_weight="1"
+        android:background="@color/gnb_item_bg"
+        android:gravity="center_vertical"
+        android:orientation="horizontal"
+        android:paddingLeft="10dp"
+        android:paddingTop="10dp"
+        android:paddingRight="10dp"
+        android:paddingBottom="10dp">
+
+        <ImageView
+            android:id="@+id/item_icon"
+            android:layout_width="23dp"
+            android:layout_height="23dp"
+            android:background="@drawable/gnb_icon_bg_01"
+            />
+
+        <TextView
+            android:id="@+id/item_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:layout_weight="1"
+            android:ellipsize="none"
+            android:maxLines="100"
+            android:scrollHorizontally="false"
+            android:singleLine="false"
+            android:text="결제대기"
+            android:textColor="#2489ce"
+            android:textSize="7pt"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/badge_count"
+            android:layout_margin="5dp"
+            android:paddingLeft="3dp"
+            android:paddingRight="3dp"
+            android:textColor="#e60012"
+            android:background="@drawable/badge_radius"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:minWidth="26dp"
+            android:text="3"
+            android:textSize="12dp"
+            android:gravity="center"
+            android:textAlignment="gravity"
+            android:visibility="gone"/>
+    </LinearLayout>
+
+</LinearLayout>

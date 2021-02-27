@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:gravity="center_vertical"
+    android:orientation="horizontal" >
+
+    <ImageButton
+        android:id="@+id/ID_BTN_BOOKMARK"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@drawable/btn_message_favorite_set"
+        android:contentDescription="@string/dummy_string" />
+
+    <LinearLayout
+        android:id="@+id/ID_BTN_MORE_OPTION_LAYOUT"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:paddingLeft="7dp"
+          android:clickable="true"
+        android:paddingRight="7dp" >
+
+        <ImageButton
+            android:id="@+id/ID_BTN_MORE_OPTION"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/btn_more_option"
+            android:clickable="false"
+            android:contentDescription="@string/dummy_string"
+            android:focusable="false" />
+
+    </LinearLayout>
+
+</LinearLayout>

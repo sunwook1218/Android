@@ -1,0 +1,73 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/home_background_tile"
+    android:orientation="vertical"
+    tools:context="com.hs.mobile.gw.fragment.HomeFragment" >
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/home_header"
+        android:gravity="center"
+        android:orientation="vertical" >
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:contentDescription="@string/dummy_string"
+            android:src="@drawable/home_header_logo" />
+    </LinearLayout>
+
+    <GridView
+        android:id="@+id/ID_GRID_MENU"
+        android:layout_width="match_parent"
+        android:layout_height="250dp"
+        android:scrollbars="none"
+        android:background="@drawable/home_category_bg"
+        android:listSelector="#00000000"
+        android:numColumns="3"
+        android:columnWidth="120dp"
+        android:stretchMode="spacingWidth"
+        android:padding="5dp"></GridView>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="15dip" >
+
+        <ImageView
+            android:id="@+id/imageView1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:contentDescription="@string/dummy_string"
+            android:src="@drawable/home_notice_title" />
+
+        <LinearLayout
+            android:id="@+id/ID_BTN_MORE"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:orientation="vertical" >
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:contentDescription="@string/dummy_string"
+                android:src="@drawable/home_category_more" />
+        </LinearLayout>
+    </RelativeLayout>
+
+    <ListView
+        android:id="@+id/ID_LV_NOTICE"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="15dip"
+        android:layout_marginRight="15dip"
+        android:listSelector="@android:color/transparent"
+        android:scrollingCache="false" >
+    </ListView>
+
+</LinearLayout>

@@ -1,0 +1,156 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white"
+    android:orientation="vertical" >
+
+    <!-- 웹뷰 헤더 -->
+
+    <include layout="@layout/fragment_sub_header"></include>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal" >
+
+        <View
+            android:layout_width="1dp"
+            android:layout_height="match_parent"
+            android:background="#333333" />
+
+        <RelativeLayout
+            android:id="@+id/ID_LAY_R_NAVIBAR_CONTAINER"
+            android:layout_width="match_parent"
+            android:layout_height="71dp"
+            android:paddingLeft="13.3dp"
+            android:paddingRight="13.3dp"
+            android:background="@drawable/border_bottom" >
+
+            <ImageView
+                android:id="@+id/toggMiddleleListView"
+                android:layout_width="17.3dp"
+                android:layout_height="14dp"
+                android:layout_alignParentLeft="true"
+                android:layout_centerVertical="true"
+                android:layout_marginRight="10dp"
+                android:contentDescription="@string/dummy_string"
+                android:src="@drawable/style_btn_menu" />
+
+            <LinearLayout
+                android:id="@+id/navibarLeftButtons"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_toRightOf="@id/toggMiddleleListView"
+                android:gravity="left|center_vertical"
+                android:orientation="horizontal"
+                android:visibility="gone" />
+
+            <TextView
+                android:id="@+id/navibarTitle"
+                style="@style/header_title_style"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerHorizontal="true"
+                android:layout_centerInParent="true"
+                android:paddingLeft="45dp"
+                android:paddingRight="45dp"
+                android:singleLine="true"
+                android:textStyle="bold"
+                android:typeface="sans" />
+
+            <LinearLayout
+                android:id="@+id/navibarRightButtons"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:layout_centerVertical="true"
+                android:gravity="right|center_vertical"
+                android:orientation="horizontal"
+                android:visibility="gone" />
+        </RelativeLayout>
+    </LinearLayout>
+    <!-- 웹뷰 본문 + 툴바 -->
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="horizontal" >
+
+        <View
+            android:layout_width="1dp"
+            android:layout_height="match_parent"
+            android:background="#CCCCCC" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical" >
+
+            <HorizontalScrollView
+                android:id="@+id/scrollableToolbar"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:fillViewport="true"
+                android:scrollbars="none" >
+
+                <LinearLayout
+                    android:id="@+id/webviewToolBar"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:background="@drawable/bg_toolbar"
+                    android:orientation="horizontal"
+                    android:paddingLeft="13.3dp"
+                    android:paddingRight="13.3dp"
+                    android:paddingTop="5dp"
+                    android:paddingBottom="5dp"
+                    android:visibility="gone" >
+                </LinearLayout>
+            </HorizontalScrollView>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="#444"
+                android:gravity="center_horizontal"
+                android:orientation="vertical" >
+
+                <com.hs.mobile.gw.view.CustomTabHost
+                    android:id="@+id/tabhost"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="#444" >
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical" >
+                        <TabWidget
+                            android:id="@android:id/tabs"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            />
+                        <!-- </HorizontalScrollView> -->
+
+                        <FrameLayout
+                            android:id="@android:id/tabcontent"
+                            android:layout_width="fill_parent"
+                            android:layout_height="fill_parent"
+                            android:padding="5dp"
+                            android:visibility="gone" >
+                        </FrameLayout>
+                    </LinearLayout>
+                </com.hs.mobile.gw.view.CustomTabHost>
+            </LinearLayout>
+
+            <FrameLayout
+                android:orientation="vertical"
+                android:id="@+id/cordovaWebViewContainer"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent" />
+        </LinearLayout>
+    </LinearLayout>
+
+</LinearLayout>

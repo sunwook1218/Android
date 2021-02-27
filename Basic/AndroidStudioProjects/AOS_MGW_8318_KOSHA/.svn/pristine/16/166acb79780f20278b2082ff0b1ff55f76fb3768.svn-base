@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="119.7dp"
+    android:layout_height="119.7dp"
+    android:background="#fff"
+    android:orientation="vertical"
+    >
+
+    <LinearLayout
+        android:id="@+id/ID_LAY_L_HOME_MENU_HOLDER"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:background="#fff"
+        android:gravity="center"
+        android:orientation="vertical">
+
+        <ImageView
+            android:id="@+id/ID_IMG_HOME_MENU_ICON"
+            android:layout_width="39dp"
+            android:layout_height="40dp"
+            android:src="@drawable/btn_home_category_mail" />
+
+        <TextView
+            android:id="@+id/ID_TV_NAME"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dip"
+            android:text="공단지원현황"
+            android:gravity="center"
+            android:singleLine="true"
+            android:textColor="#555555"
+            android:textSize="18.5sp" />
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/ID_TV_COUNT"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginRight="20dp"
+        android:layout_marginTop="15dp"
+        android:gravity="center"
+        android:background="@drawable/home_count_blue"
+        android:text="3"
+        android:textColor="@color/white"
+        android:textSize="10.7sp"
+        />
+
+</RelativeLayout>

@@ -1,0 +1,48 @@
+package com.hs.mobile.gw;
+
+public class Define {
+	public static final boolean DEBUG = true;
+
+	/** 모바일 웹(MGW) 서버 주소 */
+	//public static final String SERVER_URL = "http://mobile.handysoft.co.kr:28080/mgw";
+	//public static final String SERVER_URL = "https://core.mtcm.co.kr:4103/mgw";	// DOMAIN SSL DEV(외부) http://121.162.129.28:4100/mgw "http://172.30.1.220:4100/mgw";	// IP DEV(내부)
+
+
+	public static final String SERVER_URL = "http://121.166.27.22:4100/mgw";	// 운영 외부 아이피
+//	public static final String SERVER_URL = "http://10.50.40.101:4100/mgw";	// 운영 내부 아이피 (VPN사용)
+	//public static final String SERVER_URL = "http://172.30.1.220:4100/mgw";	// 개발자 PC
+
+	/* Push관련 설정 */
+	public static final boolean USE_PUSH_SERVICE = true;
+	public static final String GCM_SENDER_ID = "546553506779"; // hsuco
+
+
+	/* 암호화 관련 설정 */
+	public static final boolean USE_CRYPTO = true;
+	public static final boolean USE_ONLY_PWD_CRYPTO = false;
+
+	// SSO 관련 설정
+	public static final boolean USE_SSO = false;
+
+	/* 앱 초기 설정 */
+	// # Login Type Setting ('name':default or 'empcode')
+	public enum LoginType {
+		NAME, EMP_CODE, EMAIL
+	}
+	//public static final LoginType LOGIN_TYPE = LoginType.NAME;
+	public static final LoginType LOGIN_TYPE = LoginType.EMP_CODE;
+	// # 사번 로그인 디폴트 처리 여부
+	public static final boolean USE_EMPCODE_MODE = false;
+	// # 자동로그인 기능 사용 여부
+	public static final boolean USE_AUTO_LOGIN = true;
+
+	// # 뱃지 기능 사용 여부
+	public static final boolean USE_BADGE = true;
+
+	/* 업로드 최대 파일 크기 */
+	public static final int FILE_UPLOAD_LIMIT_COUNT = 3;
+	public static final long LIMIT_UPLOAD_FILE_SIZE = 10 * 1024 * 1024;
+
+	/* 네트워크 타임아웃 */
+	public static final int NETWORK_TIMEOUT = 30000;
+}

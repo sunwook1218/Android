@@ -1,0 +1,168 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white"
+    android:orientation="vertical" >
+
+    <include layout="@layout/fragment_sub_header"></include>
+
+    <RelativeLayout
+        android:layout_width="fill_parent"
+        android:layout_height="50dp"
+        android:background="@drawable/border_bottom"
+        android:visibility="visible" >
+
+        <ImageView
+            android:id="@+id/ID_BTN_BACK"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_margin="5dp"
+            android:contentDescription="@string/dummy_string"
+            android:src="@drawable/style_btn_back" />
+
+        <TextView
+            android:id="@+id/ID_TV_ORDER_TITLE"
+            style="@style/header_title_style"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_centerInParent="true"
+            android:ellipsize="end"
+            android:gravity="center"
+            android:maxLines="2"
+            android:paddingLeft="45dp"
+            android:paddingRight="45dp"
+            android:text="@string/label_square_menu_file"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            android:typeface="sans" />
+
+        <TextView
+            android:id="@+id/ID_BTN_TYPE"
+            style="@style/header_button"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:text="@string/label_square_favorite_type" />
+        <ImageButton
+            android:id="@+id/ID_BTN_SELECT_MEMBER"
+            style="@style/header_button"
+            android:background="@drawable/btn_org_set"
+            android:layout_centerVertical="true"            
+            android:layout_toLeftOf="@id/ID_BTN_TYPE"
+            android:text="@string/label_square_favorite_type" />
+    </RelativeLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="#444"
+        android:orientation="vertical" >
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal" >
+
+            <LinearLayout
+                android:id="@+id/ID_LAY_L_FILE_ALL"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:background="@drawable/square_tab_bg"
+                android:clickable="true"
+                android:gravity="center"
+                android:orientation="vertical"
+                android:padding="5dp" >
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:clickable="false"
+                    android:src="@drawable/ico_file_all_set" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:clickable="false"
+                    android:text="@string/label_square_file_all"
+                    android:textStyle="bold"
+                    android:textColor="@drawable/tab_text_color" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/ID_LAY_L_FILE_MINE"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:background="@drawable/square_tab_bg"
+                android:clickable="true"
+                android:gravity="center"
+                android:orientation="vertical"
+                android:padding="5dp" >
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:clickable="false"
+                    android:src="@drawable/ico_file_mine_set" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:clickable="false"
+                    android:text="@string/label_square_file_mine"
+                    android:textStyle="bold"
+                    android:textColor="@drawable/tab_text_color" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/ID_LAY_L_FILE_OTHER"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:background="@drawable/square_tab_bg"
+                android:clickable="true"
+                android:gravity="center"
+                android:orientation="vertical"
+                android:padding="5dp" >
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:clickable="false"
+                    android:src="@drawable/ico_file_member_set" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:clickable="false"
+                    android:text="@string/label_square_file_other"
+                    android:textStyle="bold"
+                    android:textColor="@drawable/tab_text_color" />
+            </LinearLayout>
+        </LinearLayout>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="2dp"
+            android:background="#495057" >
+        </View>
+
+        <com.hs.mobile.gw.view.pulltorefresh.library.PullToRefreshListView
+            android:id="@+id/ID_LV_FILE"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@color/white"
+            android:divider="@color/dark_gray"
+            android:fadingEdge="none"
+            android:scrollingCache="false" >
+        </com.hs.mobile.gw.view.pulltorefresh.library.PullToRefreshListView>
+    </LinearLayout>
+
+    <include
+        android:id="@+id/empty_list_item"
+        layout="@layout/template_blanklist" />
+
+</LinearLayout>

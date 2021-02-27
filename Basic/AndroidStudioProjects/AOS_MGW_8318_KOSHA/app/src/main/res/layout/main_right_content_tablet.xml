@@ -1,0 +1,148 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:clickable="true" >
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" >
+
+        <LinearLayout
+            android:id="@+id/ID_LAY_L_WEBVIEW_LAYOUT"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="horizontal" >
+
+            <!-- middle List menu!! -->
+	        <com.hs.mobile.gw.view.MiddleMenuContainer
+	            android:id="@+id/middleMenuContainer"
+	            android:layout_width="370dp"
+                android:background="@drawable/default_list"
+                android:focusableInTouchMode="true"
+                android:orientation="vertical" 
+	            android:layout_height="match_parent" >
+	        </com.hs.mobile.gw.view.MiddleMenuContainer>
+
+	        <FrameLayout
+	            android:id="@+id/webviewContainer"
+	            android:layout_width="match_parent"
+	            android:layout_height="match_parent"
+	            android:background="#333"
+	            android:orientation="vertical" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="horizontal" >
+
+                <LinearLayout
+                    android:layout_width="1dp"
+                    android:layout_height="match_parent"
+                    android:orientation="vertical" >
+
+                    <View
+                        android:layout_width="1dp"
+                        android:layout_height="50dp"
+                        android:background="#333333" />
+
+                    <View
+                        android:layout_width="1dp"
+                        android:layout_height="match_parent"
+                        android:background="#CCCCCC" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/ID_LAY_L_FRAGMENT_LAYOUT"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:background="@color/white"
+                    android:orientation="vertical"
+                    android:visibility="gone" >
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/ID_LAY_L_FRAGMENT_SUB_LAYOUT"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:background="@color/white"
+                    android:orientation="vertical"
+                    android:visibility="gone" >
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/ID_LAY_L_FRAGMENT_SUB2_LAYOUT"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:background="@color/white"
+                    android:orientation="vertical"
+                    android:visibility="gone" >
+                </LinearLayout>
+            </LinearLayout>
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/ID_LAY_L_FULLSCREEN_FRAGMENT_LAYOUT"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@color/white"
+            android:orientation="vertical"
+            android:visibility="gone" >
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/customWebviewContainer"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:visibility="gone" >
+
+            <RelativeLayout
+                android:layout_width="fill_parent"
+                android:layout_height="50dp"
+                android:background="@drawable/bg_header" >
+
+                <ImageView
+                    android:id="@+id/customMiddleGoMainMenuButton"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_margin="5dp"
+                    android:contentDescription="@string/dummy_string"
+                    android:src="@drawable/style_btn_menu" />
+
+                <TextView
+                    android:id="@+id/customNavibarTitle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerHorizontal="true"
+                    android:layout_centerInParent="true"
+                    android:paddingLeft="90dp"
+                    android:paddingRight="90dp"
+                    android:singleLine="true"
+                    android:textColor="#ffffff"
+                    android:textSize="18sp"
+                    android:textStyle="bold"
+                    android:typeface="sans" />
+
+                <LinearLayout
+                    android:id="@+id/navibarRightButtons"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentRight="true"
+                    android:layout_centerVertical="true"
+                    android:gravity="right"
+                    android:orientation="horizontal"
+                    android:visibility="gone"
+                    tools:ignore="DuplicateIds" />
+            </RelativeLayout>
+
+            <WebView
+                android:id="@+id/customWebView"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent" />
+        </LinearLayout>
+    </FrameLayout>
+
+</RelativeLayout>

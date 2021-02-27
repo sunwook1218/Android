@@ -1,0 +1,3364 @@
+<div id="_TEMPLATE_board_commentlist" data-role="page">	
+	<div data-role="header">
+		<a href="javascript:PAGE_CONTROLLER.goBack();" data-direction="reverse">$$([gw_common_back_label])</a>		
+		<h1>$$([gw_board_comment_label])</h1>
+		<div class="ui-bar headerBtnBar"">
+			<a id="commentWriteBtn" href="javascript:boardCommentAction('add');" data-role="btn" style="display:none;">$$([gw_sign_write_comment_label])</a>
+    	</div>   
+	</div>
+	
+	<div data-role="content">
+		<ul id="list" data-role="listview" data-theme="d" class="commentList"></ul>
+	
+		<div data-role="popup" id="writeBoardCommentDialog" data-overlay-theme="a" style="width:500px;" class="ui-corner-all">
+			<div id="writeBoardComment">
+				<div data-role="header" data-theme="a" class="ui-corner-top">
+					<h1>$$([gw_sign_write_comment_label])</h1>
+				</div>
+				<div data-role="content" data-theme="d" class="ui-corner-bottom ui-content">
+					<div data-role="fieldcontain">
+						<textarea cols="250" rows="20" name="commentBody" id="commentBody"></textarea>
+					</div>		
+					
+					<div class="popupBtnArea">
+						<a href="javascript:saveCloseWriteBoardCommentDialog();" class="btn_txt gray"><span>$$([gw_common_ok_label])</span></a>
+						<a href="javascript:closeWriteBoardCommentDialog();" class="btn_txt gray"><span>$$([gw_common_cancel_label])</span></a>
+					</div>
+				</div>
+			</div>
+			
+			<div id="menuButton" data-role="content" data-theme="d" class="ui-corner-bottom ui-content" >
+			</div>
+		</div>
+		
+		<div data-role="popup" id="checkPasswdAnoBoardDialog" data-overlay-theme="a" style="width:300px;" class="ui-corner-all">
+			<div data-role="header" data-theme="a" class="ui-corner-top">
+				<h1>$$([gw_common_input_password_title])</h1>
+			</div>
+			<div data-role="content" data-theme="d" class="ui-corner-bottom ui-content">
+				<div class="popupMsg">$$([gw_msg_common_input_password])</div>
+				
+				<input id="password" type="password" data-role="none" class="popupInput">
+				
+				<input type="hidden" id="checkPasswdAction" value=""/>
+				
+				<div class="popupBtnArea">
+					<a href="javascript:setPasswdAnoBoardDialog();" class="btn_txt gray"><span>$$([gw_common_ok_label])</span></a>
+					<a href="javascript:closePasswdAnoBoardDialog();" class="btn_txt gray"><span>$$([gw_common_cancel_label])</span></a>
+				</div>
+			</div>
+		</div>  		
+	</div>
+	
+	<input type="hidden" id="brdId" value=""/>
+	<input type="hidden" id="bmId" value=""/>
+	<input type="hidden" id="cid" value=""/>
+	<input type="hidden" id="anonComment" value=""/>
+	<input type="hidden" id="commentAuth" value=""/>
+	<input type="hidden" id="commentManager" value=""/>
+	<input type="hidden" id="commentAction" value=""/>
+</div><div id="_TEMPLATE_board_details" data-role="page">	
+	<div data-role="header">
+		<a href="javascript:PAGE_CONTROLLER.goBack();" data-direction="reverse">$$([gw_common_back_label])</a>		
+		<h1>$$([gw_board_read_label])</h1>
+		
+		<div class="ui-bar headerBtnBar">
+    	  <a name="deleteBtn" href="javascript:deleteBoard();" data-role="btn" data-theme="c" style="display:none;">$$([gw_common_delete_label])</a>
+		  <a name="commentBtn" href="javascript:showBoardComment();" data-role="btn" style="display:none;">$$([gw_board_comment_label])</a>	
+    	</div>
+	</div>
+	
+	<ul id="list" data-role="listview" data-theme="d" class="boardDetails" style="display:none;">
+   		<li id="boardname" class="borderName"></li>
+   		<li id="postername">
+   			<div class="grouping_left userlabel"><span>$$([gw_board_postername_label])</span></div>
+  			<div class="grouping_middle"></div>
+   		</li>
+   		<li id="title">
+   			<div class="title"></div>
+   			<span class="dateinfo"></span>
+   		</li>
+   		<li id="attach" data-icon="false" style="display:none;">
+   			<a id="linkToggleAttach" href="javascript:toggleAttach('board_details', true);">
+	   			<div class="grouping_left"><span>$$([gw_common_attach_label])</span></div>
+	  			<div class="attach_area">
+	  				<span id="attachInfo" class="onlyTxt"></span>
+	   				<div id="btnToggleAttach" class="btn_cube"><span class="btn_unfd"></span></div>
+	   				<ul id="attachList" style="display:none;"></ul>
+	  			</div>
+  			</a>
+   		</li>   		
+   		<li data-role="none">
+   			<div class="contents"></div>
+   		</li>
+   	</ul>
+	   	
+	<div data-role="popup" id="checkPasswdAnoBoardDialog" data-overlay-theme="a" style="width:300px;" class="ui-corner-all">
+		<div data-role="header" data-theme="a" class="ui-corner-top">
+			<h1>$$([gw_common_input_password_title])</h1>
+		</div>
+		<div data-role="content" data-theme="d" class="ui-corner-bottom ui-content">
+			<div class="popupMsg">$$([gw_msg_common_input_password])</div>
+			
+			<input id="password" type="password" data-role="none" class="popupInput">
+			
+			<input type="hidden" id="checkPasswdAction" value=""/>
+			
+			<div class="popupBtnArea">
+				<a href="javascript:setPasswdAnoBoardDialog();" class="btn_txt gray"><span>$$([gw_common_ok_label])</span></a>
+				<a href="javascript:closePasswdAnoBoardDialog();" class="btn_txt gray"><span>$$([gw_common_cancel_label])</span></a>
+			</div>
+		</div>
+	</div>  	   	
+	
+	<input type="hidden" id="brdId" value=""/>
+	<input type="hidden" id="bmId" value=""/>
+	<input type="hidden" id="hasPasswd" value=""/>
+	<input type="hidden" id="anonComment" value=""/>
+	<input type="hidden" id="commentAuth" value=""/>
+	<input type="hidden" id="commentManager" value=""/>	
+</div>
+<div id="_TEMPLATE_board_folder" data-role="page">	
+	<div data-role="header">
+		<a href="javascript:PAGE_CONTROLLER.goBack();" data-direction="reverse">$$([gw_common_back_label])</a>		
+		<h1></h1>
+	</div>
+	<div data-role="content">
+		<ul id="list" data-role="listview" data-theme="d" class="boardList" data-split-icon="arrow-l"></ul>
+	</div>
+	
+</div>
+<div id="_TEMPLATE_board_list" data-role="page">	
+	<div data-role="header">
+		<a href="javascript:PAGE_CONTROLLER.goBack();" data-direction="reverse">$$([gw_common_back_label])</a>		
+		<h1></h1>
+		<a href="javascript:showWriteBoard();" style="display:none;">$$([gw_common_write_label])</a>
+	</div>
+	<div data-role="content">
+		<ul id="list" data-role="listview" data-theme="d" class="boardList"></ul>
+		
+		<div id="morelist" style="display:none">
+			<div style="margin:10px; height:5px;"></div>
+			<a href="javascript:getMoreBoardList();" data-role="button" class="btn_morelist">
+				<span>$$([gw_common_getmore_label])</span></a>
+		</div>
+	</div>
+	
+	<input type="hidden" id="apiCode" value=""/>
+	<input type="hidden" id="brdId" value=""/>
+	<input type="hidden" id="brdName" value=""/>
+	<input type="hidden" id="hasMore" value="false"/>
+	<input type="hidden" id="pno" value="1"/>
+</div>
+<div id="_TEMPLATE_board_write" data-role="page">	
+	<div data-role="header">
+		<a href="javascript:cancel_writeBoard();" data-direction="reverse">$$([gw_common_cancel_label])</a>		
+		<h1>$$([gw_board_write_title])</h1>
+		<a href="javascript:writeBoard();">$$([gw_board_wirte_label])</a>
+	</div>
+	
+	<div data-role="content">
+		<ul id="list" data-role="listview" data-theme="d" class="boardForm">
+    		<li>
+    			<div class="grouping_left">$$([gw_board_name_label])</div>
+    			<div class='grouping_middle' id="brdName"></div>
+    		</li>
+    		<li style="display:none"><!-- kosmes display:none; -->
+    			<div class="grouping_left">$$([gw_board_preface_label])</div>
+    			<div class='grouping_middle'>
+    				<select id="preface" data-role="none">
+    				</select>
+    			</div>
+    		</li>    		
+    		<li>
+    			<div class="grouping_left">$$([gw_board_title_label])</div>
+    			<div class='grouping_middle'>
+    				<input id="subject" type="text" data-role="none" class="txtTitle">
+    			</div>
+    		</li>
+    		<li>
+    			<div class="grouping_left">$$([gw_board_enddate_label])</div>
+    			<div class='grouping_middle'>
+    				<select id="sel_endYear" data-role="none" class="selectYear">
+    				</select>
+    				<div id="endDateDiv" class="endDateDiv" style="display:none">
+	    				$$([gw_common_year_label])
+	    				<select id="sel_endMonth" data-role="none" class="selectMD">
+	    				</select>$$([gw_common_month_label])
+	    				<select id="sel_endDay" data-role="none" class="selectMD">
+	    				</select>$$([gw_common_day_label])
+    				</div>
+    				
+    				
+    			</div>
+    		</li>
+    		<li>
+    			<input id="bbsExpress" type="checkbox" data-role="none">$$([gw_mail_urgency_label])
+    			<textarea id="boardBody" class="boardBody" data-role="none" placeholder='$$([gw_msg_mail_inputbody])'></textarea>
+    		</li>
+    	</ul>
+    	
+		<div data-role="popup" id="checkPasswdAnoBoardDialog" data-overlay-theme="a" style="width:300px;" class="ui-corner-all">
+			<div data-role="header" data-theme="a" class="ui-corner-top">
+				<h1>$$([gw_common_input_password_title])</h1>
+			</div>
+			<div data-role="content" data-theme="d" class="ui-corner-bottom ui-content">
+				<div class="popupMsg">$$([gw_msg_common_input_password])</div>
+				
+				<input id="password" type="password" data-role="none" class="popupInput">
+				
+				<input type="hidden" id="checkPasswdAction" value=""/>
+				
+				<div class="popupBtnArea">
+					<a href="javascript:setPasswdAnoBoardDialog();" class="btn_txt gray"><span>$$([gw_common_ok_label])</span></a>
+					<a href="javascript:closePasswdAnoBoardDialog();" class="btn_txt gray"><span>$$([gw_common_cancel_label])</span></a>
+				</div>
+			</div>
+		</div>    	
+    </div>	
+    
+    <input type="hidden" id="brdId" name="brdId" value=""/>
+    <input type="hidden" id="anoBoard" name="anoBoard" value=""/>
+    <input type="hidden" id="deptBoard" name="deptBoard" value=""/>
+    <input type="hidden" id="progressWriteBoard" name="progressWriteBoard" value="false"/>
+</div>
+<div id="_TEMPLATE_contact_details" data-role="page" data-theme="d">	
+	<div data-role="header">
+		<a href="javascript:PAGE_CONTROLLER.goBack();" data-direction="reverse">$$([gw_common_back_label])</a>		
+		<h1>$$([gw_org_userinfo_label])</h1>
+	</div>
+	
+	<div class="addrprofilepi">
+    	<h2 class="addrtitle">$$([gw_contact_personal_info_label])</h2>
+		<ul>
+			<li class="first"><span>&nbsp;</span></li>
+             <li><span class="gender">&nbsp;</span></li>
+             <li id="homePhone"><span class="tel">&nbsp;</span></li>
+             <li id="mobile"><span class="mobile">&nbsp;</span></li>
+             <li><span class="fax">&nbsp;</span></li>
+             <li><span class="mail">&nbsp;</span></li>
+             <li><span class="homepage">&nbsp;</span></li>
+             <li><span class="zipcode">&nbsp;</span></li>
+             <li><span class="addr">&nbsp;</span></li>
+		</ul>
+	</div>
+	
+	<div class="addrprofileoi">
+	    <h2 class="addrtitle">$$([gw_contact_org_info_label])</h2>
+		<ul>
+			<li class="first"><span>&nbsp;</span></li>
+            <li><span class="dept">&nbsp;</span></li>
+            <li><span class="position">&nbsp;</span></li>
+            <li id="officePhone"><span class="tel">&nbsp;</span></li>
+            <li><span class="fax">&nbsp;</span></li>
+            <li><span class="zipcode">&nbsp;</span></li>
+            <li><span class="addr">&nbsp;</span></li>
+            <li><span class="memo">&nbsp;</span></li>
+		</ul>
+	</div>
+
+	<input type="hidden" id="apiCode" value=""/>
+
+</div>
+<div id="_TEMPLATE_contact_group" data-role="page">	
+	<div data-role="header">
+		<a href="javascript:PAGE_CONTROLLER.goBack();" data-direction="reverse">$$([gw_common_back_label])</a>		
+		<h1></h1>
+	</div>
+
+	<div data-role="content">
+		<ul id="list" data-role="listview" data-theme="d" class="contactList">
+		</ul>
+		
+		<div id="morelist" style="display:none">
+			<div style="margin:10px; height:5px;"></div>
+			<a href="javascript:getMoreContactGroup();" data-role="button" data-theme="d" class="btn_more">
+				<span>$$([gw_common_getmore_label])</span></a>
+		</div>
+	</div>
+	
+	<input type="hidden" id="pno" value="1"/>
+	<input type="hidden" id="hasMore" value="false"/>
+	
+</div>
+<div id="_TEMPLATE_contact_list" data-role="page">	
+	<div data-role="header">
+		<a href="javascript:PAGE_CONTROLLER.goBack();" data-direction="reverse">$$([gw_common_back_label])</a>		
+		<h1>$$([gw_contact_personal_label])</h1>
+		<a href="javascript:showContactSearch(false);">$$([gw_common_search_label])</a>
+	</div>
+	
+	<div class="trackerState" style="display:none;">
+		<div class="searchBar">
+			<select name="searchField" data-role="none" class="searchField">
+				<option>$$([gw_common_username_label])</option>
+				<option>$$([gw_common_email_label])</option>
+				<option>$$([gw_common_companyname_label])</option>
+				<option>$$([gw_common_phone_label])</option>
+			</select>
+			<input name="searchValue" type="text" data-role="none" class="searchValue">
+			<a name="searchBtn" href="#" class="btn_txt blue"><span>$$([gw_common_search_label])</span></a>
+		</div>
+	</div> 
+	
+	<div data-role="content">
+		<ul id="list" data-role="listview" data-theme="d" class="contactList"></ul>
+		
+		<div id="morelist" style="display:none">
+			<div style="margin:10px; height:5px;"></div>
+			<a href="javascript:getMoreContactList();" data-role="button" class="btn_morelist">
+				<span>$$([gw_common_getmore_label])</span></a>
+		</div>
+	</div>
+	
+	<input type="hidden" id="pno" value="1"/>
+	<input type="hidden" id="apiCode" value=""/>	
+	<input type="hidden" id="groupId" value=""/>
+	<input type="hidden" id="hasMore" value="false"/>
+</div>
+<div id="_TEMPLATE_empty_page" data-role="page">	
+</div>
+<div id="_TEMPLATE_mail_details" data-role="page">	
+	<div data-role="header">
+		<a href="javascript:changeViewport(false);PAGE_CONTROLLER.goBack();" data-direction="reverse">$$([gw_common_back_label])</a>		
+		<h1>$$([gw_mail_mailread_label])</h1>
+	
+    	<div class="ui-bar headerBtnBar">
+    	  <a name="commonBtn" href="javascript:deleteMail();" data-role="btn" data-theme="c">$$([gw_common_delete_label])</a>
+		  <a name="sendlistBtn" href="javascript:showTrackerList();" data-role="btn" style="display:none;">$$([gw_mail_confirm_receive_label])</a>	
+		  <a name="sendlistBtn" href="javascript:cancelMail();" data-role="btn" style="display:none;">$$([gw_mail_cancel_label])</a>	
+	      <a name="commonBtn" href="javascript:forwardMail();" data-role="btn">$$([gw_mail_fly_label])</a>	
+		  <a name="commonBtn" href="javascript:replyMail();" data-role="btn">$$([gw_mail_reply_label])</a>
+		  <a name="replyallBtn" href="javascript:replyAllMail();" data-role="btn" style="display:none;">$$([gw_mail_replyall_label])</a>	
+    	</div>
+	</div>
+	
+	<ul id="list" data-role="listview" data-theme="d" class="mailDetails" style="display:none;">
+   		<li style="min-height:25px;">
+   			<div class="grouping_left"><span>$$([gw_mail_sender_label])</span></div>
+  			<div class="grouping_middle"></div>
+   		</li>
+   		<li>
+   			<div class="grouping_left"><span>$$([gw_mail_receiver_label])</span></div>
+  			<div class="grouping_middle"></div>
+   		</li>
+   		<li id="cc" style="display:none;">
+   			<div class="grouping_left"><span>$$([gw_mail_cc_label])</span></div>
+  			<div class="grouping_middle"></div>
+   		</li>
+   		<li>
+   			<div class="title"></div>
+   			<span class="dateinfo"></span>
+   		</li>
+   		<li id="attach" data-icon="false" style="display:none;">
+   			<a id="linkToggleAttach" href="javascript:toggleAttach('mail_details', true);">
+	   			<div class="grouping_left"><span>$$([gw_common_attach_label])</span></div>
+	  			<div class="attach_area">
+	  				<span id="attachInfo" class="onlyTxt"></span>
+	   				<div id="btnToggleAttach" class="btn_cube"><span class="btn_unfd"></span></div>
+	   				<ul id="attachList" style="display:none;"></ul>
+	  			</div>
+  			</a>
+   		</li>
+   		<li>
+        	<div class="contents"></div>
+        </li>
+   	</ul>
+	
+	<input type="hidden" id="isPopup" value=""/>
+	<input type="hidden" id="apiCode" value=""/>
+	<input type="hidden" id="msgId" value=""/>
+	<input type="hidden" id="saveId" value=""/>
+	<input type="hidden" id="link" value=""/>
+</div>
+<div id="_TEMPLATE_mail_list" data-role="page">	
+	<div data-role="header">
+		<a href="javascript:PAGE_CONTROLLER.goBack();" data-direction="reverse">$$([gw_common_back_label])</a>		
+		<h1></h1>
+		<a href="javascript:showMailWrite();">$$([gw_common_write_label])</a>
+	
+		<div class="ui-bar headerBtnBar">
+		  <a name="mailReadMode" href="javascript:chageEditMode(true);" data-role="btn">$$([gw_common_edit_label])</a>	
+		  <a name="mailEditMode" href="javascript:chageEditMode(false);" data-role="btn">$$([gw_common_canceledit_label])</a>	
+	      <a name="mailEditMode" id="selectAll" href="javascript:selectAllMail(true);" data-role="btn">$$([gw_common_selectall_label])</a>
+	      <a name="mailEditMode" id="deselect" href="javascript:selectAllMail(false);" data-role="btn">$$([gw_common_cancelselect_label])</a>
+	      <a name="mailEditMode" href="javascript:deleteMailList();" data-role="btn" data-theme="c">$$([gw_common_delete_label])</a>
+    	</div>
+	</div>
+	
+	<div data-role="content">
+		<ul id="list" data-role="listview" data-theme="d" class="mailList"></ul>
+		
+		<div id="morelist" style="display:none">
+			<div style="margin:10px; height:5px;"></div>
+			<a href="javascript:getMoreMailList();" data-role="button" class="btn_morelist">
+				<span>$$([gw_common_getmore_label])</span></a>
+		</div>
+		
+		<div data-role="popup" id="confirmPasswordDialog" data-overlay-theme="a" style="width:300px;" class="ui-corner-all">
+			<div data-role="header" data-theme="a" class="ui-corner-top">
+				<h1>$$([gw_common_input_password_title])</h1>
+			</div>
+			<div data-role="content" data-theme="d" class="ui-corner-bottom ui-content">
+				<div class="popupMsg">$$([gw_msg_common_input_password])</div>
+				
+				<input id="password" type="password" data-role="none" class="popupInput">
+				
+				<input type="hidden" id="mailApiCode" value=""/>
+				<input type="hidden" id="mailLink" value=""/>
+				
+				<div class="popupBtnArea">
+					<a href="javascript:confirmPassword();" class="btn_txt gray"><span>$$([gw_common_ok_label])</span></a>
+					<a href="javascript:closePasswordDialog();" class="btn_txt gray"><span>$$([gw_common_cancel_label])</span></a>
+				</div>
+			</div>
+		</div>
+	</div>
+	
+	<input type="hidden" id="apiCode" value="recvlist"/>
+	<input type="hidden" id="editMode" value="false"/>
+	<input type="hidden" id="hasMore" value="false"/>
+	<input type="hidden" id="pno" value="1"/>
+</div>
+<div id="_TEMPLATE_mail_personalbox" data-role="page">	
+	<div data-role="header">
+		<a href="javascript:PAGE_CONTROLLER.goBack();" data-direction="reverse">$$([gw_common_back_label])</a>		
+		<h1>$$([gw_mail_personalbox_label])</h1>
+	</div>
+	
+	<div data-role="content">
+		<ul id="list" data-role="listview" data-theme="d" class="personalBox"></ul>
+	</div>
+</div>
+<div id="_TEMPLATE_mail_personallist" data-role="page">	
+	<div data-role="header">
+		<a href="javascript:PAGE_CONTROLLER.goBack();" data-direction="reverse">$$([gw_common_back_label])</a>		
+		<h1></h1>
+	
+		<div class="ui-bar headerBtnBar">
+		  <a name="mailReadMode" href="javascript:chageEditMode(true);" data-role="btn">편집</a>	
+		  <a name="mailEditMode" href="javascript:chageEditMode(false);" data-role="btn">편집취소</a>	
+	      <a name="mailEditMode" id="selectAll" href="javascript:selectAllMail(true);" data-role="btn">전체선택</a>
+	      <a name="mailEditMode" id="deselect" href="javascript:selectAllMail(false);" data-role="btn">선택취소</a>
+	      <a name="mailEditMode" href="javascript:deleteMailList();" data-role="btn" data-theme="c">삭제</a>
+    	</div>
+	</div>
+	
+	<div data-role="content">
+		<ul id="list" data-role="listview" data-theme="d" class="mailList"></ul>
+		
+		<div id="morelist" style="display:none">
+			<div style="margin:10px; height:5px;"></div>
+			<a href="javascript:getMorePersonalMailList();" data-role="button" data-theme="d" class="btn_more">
+				<span>$$([gw_common_getmore_label])</span></a>
+		</div>
+	
+		<div data-role="popup" id="confirmPasswordDialog" data-overlay-theme="a" style="width:300px;" class="ui-corner-all">
+			<div data-role="header" data-theme="a" class="ui-corner-top">
+				<h1>$$([gw_common_input_password_title])</h1>
+			</div>
+			<div data-role="content" data-theme="d" class="ui-corner-bottom ui-content">
+				<div class="popupMsg">$$([gw_msg_common_input_password])</div>
+				
+				<input id="password" type="password" data-role="none" class="popupInput">
+				
+				<input type="hidden" id="mailApiCode" value=""/>
+				<input type="hidden" id="mailLink" value=""/>
+				
+				<div class="popupBtnArea">
+					<a href="javascript:confirmPassword();" class="btn_txt gray"><span>$$([gw_common_ok_label])</span></a>
+					<a href="javascript:closePasswordDialog();" class="btn_txt gray"><span>$$([gw_common_cancel_label])</span></a>
+				</div>
+			</div>
+		</div>	
+	</div>
+	
+	<input type="hidden" id="editMode" value="false"/>
+	<input type="hidden" id="hasMore" value="false"/>
+	<input type="hidden" id="pno" value="1"/>
+	<input type="hidden" id="boxId" value=""/>
+</div>
+<div id="_TEMPLATE_mail_trackerlist" data-role="page">	
+	<div data-role="header">
+		<a href="javascript:PAGE_CONTROLLER.goBack();" data-direction="reverse">$$([gw_common_back_label])</a>		
+		<h1>$$([gw_mail_confirm_receive_label])</h1>
+	</div>
+	
+	<div data-role="content">
+		<ul id="list" data-role="listview" data-theme="d" class="trackerList"></ul>
+	</div>
+	
+	<input type="hidden" id="apiCode" value=""/>
+	<input type="hidden" id="msgId" value=""/>
+	<input type="hidden" id="saveId" value=""/>
+</div>
+<div id="_TEMPLATE_mail_write" data-role="page" data-theme="d">	
+	<div data-role="header">
+		<a href="javascript:cancel_sendMail();" data-direction="reverse">$$([gw_common_cancel_label])</a>		
+		<h1>$$([gw_mail_mailwrite_label])</h1>
+		<a href="javascript:sendMail();" data-direction="reverse">$$([gw_mail_send_label])</a>
+	</div>
+	
+		<ul id="list" data-role="listview" data-theme="d" class="mailForm">
+    		<li name="li_to">
+    			<div class="grouping_left"><span>$$([gw_mail_receiver_label])</span></div>
+    			<div class='grouping_middle'><a href="javascript:openOrgSelect('to');" class="btn_cube"><span class="btn_more"></span></a>
+    				<div id="to" name="to" class="targetUserList" style="display:none;"></div>
+    				<div class="">
+    					<input id="exto" name="exto" type="text" data-role="none" placeholder='$$([gw_msg_mail_input_receiver])'>
+    				</div>
+    			</div>
+    		</li>
+    		<li>
+    			<div class="grouping_left"><span>$$([gw_mail_ccbcc_lable])</span></div>
+    			<div class='grouping_middle'>
+    				<a id="btnToggleCC" href="javascript:toggleCC(true);" class="btn_cube"><span class="btn_unfd"></span></a>
+    				<div class="group_input fr">
+    					<input type="checkbox" data-role="none" id="security" name="security">
+                        <label for="security">$$([gw_mail_security_label])</label>
+                        <input type="checkbox" data-role="none" id="priority" name="priority">
+                        <label for="priority">$$([gw_mail_urgency_label])</label>
+    				</div>
+    			</div>
+    		</li>
+    		<li name="li_cc" style="display:none;" class="group_unfd">
+    			<div class="grouping_left"><span>$$([gw_mail_cc_label])</span></div>
+    			<div class='grouping_middle'>
+    				<a href="javascript:openOrgSelect('cc');" class="btn_cube"><span class="btn_more"></span></a>
+    				<div id="cc" name="cc" class="targetUserList" style="display:none;"></div>
+                     <div class="inputUserArea">
+                         <input id="excc" name="excc" type="text" data-role="none" placeholder='$$([gw_msg_mail_input_cc])'>
+                     </div>
+    			</div>
+    		</li>
+    		<li name="li_bcc" style="display:none;" class="group_unfd">
+    			<div class="grouping_left"><span>$$([gw_mail_bcc_label])</span></div>
+    			<div class='grouping_middle'>
+    				<a href="javascript:openOrgSelect('bcc');" class="btn_cube"><span class="btn_more"></span></a>
+    				<div id="bcc" name="bcc" class="targetUserList" style="display:none;"></div>
+                     <div class="inputUserArea">
+                         <input id="exbcc" name="exbcc" type="text" data-role="none" placeholder='$$([gw_msg_mail_input_bcc])'>
+                     </div>
+    			</div>
+    		</li>
+    		<li>
+    			<div class="grouping_left"><span>$$([gw_mail_title_label])</span></div>
+    			<div class='grouping_middle'>
+    				<input id="subject" name="subject" type="text" data-role="none" class="txtTitle"
+    					placeholder='$$([gw_msg_common_inputsubject])'>
+    			</div>
+    		</li>
+    		<li>
+    			<textarea name="new_body" id="new_body" class="mailBody" data-role="none"  
+    				placeholder='$$([gw_msg_mail_inputbody])'></textarea>
+    		</li>
+    		<li name="li_orginalBody" style="display:none;">
+    			<input type="checkbox" id="includeOrginal" data-role="none" 
+    				checked="checked">$$([gw_mail_include_org_message])
+    				
+    			<div class="orginalBody" style="display:block; margin:7px;"></div>
+    			<input type="hidden" id="orginalBody" value=""/>
+    		</li>
+    		<li name="li_attach" style="display:none;">
+    			<div class="grouping_left">$$([gw_mail_include_org_attach_label])</div>
+    			<div class='grouping_middle'></div>
+    		</li>
+    	</ul><font style='font-weight:bold;'></font>
+    	
+    	<div data-role="popup" id="resolveUserDialog" data-overlay-theme="a" class="ui-corner-all">
+			<div data-role="content" data-theme="d" class="ui-corner-bottom ui-content">
+				<div class="popupMsg">$$([gw_msg_mail_choose_samename])</div>
+				
+				<table class="resolveUser" style="font-size:12px;">
+					<colgroup>
+						<col width="95px">
+						<col width="">
+					</colgroup>
+					<tr>
+						<th align="left">$$([gw_common_username_label])</th>
+						<th align="left">$$([gw_common_select_label])</th>
+					</tr>
+					<tbody id="resolveUserDiv">
+					</tbody>					
+				</table>
+				
+				<div class="popupBtnArea">
+					<a href="javascript:selectResolveUser(true);" class="btn_txt gray"><span>$$([gw_common_ok_label])</span></a>
+					<a href="javascript:closeResolveUserDialog();" class="btn_txt gray"><span>$$([gw_common_cancel_label])</span></a>
+				</div>
+			</div>
+		</div>
+	
+	<input type="hidden" id="msgId" name="msgId" value=""/>
+	<input type="hidden" id="boxId" name="boxId" value=""/>
+	<input type="hidden" id="saveId" name="saveId" value=""/>
+
+	<input type="hidden" id="apiCode" name="apiCode" value=""/>
+	
+	<input type="hidden" id="smtp" name="smtp" value="500"/>
+	<input type="hidden" id="partscount"  name="partscount" value="0"/>
+
+	<input type="hidden" id="exto_ids" name="exto_ids"  value=""/>
+	<input type="hidden" id="excc_ids" name="excc_ids" value=""/>
+	<input type="hidden" id="exbcc_ids" name="exbcc_ids" value=""/>
+	<input type="hidden" id="exto_names" name="exto_names"  value=""/>
+	<input type="hidden" id="excc_names" name="excc_names" value=""/>
+	<input type="hidden" id="exbcc_names" name="exbcc_names" value=""/>
+	<input type="hidden" id="resolveUser" name="resolveUser" value="false"/>
+	<input type="hidden" id="progressSendMail" name="progressSendMail" value="false"/>
+	
+</div>
+<div id="_TEMPLATE_board_menu" data-role="page">	
+	<div data-role="header" data-position="fixed" data-tap-toggle="false">
+		<a href="javascript:PAGE_CONTROLLER.goBack();" data-direction="reverse">뒤로</a>		
+		<h1>게시판</h1>
+	</div>
+	
+	<div data-role="content">
+		<ul id="list" data-role="listview" data-theme="d">
+			<li><a href="javascript:showBoardList('recentlist');">최근 게시물</a></li>	
+			<li><a href="javascript:showBoardFolerList();">전체 게시판</a></li>	
+			<li><a href="javascript:showBoardFavList();">즐겨찾기 게시판</a></li>	
+		</ul>
+	</div>
+</div>
+<div id="_TEMPLATE_contact_menu" data-role="page">	
+	<div data-role="header" data-position="fixed" data-tap-toggle="false">
+		<a href="javascript:PAGE_CONTROLLER.goBack();" data-direction="reverse">뒤로</a>		
+		<h1>주소록</h1>
+	</div>
+	
+	<div data-role="content">
+		<ul id="list" data-role="listview" data-theme="d">
+			<li><a href="javascript:showContactList('personal');">개인주소록</a></li>	
+			<li><a href="javascript:showContactList('department');">부서주소록</a></li>	
+			<li><a href="javascript:showContactGroup();">주소록그룹</a></li>	
+		</ul>
+	</div>
+</div>
+<div id="_TEMPLATE_mail_menu" data-role="page">	
+	<div data-role="header" data-position="fixed" data-tap-toggle="false">
+		<a href="javascript:PAGE_CONTROLLER.goBack();" data-direction="reverse">뒤로</a>		
+		<h1>메일</h1>
+	</div>
+	
+	<div data-role="content">
+		<ul id="list" data-role="listview" data-theme="d">
+			<li><a href="javascript:showMailWrite();">편지쓰기</a></li>
+			<li><a href="javascript:showMailList('recvlist');">$$([gw_mail_recvlist_label])</a></li>	
+			<li><a href="javascript:showMailList('sendlist');">$$([gw_mail_sendlist_label])</a></li>	
+			<li><a href="javascript:showMailList('deletelist');">$$([gw_mail_deletelist_label])</a></li>	
+			<li><a href="javascript:showMailList('templist');">$$([gw_mail_templist_label])</a></li>
+			<li id="personalMailBox"><a href="javascript:showPersonalMailBox();">$$([gw_mail_personalbox_label])</a></li>	
+		</ul>
+	</div>
+</div>
+<div id="_TEMPLATE_org_menu" data-role="page">	
+	<div data-role="header" data-position="fixed" data-tap-toggle="false">
+		<a href="javascript:PAGE_CONTROLLER.goBack();" data-direction="reverse">뒤로</a>		
+		<h1>조직도</h1>
+	</div>
+	
+	<div data-role="content">
+		<ul id="list" data-role="listview" data-theme="d">
+			<li><a href="javascript:showOrgTree();">조직도</a></li>	
+			<li><a href="javascript:showOrgSelect('settings', '', '');">수신자 선택</a></li>		
+		</ul>
+	</div>
+</div>
+<div id="_TEMPLATE_sch2_menu" data-role="page">	
+	<div data-role="header" data-position="fixed" data-tap-toggle="false">
+		<a href="javascript:PAGE_CONTROLLER.goBack();" data-direction="reverse">$$([gw_common_back_label])</a>	
+		<h1>$$([gw_schedule_label])</h1>
+	</div>
+	
+	<div data-role="content">
+		<ul id="list" data-role="listview" data-theme="d">
+			<li><a href="javascript:showSch2List('schlist');">$$([gw_schedule_list_label])</a></li>
+			<li><a href="javascript:showSch2List('equiplist');">$$([gw_schedule_equip_list_label])</a></li>
+			<li><a href="javascript:showSch2Add();">$$([gw_schedule_add_label])</a></li>
+			<li><a href="javascript:showTodo2List('todolist');">$$([gw_schedule_todo_list_label])</a></li>
+			<li><a href="javascript:showTodo2Add();">$$([gw_schedule_todo_add_label])</a></li>
+			<li><a href="javascript:showSch2SearchTab('sch');">$$([gw_schedule2_search_label])</a></li>
+		</ul>
+	</div>
+</div>
+<div id="_TEMPLATE_sch6_menu" data-role="page">	
+	<div data-role="header" data-position="fixed" data-tap-toggle="false">
+		<a href="javascript:PAGE_CONTROLLER.goBack();" data-direction="reverse">뒤로</a>	
+		<h1>일정 관리</h1>
+	</div>
+	
+	<div data-role="content">
+		<ul id="list" data-role="listview" data-theme="d">
+			<li><a href="javascript:showSch6List();">$$([gw_schedule_list_label])</a></li>
+			<li><a href="javascript:showSch6Add();">$$([gw_schedule_schadd_label])</a></li>
+		</ul>
+	</div>
+</div>
+<div id="_TEMPLATE_sch_menu" data-role="page">	
+	<div data-role="header" data-position="fixed" data-tap-toggle="false">
+		<a href="javascript:PAGE_CONTROLLER.goBack();" data-direction="reverse">$$([gw_common_back_label])</a>	
+		<h1>$$([gw_schedule_label])</h1>
+	</div>
+	
+	<div data-role="content">
+		<ul id="list" data-role="listview" data-theme="d">
+			<li><a href="javascript:showSchList('schlist');">$$([gw_schedule_list_label])</a></li>
+			<li><a href="javascript:showSchList('equiplist');">$$([gw_schedule_equip_list_label])</a></li>
+			<li><a href="javascript:showSchAdd();">$$([gw_schedule_add_label])</a></li>
+			<li><a href="javascript:showSchList('todolist');">$$([gw_schedule_todo_list_label])</a></li>
+			<li><a href="javascript:showTodoAdd();">$$([gw_schedule_todo_add_label])</a></li>
+			<li><a href="javascript:showSchSearchTab('sch');">$$([gw_schedule_search_label])</a></li>
+		</ul>
+	</div>
+</div>
+<div id="_TEMPLATE_settings2_menu" data-role="page">	
+	<div data-role="header" data-position="fixed" data-tap-toggle="false">
+		<a href="javascript:PAGE_CONTROLLER.goBack();" data-direction="reverse">$$([gw_common_back_label])</a>		
+		<h1>$$([gw_settings_label])</h1>
+	</div>
+	
+	<div data-role="content">
+		<ul id="list" data-role="listview" data-theme="d">
+			<li><a href="javascript:showSettings2Absence();">$$([gw_settings_absence_label])</a></li>
+			<li><a href="javascript:showSettingsUserInfo();">$$([gw_settings_userinfo_label])</a></li>	
+			<li><a href="javascript:showSettingsPassword();">$$([gw_settings_password_label])</a></li>	
+			<li><a href="javascript:showSettingsLicense();">$$([gw_settings_license_label])</a></li>	
+		</ul>
+	</div>
+</div>
+<div id="_TEMPLATE_settings_menu" data-role="page">	
+	<div data-role="header" data-position="fixed" data-tap-toggle="false">
+		<a href="javascript:PAGE_CONTROLLER.goBack();" data-direction="reverse">$$([gw_common_back_label])</a>		
+		<h1>$$([gw_settings_label])</h1>
+	</div>
+	
+	<div data-role="content">
+		<ul id="list" data-role="listview" data-theme="d">
+			<li><a href="javascript:showSettingsAbsence();">$$([gw_settings_absence_label])</a></li>
+			<li><a href="javascript:showSettingsUserInfo();">$$([gw_settings_userinfo_label])</a></li>	
+			<li><a href="javascript:showSettingsPassword();">$$([gw_settings_password_label])</a></li>	
+			<li><a href="javascript:showSettingsLicense();">$$([gw_settings_license_label])</a></li>	
+		</ul>
+	</div>
+</div>
+<div id="_TEMPLATE_sign_menu" data-role="page">	
+	<div data-role="header" data-position="fixed" data-tap-toggle="false">
+		<a href="javascript:PAGE_CONTROLLER.goBack();" data-direction="reverse">$$([gw_common_back_label])</a>		
+		<h1>$$([gw_sign_label])</h1>
+	</div>
+	
+	<div data-role="content">
+		<ul id="list" data-role="listview" data-theme="d">
+			<li><a href="javascript:showSignList('waitlist');">$$([gw_sign_waitlist_label])</a></li>
+			<li><a href="javascript:showSignList('nowlist');">$$([gw_sign_nowlist_label])</a></li>	
+			<li><a href="javascript:showSignList('receiptwaitlist');">$$([gw_sign_receiptwaitlist_label])</a></li>
+			<li><a href="javascript:showSignList('mycompletelist');">$$([gw_sign_mycompletelist_label])</a></li>	
+			<li><a href="javascript:showSignList('completelist');">$$([gw_sign_completelist_label])</a></li>	
+		</ul>
+	</div>
+</div>
+<div id="_TEMPLATE_sign_menu_8" data-role="page">	
+	<div data-role="header" data-position="fixed" data-tap-toggle="false">
+		<a href="javascript:PAGE_CONTROLLER.goBack();" data-direction="reverse">$$([gw_common_back_label])</a>		
+		<h1>$$([gw_sign_label])</h1>
+	</div>
+	
+	<div data-role="content">
+		<ul id="list" data-role="listview" data-theme="d">
+			<li><a href="javascript:showSignList('waitlist');">$$([gw_sign_waitlist_label])</a></li>
+			<li><a href="javascript:showSignList('gongramwaitlist');">$$([gw_sign_gongramwaitlist_label])</a></li>
+			<li><a href="javascript:showSignList('gongramcompletelist');">$$([gw_sign_gongramcompletelist_label])</a></li>
+			<li><a href="javascript:showSignList('nowlist');">$$([gw_sign_nowlist_label])</a></li>	
+			<li><a href="javascript:showSignList('receiptwaitlist');">$$([gw_sign_receiptwaitlist_label])</a></li>   
+			<li><a href="javascript:showSignList('userprocessedlist');">$$([gw_sign_userprocessedlist_label])</a></li>	
+			<li><a href="javascript:showSignList('completelist');">$$([gw_sign_completelist_label])</a></li>
+			<li><a href="javascript:showSignList('dispatchlist');">$$([gw_sign_dispatchlist_label])</a></li>
+		</ul>
+	</div>
+</div>
+<div id="_TEMPLATE_org_select" data-role="page">	
+	<div data-role="header">
+		<a href="javascript:cancel_orgSelect();" data-direction="reverse">$$([gw_common_cancel_label])</a>		
+		<h1>$$([gw_org_select_label])</h1>
+		
+		<div class="ui-btn-right">
+			<a href="javascript:showSearchOrgSelect();" id="searchBtn" data-role="button">$$([gw_common_search_label])</a>
+			<a href="javascript:confirmTargetRecv();" data-role="button">$$([gw_common_ok_label])</a>
+		</div>
+		
+		<div data-role='navbar'>
+			<ul>
+				<li><a onclick="javascript:showOrgSelectTab('org')" class='ui-btn-active'>$$([gw_org_tree_label])</a></li>
+				<li><a onclick="javascript:showOrgSelectTab('personal')">$$([gw_contact_personal_label])</a></li>
+				<li><a onclick="javascript:showOrgSelectTab('department')">$$([gw_contact_dept_label])</a></li>
+				<li><a onclick="javascript:showOrgSelectTab('group')">$$([gw_common_group_label])</a></li>
+			</ul>
+		</div>
+	</div>
+	
+	<div class="pathBarArea">
+		<div class="pathBar" style='text-shadow:none;'>
+		</div>
+	</div>
+	
+	<div class="targetUserDiv" style="display:none;">
+		<div class="targetUserList"></div>
+	</div>
+	
+	<div data-role="content">
+		<ul id="list" data-role="listview" data-theme="d" class="orgTree"></ul>
+		<ul id="list_personal" data-role="listview" data-theme="d" class="contactList"></ul>
+		<ul id="list_department" data-role="listview" data-theme="d" class="contactList"></ul>
+		<ul id="list_group" data-role="listview" data-theme="d" class="contactList"></ul>
+		
+		<div id="morelist" style="display:none">
+			<div style="margin:10px; height:5px;"></div>
+			<a href="javascript:getMoreContactList(true);" data-role="button" data-theme="d" class="btn_more">
+				<span>$$([gw_common_getmore_label])</span></a>
+		</div>
+	</div>
+	
+	<input type="hidden" id="recvType" value=""/>
+	<input type="hidden" id="currentTab" value="org"/>
+	
+	<input type="hidden" id="personal_pno" value="1"/>
+	<input type="hidden" id="personal_hasMore" value="false"/>
+	<input type="hidden" id="personal_loaded" value="false"/>
+
+	<input type="hidden" id="department_pno" value="1"/>
+	<input type="hidden" id="department_hasMore" value="false"/>
+	<input type="hidden" id="department_loaded" value="false"/>
+	
+	<input type="hidden" id="group_loaded" value="false"/>
+
+</div>
+<div id="_TEMPLATE_org_tree" data-role="page">	
+	<div data-role="header">
+		<a href="javascript:PAGE_CONTROLLER.goBack();" data-direction="reverse">$$([gw_common_back_label])</a>
+		<a href="javascript:showOrgTree('root');">$$([gw_org_root_label])</a>		
+		<h1>$$([gw_org_tree_label])</h1>
+		<a href="javascript:showSearch(false, 'org');">$$([gw_common_search_label])</a>
+	</div>
+	
+	<div class="pathBarArea">
+		<div class="pathBar" style='text-shadow:none;'>
+		</div>	
+	</div>
+	
+	<div data-role="content">
+		<ul id="list" data-role="listview" data-theme="d" class="orgTree"></ul>
+	</div>
+</div>
+<div id="_TEMPLATE_org_user" data-role="page" data-theme="c">	
+	<div data-role="header">
+		<a href="javascript:changeViewport(false);PAGE_CONTROLLER.goBack();" data-direction="reverse">$$([gw_common_back_label])</a>		
+		<h1>$$([gw_org_userinfo_label])</h1>
+	</div>
+	
+	<div class="userInfo">
+		<div class="userInfoHeader">
+			<a id="a_userPic"><img onerror="this.src='../images/people_03.gif'" class="userInfoImg"/></a>
+			<h2 id="userName"></h2> 
+			<span><label id="deptName"></label></span>
+			<span><label id=gradeName></label></span>
+		</div>
+		
+		<ul>
+			<li id="li_officePhone">
+				<span class="phone">&nbsp;</span>
+			</li>
+			<li id="li_mobile">
+				<span class="mobile">&nbsp;</span>
+			</li>
+			<li id="li_email">
+				<span class="mail">&nbsp;</span>
+			</li>
+			<li id="li_officeFax">
+				<span class="fax">&nbsp;</span>
+			</li>
+			<li id="li_job"> 
+				<span class="job">&nbsp;</span>
+			</li>
+		</ul>		
+	</div>
+	
+	<input type="hidden" id="isPopup" value=""/>
+</div>
+<div id="_TEMPLATE_sch2_equipdetail" data-role="page">		
+	<div data-role="header">
+		<a href="javascript:PAGE_CONTROLLER.goBack();" data-direction="reverse">$$([gw_common_back_label])</a>	
+		<h1>$$([gw_schedule_equipment_view_label])</h1>
+		
+		<div id="headerBtn" class="ui-bar headerBtnBar" style="display:none;">
+			<a href="javascript:showSch2Add(true);" data-role="btn">$$([gw_common_modify_label])</a>	
+			<a href="javascript:deleteSch2();" data-role="btn" data-theme="c">$$([gw_common_delete_label])</a>
+    	</div>
+	</div>
+	
+	<div data-role="content">
+        <div id="divList" data-role="none" class="divList"></div>
+		<ul id="list" data-role="listview" data-theme="d" class="schDetail">
+			<li>
+				<div class='grouping_left'>$$([gw_schedule_title_label])</div>
+				<div id="li_title" class='grouping_middle'></div>
+			</li>
+			<li>
+				<div class='grouping_left'>$$([gw_schedule_category_label])</div>
+				<div id="li_category" class='grouping_middle'></div>
+			</li>			
+			<li>
+				<div class='grouping_left'>$$([gw_schedule_writer_label])</div>
+				<div id="li_writer" class='grouping_middle'></div>
+			</li>
+			<li>
+				<div class='grouping_left'>$$([gw_schedule_repeat_label])</div>
+				<div id="li_repeat" class='grouping_middle'></div>
+			</li>
+			<li>
+				<div class='grouping_left'>$$([gw_schedule_term_label])</div>
+				<div id="li_term" class='grouping_middle'></div>
+			</li>
+			<li>
+				<div class='grouping_left'>$$([gw_schedule_calendar_label])</div>
+				<div id="li_calendar" class='grouping_middle'></div>
+			</li>
+			<li>
+				<div class='grouping_left'>$$([gw_schedule_attendee_label])</div>
+				<div id="li_attendee" class='grouping_middle'></div>
+			</li>			
+			<li>
+				<div class='grouping_left'>$$([gw_schedule_equipment_label])</div>
+				<div id="li_equipment" class='grouping_middle'></div>
+			</li>
+			<li>
+				<div class='grouping_left'>$$([gw_schedule_alarm_label])</div>
+				<div id="li_alarm" class='grouping_middle'></div>
+			</li>
+			<li>
+				<div class='grouping_left'>$$([gw_schedule_content_label])</div>
+				<div class='grouping_middle'>
+					<div id="li_content" class='description'></div>
+				</div>
+			</li>
+		</ul>
+	</div>
+	
+	<div data-role="popup" id="selectSchDeleteRecurDialog" data-overlay-theme="a" style="width:300px;" class="ui-corner-all">
+		<div data-role="header" data-theme="a" class="ui-corner-top">
+			<h1>$$([gw_schedule_delete_recur_title])</h1>
+		</div>
+		<div data-role="content" data-theme="d" class="ui-corner-bottom ui-content">
+			<ul id="optionlist" data-role="listview" data-theme="d" class="equipList">
+				<li>
+					<div class="grouping_left">
+						<input type="radio" data-role="none" name="rdoSchDeleteRecurOption" value="1" /> 
+					</div>
+					<div class='grouping_middle'>
+						<h3>$$([gw_schedule_delete_recur_option1])</h3>
+					</div>
+				</li>
+				<li>
+					<div class="grouping_left">
+						<input type="radio" data-role="none" name="rdoSchDeleteRecurOption" value="2" /> 
+					</div>
+					<div class='grouping_middle'>
+						<h3>$$([gw_schedule_delete_recur_option2])</h3>
+					</div>
+				</li>
+				<li>
+					<div class="grouping_left">
+						<input type="radio" data-role="none" name="rdoSchDeleteRecurOption" value="4" /> 
+					</div>
+					<div class='grouping_middle'>
+						<h3>$$([gw_schedule_delete_recur_option4])</h3>
+					</div>
+				</li>
+			</ul>
+			
+			<div class="popupBtnArea">
+				<a href="javascript:setSchDeleteRecurOption();" class="btn_txt gray"><span>$$([gw_common_delete_label])</span></a>
+				<a href="javascript:closeSelectSchDeleteRecurDialog();" class="btn_txt gray"><span>$$([gw_common_cancel_label])</span></a>
+			</div>
+		</div>
+	</div>
+	
+	<input type="hidden" id="event_id" value=""/>
+	<input type="hidden" id="start_dt" value=""/>
+	<input type="hidden" id="baseDate" value=""/>
+	<input type="hidden" id="recur_type" value=""/>
+	<input type="hidden" id="apiCode" value="equipdetail"/>
+</div>
+<div id="_TEMPLATE_sch2_equiplist" data-role="page">		
+	<div data-role="header">
+		<a href="javascript:PAGE_CONTROLLER.goBack();" data-direction="reverse">$$([gw_common_back_label])</a>	
+		<h1>$$([gw_schedule_equip_list_label])</h1>
+		<div class="ui-btn-right">
+			<a href="javascript:showSelectEquipment2();" data-role="button">$$([gw_schedule_equipment_label])</a>
+			<a href="javascript:showSch2Add();" data-role="button">$$([gw_common_add_label])</a>
+		</div>
+		<div data-role='navbar'>
+			<ul>
+				<li><a id="DAILY" onclick="javascript:changeDateMode2('DAILY');" class='ui-btn-active'>$$([gw_schedule_daily_label])</a></li>
+				<li><a id="WEEKLY" onclick="javascript:changeDateMode2('WEEKLY');">$$([gw_schedule_weekly_label])</a></li>
+				<li><a id="MONTHLY" onclick="javascript:changeDateMode2('MONTHLY');">$$([gw_schedule_monthly_label])</a></li>
+			</ul>
+		</div>
+	</div>
+	
+	<div class="dateallBar" style="display:none;">			
+		<span id="baseDateLabel">$$([gw_schedule_base_date_label])</span> <span id="baseDate"></span>
+		<a href="javascript:todayDate2();" onclick="" class="today"></a>
+	</div>
+	
+	<div class="dateBar">
+		<a href="javascript:lastDate2();" onclick="" class="datePre"></a>
+		<span id="curDate" class="dateNo"></span>
+		<a href="javascript:nextDate2();" onclick="" class="dateNext"></a>
+		<a href="javascript:todayDate2();" onclick="" class="btn_user gray"><span>$$([gw_schedule_today_label])</span></a>
+	</div>
+	
+	<div data-role="content" >
+        <div id="divList" data-role="none" class="divList"></div>
+		<ul id="list" data-role="listview" data-theme="d" class="equipList"></ul>
+	</div>
+	
+	<input type="hidden" id="apiCode" value="equiplist"/>
+	<input type="hidden" id="dateMode" value="DAILY"/>
+	<input type="hidden" id="isLoadedEquipment" value="false"/>
+	<input type="hidden" id="beforeSelectDay" value="0"/>
+</div>
+<div id="_TEMPLATE_sch2_schadd" data-role="page">	
+	<div data-role="header">
+		<a href="javascript:cancel_addSch2('sch');" data-direction="reverse">$$([gw_common_cancel_label])</a>		
+		<h1>$$([gw_schedule_add_label])</h1>
+		<a href="javascript:checkReserveEquip2();" data-direction="reverse">$$([gw_common_save_label])</a>
+	</div>
+	
+   	<ul id="list" data-role="listview" data-theme="d" class="schedule">
+		<li>
+    		<div class="grouping_left">$$([gw_schedule_title_label])</div>
+    		<div class="grouping_middle">
+    			<input id="title" name="title" type="text" data-role="none" class="txtCalendar txt">
+    		</div>
+    	</li>
+		<li>
+    		<div class="grouping_left">$$([gw_schedule_category_label])</div>
+    		<div class="grouping_middle">
+    			<select name="category" id="category" data-role="none"></select>
+    		</div>
+    	</li>    	
+		<li>
+    		<div class="grouping_left">$$([gw_schedule_repeat_label])</div>
+    		<div class="grouping_middle">
+    			<select name="recur_type" id="recur_type" onchange="javascript:changeRecurType(this)" data-role="none"></select>
+    			<div id="recur_cycle_area" style="display: none;margin-top: 7px; margin-bottom: 3px; padding-top: 5px;"></div>
+    		</div>
+    	</li>   	
+    	<li>
+			<div class="grouping_left">$$([gw_schedule_day_schedule_label])</div>
+			<div class="grouping_middle">
+				<input type="checkbox" name="cbDaySchedule" id="cbDaySchedule" data-role="none" onclick="javascript:toogleDaySchedule(this)"/>			
+			</div>
+    	</li>
+   		<li>
+    		<div class="grouping_left">$$([gw_schedule_start_date_label])</div>
+    		<div class="grouping_middle">
+    			<input id="txt_dtstart_date" class="txtCalendar" type="text" data-role="none" readonly="readonly"/>
+    			<a href="#" id="set_dtstart_date" class="btnCalendar"></a>
+    			<div style="display:none;">
+    				<input id="dtstart_date" name="dtstart_date" type="text" data-role="datebox" onchange="javascript:changeStartDate2();"
+	   					data-options='{"noButton": true, "mode": "calbox", "centerHoriz": true, "overrideDateFormat": "%Y.%m.%d", "overrideHeaderFormat": "%Y.%m.%d"}' />
+	  			</div> 	
+	  			
+	   			<select name="dtstart_hour" id="dtstart_hour" onchange="javascript:changeStartHour2()" data-role="none">
+    			</select>:
+    			<select name="dtstart_time" id="dtstart_time" data-role="none">
+    				<option value="00">00$$([gw_common_minute_label])</option>
+			  		<option value="05">05$$([gw_common_minute_label])</option>
+    				<option value="10">10$$([gw_common_minute_label])</option>
+			  		<option value="15">15$$([gw_common_minute_label])</option>
+    				<option value="20">20$$([gw_common_minute_label])</option>
+			  		<option value="25">25$$([gw_common_minute_label])</option>
+    				<option value="30">30$$([gw_common_minute_label])</option>
+			  		<option value="35">35$$([gw_common_minute_label])</option>
+    				<option value="40">40$$([gw_common_minute_label])</option>
+			  		<option value="45">45$$([gw_common_minute_label])</option>
+    				<option value="50">50$$([gw_common_minute_label])</option>
+			  		<option value="55">55$$([gw_common_minute_label])</option>
+    			</select>
+    		</div>
+    	</li>
+    	<li>
+    		<div class="grouping_left">$$([gw_schedule_end_date_label])</div>
+    		<div class="grouping_middle">
+    			<input id="txt_dtend_date" class="txtCalendar" type="text" data-role="none" readonly="readonly"/>
+    			<a href="#" id="set_dtend_date" class="btnCalendar"></a>
+    			<div style="display:none;">
+    				<input id="dtend_date" name="dtend_date" type="text" data-role="datebox" onchange="javascript:changeEndDate2();"
+	   					data-options='{"noButton": true, "mode": "calbox", "centerHoriz": true, "overrideDateFormat": "%Y.%m.%d", "overrideHeaderFormat": "%Y.%m.%d"}' />
+	  			</div> 	
+    		
+	   			<select name="dtend_hour" id="dtend_hour" data-role="none">
+    			</select>:
+    			<select name="dtend_time" id="dtend_time" data-role="none">
+    				<option value="00">00$$([gw_common_minute_label])</option>
+			  		<option value="05">05$$([gw_common_minute_label])</option>
+    				<option value="10">10$$([gw_common_minute_label])</option>
+			  		<option value="15">15$$([gw_common_minute_label])</option>
+    				<option value="20">20$$([gw_common_minute_label])</option>
+			  		<option value="25">25$$([gw_common_minute_label])</option>
+    				<option value="30">30$$([gw_common_minute_label])</option>
+			  		<option value="35">35$$([gw_common_minute_label])</option>
+    				<option value="40">40$$([gw_common_minute_label])</option>
+			  		<option value="45">45$$([gw_common_minute_label])</option>
+    				<option value="50">50$$([gw_common_minute_label])</option>
+			  		<option value="55">55$$([gw_common_minute_label])</option>
+    			</select>
+    		</div>
+    	</li>
+    	<li>
+    		<div class="grouping_left">$$([gw_schedule_calendar_label])</div>
+    		<div class="grouping_middle">
+    			<a href="javascript:showSelectCalendar2();" onclick="" class="btn_user gray">
+    				<span>$$([gw_schedule_select_calendar])</span>
+    			</a>
+    			<div id="calendarlist" class="equipmentDiv"></div>
+    			<!-- <select name="calendar_id" id="calendar_id" data-role="none"></select> -->
+    		</div>
+    	</li>
+    	<li name="li_attendee">
+			<div class="grouping_left"><span>$$([gw_schedule_attendee_label])</span></div>
+    		<div class='grouping_middle'>
+    			<a href="javascript:openAttendeeSelect();" class="btn_cube"><span class="btn_more"></span>
+    			</a>
+  				<div id="attendee" name="attendee" class="targetUserList" style="display:none;"></div>
+  			</div>
+    	</li>		  	
+    	<li>
+    		<div class="grouping_left">$$([gw_schedule_alarm_label])</div>
+    		<div class="grouping_middle">
+				<div id="alarm_rule"/>
+				<div id="alarm_rule_0mail"/>
+	    	</div>		
+    	</li>
+    	<li>
+    		<div class="grouping_left">$$([gw_schedule_content_label])</div>
+    		<div class="grouping_middle">
+    			<textarea name="summary" id="summary" class="contextBody" data-role="none"  placeholder=""></textarea>
+    		</div>
+    	</li>
+    	<li>
+    		<div class="grouping_left">$$([gw_schedule_reserve_equipment_label])</div>
+    		<div class="grouping_middle">
+    			<label><input type='radio' name='rdoEquip' id='rdoEquipY' data-role='none' onClick='toggleEquip(true)' checked='checked' /><span>Y</span></label>
+    			<label><input type='radio' name='rdoEquip' id='rdoEquipN' data-role='none' onClick='toggleEquip(false)'/><span>N</span></label>
+    			<div id="equipmentlist" class="equipmentDiv"></div>
+    		</div>
+    	</li>
+   	</ul>
+	<div data-role="popup" id="schRecurModifyDialog" data-overlay-theme="a" style="width:300px;" class="ui-corner-all">
+		<div data-role="header" data-theme="a" class="ui-corner-top">
+			<h1>$$([gw_schedule_modify_recur_title])</h1>
+		</div>
+		<div data-role="content" data-theme="d" class="ui-corner-bottom ui-content">
+			<ul id="optionlist" data-role="listview" data-theme="d" class="equipList">
+				<li>
+					<div class="grouping_left">
+						<input type="radio" data-role="none" name="rdoSchRecurModifyOption" value="1" /> 
+					</div>
+					<div class='grouping_middle'>
+						<h3>$$([gw_schedule_modify_recur_option1])</h3>
+					</div>
+				</li>
+				<li>
+					<div class="grouping_left">
+						<input type="radio" data-role="none" name="rdoSchRecurModifyOption" value="2" /> 
+					</div>
+					<div class='grouping_middle'>
+						<h3>$$([gw_schedule_modify_recur_option2])</h3>
+					</div>
+				</li>
+				<li>
+					<div class="grouping_left">
+						<input type="radio" data-role="none" name="rdoSchRecurModifyOption" value="4" /> 
+					</div>
+					<div class='grouping_middle'>
+						<h3>$$([gw_schedule_modify_recur_option4])</h3>
+					</div>
+				</li>
+			</ul>
+			
+			<div class="popupBtnArea">
+				<a href="javascript:saveSchRecurModifyDialog();" class="btn_txt gray"><span>$$([gw_common_modify_label])</span></a>
+				<a href="javascript:closeSchRecurModifyDialog();" class="btn_txt gray"><span>$$([gw_common_cancel_label])</span></a>
+			</div>
+		</div>
+	</div>
+   	<input type="hidden" id="calendarIds" value=""/>
+   	<input type="hidden" id="isUpdate" value=""/>
+   	<input type="hidden" id="baseDate" value=""/>
+   	<input type="hidden" id="event_id" value=""/>
+   	<input type="hidden" id="recur_id" value=""/>
+   	<input type="hidden" id="progressAddsch" name="progressAddsch" value="false"/>
+
+   	<template id="tmp_recurTypeEveryWeeks">
+    	<select name="recur_cycle" id="recurCycle"></select>
+    	<span style="padding-left: 5px;">$$([gw_schedule_recur_cycle_weekly])</span>
+    	<div id="recurCycleDayOfWeek"></div>
+	</template>
+</div>
+<div id="_TEMPLATE_sch2_schdetail" data-role="page">		
+	<div data-role="header">
+		<a href="javascript:PAGE_CONTROLLER.goBack();" data-direction="reverse">$$([gw_common_back_label])</a>	
+		<h1>$$([gw_schedule_schedule_view_label])</h1>
+		
+		<div id="headerBtn" class="ui-bar headerBtnBar" style="display:none;">
+			<a href="javascript:showSch2Add(true);" data-role="btn">$$([gw_common_modify_label])</a>	
+			<a href="javascript:deleteSch2();" data-role="btn" data-theme="c">$$([gw_common_delete_label])</a>
+    	</div>
+	</div>
+	
+	
+	<div data-role="content">
+        <div id="divList" data-role="none" class="divList"></div>
+		<ul id="list" data-role="listview" data-theme="d" class="schDetail">
+			<li>
+				<div class='grouping_left'>$$([gw_schedule_title_label])</div>
+				<div id="li_title" class='grouping_middle'></div>
+			</li>
+			<li>
+				<div class='grouping_left'>$$([gw_schedule_category_label])</div>
+				<div id="li_category" class='grouping_middle'></div>
+			</li>			
+			<li>
+				<div class='grouping_left'>$$([gw_schedule_writer_label])</div>
+				<div id="li_writer" class='grouping_middle'></div>
+			</li>
+			<li>
+				<div class='grouping_left'>$$([gw_schedule_repeat_label])</div>
+				<div id="li_repeat" class='grouping_middle'></div>
+			</li>
+			<li>
+				<div class='grouping_left'>$$([gw_schedule_term_label])</div>
+				<div id="li_term" class='grouping_middle'></div>
+			</li>
+			<li>
+				<div class='grouping_left'>$$([gw_schedule_calendar_label])</div>
+				<div id="li_calendar" class='grouping_middle'></div>
+			</li>
+			<li>
+				<div class='grouping_left'>$$([gw_schedule_attendee_label])</div>
+				<div id="li_attendee" class='grouping_middle'></div>
+			</li>			
+			<li>
+				<div class='grouping_left'>$$([gw_schedule_equipment_label])</div>
+				<div id="li_equipment" class='grouping_middle'></div>
+			</li>
+			<li>
+				<div class='grouping_left'>$$([gw_schedule_alarm_label])</div>
+				<div id="li_alarm" class='grouping_middle'></div>
+			</li>
+			<li>
+				<div class='grouping_left'>$$([gw_schedule_content_label])</div>
+				<div class='grouping_middle'>
+					<div id="li_content" class='description'></div>
+				</div>
+			</li>
+		</ul>
+		
+		<div data-role="popup" id="selectSchDeleteRecurDialog" data-overlay-theme="a" style="width:300px;" class="ui-corner-all">
+			<div data-role="header" data-theme="a" class="ui-corner-top">
+				<h1>$$([gw_schedule_delete_recur_title])</h1>
+			</div>
+			<div data-role="content" data-theme="d" class="ui-corner-bottom ui-content">
+				<ul id="optionlist" data-role="listview" data-theme="d" class="equipList">
+					<li>
+						<div class="grouping_left">
+							<input type="radio" data-role="none" name="rdoSchDeleteRecurOption" value="1" /> 
+						</div>
+						<div class='grouping_middle'>
+							<h3>$$([gw_schedule_delete_recur_option1])</h3>
+						</div>
+					</li>
+					<li>
+						<div class="grouping_left">
+							<input type="radio" data-role="none" name="rdoSchDeleteRecurOption" value="2" /> 
+						</div>
+						<div class='grouping_middle'>
+							<h3>$$([gw_schedule_delete_recur_option2])</h3>
+						</div>
+					</li>
+					<li>
+						<div class="grouping_left">
+							<input type="radio" data-role="none" name="rdoSchDeleteRecurOption" value="4" /> 
+						</div>
+						<div class='grouping_middle'>
+							<h3>$$([gw_schedule_delete_recur_option4])</h3>
+						</div>
+					</li>
+				</ul>
+				
+				<div class="popupBtnArea">
+					<a href="javascript:setSchDeleteRecurOption();" class="btn_txt gray"><span>$$([gw_common_delete_label])</span></a>
+					<a href="javascript:closeSelectSchDeleteRecurDialog();" class="btn_txt gray"><span>$$([gw_common_cancel_label])</span></a>
+				</div>
+			</div>
+		</div> 		
+	</div>
+	
+	<input type="hidden" id="event_id" value=""/>
+	<input type="hidden" id="start_dt" value=""/>
+	<input type="hidden" id="baseDate" value=""/>
+	<input type="hidden" id="recur_type" value=""/>
+	<input type="hidden" id="apiCode" value="schdetail"/>
+</div>
+<div id="_TEMPLATE_sch2_schlist" data-role="page">		
+	<div data-role="header">
+		<a href="javascript:PAGE_CONTROLLER.goBack();" data-direction="reverse">$$([gw_common_back_label])</a>	
+		<h1>$$([gw_schedule_list_label])</h1>
+		<div class="ui-btn-right">
+			<a href="javascript:showSch2Add();" data-role="button">$$([gw_common_add_label])</a>
+		</div>
+		
+		<div data-role='navbar'>
+			<ul>
+				<li><a id="DAILY" onclick="javascript:changeDateMode2('DAILY');" class='ui-btn-active'>$$([gw_schedule_daily_label])</a></li>
+				<li><a id="WEEKLY" onclick="javascript:changeDateMode2('WEEKLY');">$$([gw_schedule_weekly_label])</a></li>
+				<li><a id="MONTHLY" onclick="javascript:changeDateMode2('MONTHLY');">$$([gw_schedule_monthly_label])</a></li>
+			</ul>
+		</div>
+	</div>
+
+	<div class="calendarBar">
+		<select id="calMode" name="calMode" onchange="javascript:changeCalMode2()" data-role="none">
+			<option value="MY_SHARED">$$([gw_schedule_my_and_shared_calendar_label])</option>
+			<option value="ALL">$$([gw_schedule_all_calendar_label])</option>
+			<option value="99999999999999999999">$$([gw_schedule_shared_calendar_label])</option>
+		</select>
+		<span id="baseDate" style="display:none;"></span>
+	</div>
+	
+	<div class="dateBar">
+		<a href="javascript:lastDate2();" onclick="" class="datePre"></a>
+		<span id="curDate" class="dateNo"></span>
+		<a href="javascript:nextDate2();" onclick="" class="dateNext"></a>
+		<a href="javascript:todayDate2();" onclick="" class="btn_user gray">
+			<span>$$([gw_schedule_today_label])</span></a>
+	</div>
+	
+	<div data-role="content">
+        <div id="divList" data-role="none" class="divList"></div>
+		<ul id="list" data-role="listview" data-theme="d" class="schList"></ul>
+	</div>
+	
+	<input type="hidden" id="apiCode" value="schlist"/>
+	<input type="hidden" id="isLoadedCalendar" value="false"/>
+	<input type="hidden" id="dateMode" value="DAILY"/>
+	<input type="hidden" id="beforeSelectDay" value="0"/>
+</div>
+<div id="_TEMPLATE_sch2_schsearch" data-role="page">	
+	<div data-role="header">
+		<a href="javascript:PAGE_CONTROLLER.goBack();" data-direction="reverse">$$([gw_common_back_label])</a>	
+		<h1>$$([gw_schedule2_search_label])</h1>
+		<div class="ui-btn-right">
+			<a href="javascript:searchSch2();" data-role="button">$$([gw_common_search_label])</a>
+		</div>
+		
+<!-- 		<div data-role='navbar'>
+			<ul>
+				<li><a id="schTab" onclick="javascript:selectSearchTab('sch')" class='ui-btn-active'>$$([gw_schedule_label])</a></li>
+				<li><a id="todoTab" onclick="javascript:selectSearchTab('todo')">$$([gw_schedule_todo_label])</a></li>
+			</ul>
+		</div> -->
+	</div>
+
+	<ul id="list" data-role="listview" data-theme="d" class="schedule">
+		<li>
+    		<div class="grouping_left">$$([gw_schedule_title_label])</div>
+    		<div class="grouping_middle">
+    			<input id="title" name="title" type="text" data-role="none" class="txt" >
+    			<label><input type="checkbox" name="notitle" id="notitle" onclick="javascript:toggleNoTitle2()" data-role="none" />$$([gw_msg_common_nosearch_title])</label>
+    		</div>
+    	</li>
+   		<li>
+    		<div class="grouping_left">$$([gw_schedule_category_label])</div>
+    		<div class="grouping_middle">
+    			<select name='category' id='category' data-role='none'>
+					<option value=''>$$([gw_sign_signlist_type_all_label])</option>
+				</select>
+    		</div>
+   		</li>    	
+   		<li name='statusOption' style='display:none;'>
+    		<div class="grouping_left">$$([gw_schedule_status_label])</div>
+    		<div class="grouping_middle">
+    			<select name='status' id='status' data-role='none'>
+					<option value='0'>$$([gw_schedule_status_label])</option>
+					<option value='1'>$$([gw_schedule_status_progress_label])</option>
+					<option value='2'>$$([gw_schedule_status_finish_label])</option>
+					<option value='3'>$$([gw_schedule_status_delay_label])</option>
+					<option value='4'>$$([gw_schedule_status_cancel_label])</option>
+				</select>
+    		</div>
+   		</li>
+   		<li name='weightOption' style='display:none;'>
+    		<div class="grouping_left">$$([gw_schedule_importance_label])</div>
+    		<div class="grouping_middle">
+    			<select name='weight' id='weight' data-role='none'>
+					<option value='0'>$$([gw_schedule_importance_label])</option>
+					<option value='1'>$$([gw_schedule_weight_high])</option>
+					<option value='2'>$$([gw_schedule_weight_medium])</option>
+					<option value='3'>$$([gw_schedule_weight_low])</option>
+				</select>
+    		</div>
+   		</li>
+   		<li name='searchOption' style='display:none;'>
+    		<div class="grouping_left">$$([gw_common_option_label])</div>
+    		<div class="grouping_middle">
+    			<select name='select_option' id='select_option' data-role='none' onchange='toggleOption(this.value);'>
+    				<option value='3'>$$([gw_common_selectall_label])</option>
+					<option value='1'>$$([gw_schedule_equipment_label])</option>
+					<option value='2'>$$([gw_schedule_calendar_label])</option>
+					<option value='4'>$$([gw_schedule_shared_calendar_label])</option>
+				</select>
+				
+				<select name='calendar_id' id='calendar_id' data-role='none' style="display:none;">
+    				<option value='0'>$$([gw_schedule_all_calendar_label])</option>
+    			</select>
+    			
+    			<select name='equipment_id' id='equipment_id' data-role='none' style="display:none;">
+    				<option value='allequip'>$$([gw_schedule_all_equipment_label])</option>
+    			</select>
+    		</div>
+   		</li>
+   		<li>
+    		<div class="grouping_left">$$([gw_schedule_start_date_label])</div>
+    		<div class="grouping_middle">
+    			<input id="txt_dtstart_date" class="txtCalendar" type="text" data-role="none" readonly="readonly"/>
+    			<a href="#" id="set_dtstart_date" class="btnCalendar"></a>
+    			<div style="display:none;">
+    				<input id="dtstart_date" name="dtstart_date" type="text" data-role="datebox" onchange="javascript:changeStartDate2();"
+	   					data-options='{"noButton": true, "mode": "calbox", "centerHoriz": true, "overrideDateFormat": "%Y.%m.%d", "overrideHeaderFormat": "%Y.%m.%d"}' />
+	  			</div> 	
+    		</div>
+    	</li>
+    	<li>
+    		<div class="grouping_left">$$([gw_schedule_end_date_label])</div>
+    		<div class="grouping_middle">
+    			<input id="txt_dtend_date" class="txtCalendar" type="text" data-role="none" readonly="readonly"/>
+    			<a href="#" id="set_dtend_date" class="btnCalendar"></a>
+    			<div style="display:none;">
+    				<input id="dtend_date" name="dtend_date" type="text" data-role="datebox" onchange="javascript:changeEndDate2();"
+	   					data-options='{"noButton": true, "mode": "calbox", "centerHoriz": true, "overrideDateFormat": "%Y.%m.%d", "overrideHeaderFormat": "%Y.%m.%d"}' />
+	  			</div> 				
+	      	</div>
+    	</li>
+   		<li>
+    		<div class="grouping_left">$$([gw_schedule_period_label])</div>
+    		<div class="grouping_middle">
+    			<label class="nowrap"><input type="radio" name="period" value="1" data-role="none" onclick="javascript:setPeriod2(this.value)" checked="checked"/>$$([gw_schedule_period_day_1_label])</label>
+				<label class="nowrap"><input type="radio" name="period" value="2" data-role="none" onclick="javascript:setPeriod2(this.value)"/>$$([gw_schedule_period_day_2_label])</label>
+				<label class="nowrap"><input type="radio" name="period" value="3" data-role="none" onclick="javascript:setPeriod2(this.value)"/>$$([gw_schedule_period_day_3_label])</label>
+				<label class="nowrap"><input type="radio" name="period" value="4" data-role="none" onclick="javascript:setPeriod2(this.value)"/>$$([gw_schedule_period_day_4_label])</label>
+    		</div>
+   		</li>
+	</ul>
+	
+	<input type="hidden" id="currentTab" value=""/>
+	<input type="hidden" id="equipmentIds" value=""/>
+	<input type="hidden" id="calendarIds" value=""/>
+</div>
+<div id="_TEMPLATE_sch2_selectcalendar" data-role="page">		
+	<div data-role="header">
+		<a href="javascript:cancelSelectCalendar2();" data-direction="reverse">$$([gw_common_cancel_label])</a>	
+		<h1>$$([gw_schedule_select_calendar])</h1>
+		<div class="ui-btn-right">
+			<a href="javascript:completeSelectCalendar2();" data-role="button">$$([gw_schedule_status_finish_label])</a>
+		</div>
+	</div>
+
+	<div data-role="content" >
+		<ul id="list" data-role="listview" data-theme="d" class="equipList"></ul>
+	</div>
+	
+	<input type="hidden" id="dateMode" value="DAILY"/>
+	<input type="hidden" id="baseDate" value=""/>
+
+</div>
+<div id="_TEMPLATE_sch2_selectequipment" data-role="page">		
+	<div data-role="header">
+		<a href="javascript:cancelSelectEquipment2();" data-direction="reverse">$$([gw_common_cancel_label])</a>	
+		<h1>$$([gw_schedule_select_equipment])</h1>
+		<div class="ui-btn-right">
+			<a href="javascript:completeSelectEquipment2();" data-role="button">$$([gw_schedule_status_finish_label])</a>
+		</div>
+	</div>
+
+	<ul id="list" data-role="listview" data-theme="d" class="schedule">
+    	<li>
+    		<div>
+    			<label><input type="checkbox" data-role="none" id="checkAll" onclick="javascript:selectAllEquipment2();">
+    				<span>$$([gw_schedule_select_allequiplist])</span>
+    			</label>
+    			<div id="equipmentlist" class="equipmentDiv"></div>
+    		</div>
+    	</li>	
+	</ul>
+	
+	<input type="hidden" id="dateMode" value="DAILY"/>
+	<input type="hidden" id="baseDate" value=""/>
+
+</div>
+<div id="_TEMPLATE_sch2_todoadd" data-role="page">	
+	<div data-role="header">
+		<a href="javascript:cancel_addSch2('todo');" data-direction="reverse">$$([gw_common_cancel_label])</a>		
+		<h1>$$([gw_schedule_todo_add_label])</h1>
+		<a href="javascript:addTodo2();" data-direction="reverse">$$([gw_common_save_label])</a>
+	</div>
+	
+   	<ul data-role="listview" data-theme="d" class="schedule">
+    	<li>
+    		<div class="grouping_left">$$([gw_schedule_content_label])</div>
+    		<div class="grouping_middle">
+    			<input id="subject" name="subject" type="text" data-role="none" class="txt">
+    		</div>
+    	</li>
+    	<li>
+    		<div class="grouping_left">$$([gw_schedule_importance_label])</div>
+    		<div class="grouping_middle">
+    			<select name="weight" id="weight" data-role="none">
+    				<option value="1">$$([gw_schedule_weight_high])</option>
+					<option value="3">$$([gw_schedule_weight_medium])</option>
+					<option value="5">$$([gw_schedule_weight_low])</option>
+    			</select>
+    		</div>
+    	</li>
+   	</ul>
+   	
+   	<input type="hidden" id="isUpdate" value=""/>
+   	<input type="hidden" id="todo_id" value=""/>
+   	<input type="hidden" id="calendar_id" value=""/>
+   	<input type="hidden" id="progressAddtodo" name="progressAddtodo" value="false"/>
+</div>
+<div id="_TEMPLATE_sch2_tododetail" data-role="page">		
+	<div data-role="header">
+		<a href="javascript:PAGE_CONTROLLER.goBack();" data-direction="reverse">$$([gw_common_back_label])</a>	
+		<h1>$$([gw_schedule_todo_view_label])</h1>
+		
+		<div id="headerBtn" class="ui-bar headerBtnBar" style="display:none;">
+		  <a href="javascript:showTodo2Add(true);" data-role="btn">$$([gw_common_modify_label])</a>	
+		  <a href="javascript:deleteTodo2();" data-role="btn" data-theme="c">$$([gw_common_delete_label])</a>
+    	</div>
+	</div>
+	
+	<div data-role="content">
+		<ul id="list" data-role="listview" data-theme="d" class="todoDetails"></ul>
+	</div>
+	
+	<input type="hidden" id="todo_id" value=""/>
+	<input type="hidden" id="calendar_id" value=""/>
+	<input type="hidden" id="apiCode" value="tododetail"/>
+</div>
+<div id="_TEMPLATE_sch2_todolist" data-role="page">	
+	<div data-role="header">
+		<a href="javascript:PAGE_CONTROLLER.goBack();" data-direction="reverse">$$([gw_common_back_label])</a>	
+		<h1>$$([gw_schedule_todo_list_label])</h1>
+		<div class="ui-btn-right">
+			<a href="javascript:showTodo2Add();" data-role="button">$$([gw_common_add_label])</a>
+		</div>
+	</div>
+	
+	<div data-role="content">
+		<ul id="list" data-role="listview" data-theme="d" class="todolist"></ul>
+	</div>
+	
+	<input type="hidden" id="apiCode" value="todolist"/>
+	<input type="hidden" id="isLoadedCalendar" value="false"/>
+	<input type="hidden" id="dateMode" value="DAILY"/>
+</div>
+<div id="_TEMPLATE_sch6_schadd" data-role="page">	
+	<div data-role="header">
+		<a href="javascript:cancelSch6();" data-direction="reverse">$$([gw_common_cancel_label])</a>		
+		<h1>$$([gw_schedule_schadd_label])</h1>
+		<a href="javascript:addSch6();" data-direction="reverse">$$([gw_common_save_label])</a>
+	</div>
+	
+   	<ul id="list" data-role="listview" data-theme="d" class="schedule">
+    	<li>
+    		<div class="grouping_left">$$([gw_schedule_title_label])</div>
+    		<div class='grouping_middle'>
+    			<input id="title" name="title" type="text" data-role="none" class="txtCalendar txt">
+    		</div>
+    	</li>
+    	<li>
+    		<div class="grouping_left">$$([gw_schedule_owner_label])</div>
+    		<div class='grouping_middle'>
+    			<label><input type="radio" name="ownertype" id="ownertypeuser" data-role="none" checked="true" />$$([gw_schedule_ownertype_user])</label>
+    			<label><input type="radio" name="ownertype" id="ownertypedept" data-role="none" />$$([gw_schedule_ownertype_dept])</label>
+    		</div>
+    	</li>
+    	<li>
+    		<div class="grouping_left">$$([gw_schedule_start_date_label])</div>
+    		<div class="grouping_middle">
+    			<input id="txt_dtstart_date" class="txtCalendar" type="text" data-role="none" readonly="readonly"/>
+    			<a href="#" id="set_dtstart_date" class="btnCalendar"></a>
+    			<div style="display:none;">
+    				<input id="dtstart_date" name="dtstart_date" type="text" data-role="datebox" onchange="javascript:changeSch6StartDate();"
+	   					data-options='{"noButton": true, "mode": "calbox", "centerHoriz": true, "overrideDateFormat": "%Y.%m.%d", "overrideHeaderFormat": "%Y.%m.%d"}' />
+	  			</div>
+	  			
+	   			<select name="dtstart_hour" id="dtstart_hour" data-role="none">
+    			</select>:
+    			<select name="dtstart_time" id="dtstart_time" data-role="none">
+    				<option value="00">0$$([gw_common_minute_label])</option>
+    				<option value="10">10$$([gw_common_minute_label])</option>
+    				<option value="20">20$$([gw_common_minute_label])</option>
+    				<option value="30">30$$([gw_common_minute_label])</option>
+    				<option value="40">40$$([gw_common_minute_label])</option>
+			  		<option value="50">50$$([gw_common_minute_label])</option>
+    			</select>
+    		</div>
+    	</li>
+    	<li>
+    		<div class="grouping_left">$$([gw_schedule_end_date_label])</div>
+    		<div class="grouping_middle">
+    			<input id="txt_dtend_date" class="txtCalendar" type="text" data-role="none" readonly="readonly"/>
+    			<a href="#" id="set_dtend_date" class="btnCalendar"></a>
+    			<div style="display:none;">
+    				<input id="dtend_date" name="dtend_date" type="text" data-role="datebox" onchange="javascript:changeSch6EndDate();"
+	   					data-options='{"noButton": true, "mode": "calbox", "centerHoriz": true, "overrideDateFormat": "%Y.%m.%d", "overrideHeaderFormat": "%Y.%m.%d"}' />
+	  			</div>
+	  			
+	   			<select name="dtend_hour" id="dtend_hour" data-role="none">
+    			</select>:
+    			<select name="dtend_time" id="dtend_time" data-role="none">
+    				<option value="00">0$$([gw_common_minute_label])</option>
+    				<option value="10">10$$([gw_common_minute_label])</option>
+    				<option value="20">20$$([gw_common_minute_label])</option>
+    				<option value="30">30$$([gw_common_minute_label])</option>
+    				<option value="40">40$$([gw_common_minute_label])</option>
+			  		<option value="50">50$$([gw_common_minute_label])</option>
+    			</select>
+    		</div>
+    	</li>
+    	<li>
+    		<div class="grouping_left">$$([gw_schedule_add_security_level_label])</div>
+    		<div class='grouping_middle'>
+    			<select name="security" id="security" data-role="none">
+    				<option value="A">$$([gw_schedule_add_security_type_a])</option>
+    				<option value="D">$$([gw_schedule_add_security_type_d])</option>
+    				<option value="S">$$([gw_schedule_add_security_type_s])</option>
+    				<option value="O">$$([gw_schedule_add_security_type_o])</option>
+    			</select>
+    		</div>
+    	</li>
+    	<li>
+    		<div class="grouping_left">$$([gw_schedule_content_label])</div>
+    		<div class='grouping_middle'>
+    			<textarea name="description" id="description" data-role="none" class="contextBody" placeholder=""></textarea>
+    		</div>
+    	</li>
+    </ul>
+	
+	<input type="hidden" id="isUpdate" value=""/>
+	<input type="hidden" id="sid" value=""/>
+	<input type="hidden" id="progressAddsch" name="progressAddsch" value="false"/>
+</div>
+<div id="_TEMPLATE_sch6_schdetail" data-role="page">		
+	<div data-role="header">
+		<a href="javascript:PAGE_CONTROLLER.goBack();" data-direction="reverse">$$([gw_common_back_label])</a>	
+		<h1>$$([gw_schedule_schedule_view_label])</h1>
+		
+		<div id="headerBtn" class="ui-bar headerBtnBar" style="display:none;">
+			<a href="javascript:showSch6Add(true);" data-role="btn">$$([gw_common_modify_label])</a>	
+			<a href="javascript:deleteSch6();" data-role="btn" data-theme="c">$$([gw_common_delete_label])</a>
+    	</div>
+	</div>
+	
+	<div data-role="content">
+		<ul id="list" data-role="listview" data-theme="d" class="schDetail"></ul>
+	</div>
+	
+	<input type="hidden" id="sid" value=""/>
+	<input type="hidden" id="dtstart" value=""/>
+</div>
+<div id="_TEMPLATE_sch6_schlist" data-role="page">		
+	<div data-role="header">
+		<a href="javascript:PAGE_CONTROLLER.goBack();" data-direction="reverse">$$([gw_common_back_label])</a>	
+		<h1>$$([gw_schedule_list_label])</h1>
+		<div class="ui-btn-right">
+			<a href="javascript:showSch6Add();" data-role="button">$$([gw_schedule_schadd_label])</a>
+		</div>
+		
+		<div data-role='navbar'>
+			<ul>
+				<li><a id="daily" onclick="javascript:changeSch6DateTab('daily');" class='ui-btn-active'>$$([gw_schedule_daily_label])</a></li>
+				<li><a id="weekly" onclick="javascript:changeSch6DateTab('weekly');">$$([gw_schedule_weekly_label])</a></li>
+				<li><a id="monthly" onclick="javascript:changeSch6DateTab('monthly');">$$([gw_schedule_monthly_label])</a></li>
+				<li><a id="plan" onclick="javascript:changeSch6DateTab('plan');">$$([gw_schedule_monthplan_label])</a></li>
+			</ul>
+		</div>
+	</div>
+	
+	<div class="dateBar">
+		<a href="javascript:sch6LastDate();" onclick="" class="datePre"></a>
+		<span id="curDate" class="dateNo"></span>
+		<a href="javascript:sch6NextDate();" onclick="" class="dateNext"></a>
+		<a href="javascript:sch6Today();" onclick="" class="btn_user gray">
+			<span>$$([gw_schedule_today_label])</span></a>
+	</div>
+	
+	<div data-role="content">
+        <div id="divList" data-role="none" class="divList"></div>
+		<ul id="list" data-role="listview" data-theme="d" class="schList"></ul>
+	</div>
+	
+	<input type="hidden" id="apiCode" value="schlist" />
+	<input type="hidden" id="baseDate" value="" />
+	<input type="hidden" id="dateMode" value="daily"/>
+</div>
+<div id="_TEMPLATE_sch_detaillist" data-role="page">		
+	<div data-role="header">
+		<a href="javascript:PAGE_CONTROLLER.goBack();" data-direction="reverse">$$([gw_common_back_label])</a>	
+		<h1 id="viewTitle"></h1>
+	</div>
+	
+	<div data-role="content">
+        <div id="divList" data-role="none" class="divList"></div>
+		<ul id="list" data-role="listview" data-theme="d" class="schList"></ul>
+	</div>
+	
+	<input type="hidden" id="apiCode" value="detaillist"/>
+</div>
+<div id="_TEMPLATE_sch_equipdetail" data-role="page">		
+	<div data-role="header">
+		<a href="javascript:PAGE_CONTROLLER.goBack();" data-direction="reverse">$$([gw_common_back_label])</a>	
+		<h1>$$([gw_schedule_equipment_view_label])</h1>
+		
+		<div id="headerBtn" class="ui-bar headerBtnBar" style="display:none;">
+			<a href="javascript:showSchAdd(true);" data-role="btn">$$([gw_common_modify_label])</a>	
+			<a href="javascript:deleteSch();" data-role="btn" data-theme="c">$$([gw_common_delete_label])</a>
+    	</div>
+	</div>
+	
+	<div data-role="content">
+        <div id="divList" data-role="none" class="divList"></div>
+		<ul id="list" data-role="listview" data-theme="d" class="schDetail"></ul>
+	</div>
+	
+	<input type="hidden" id="event_id" value=""/>
+	<input type="hidden" id="start_dt" value=""/>
+	<input type="hidden" id="apiCode" value="equipdetail"/>
+</div>
+<div id="_TEMPLATE_sch_equiplist" data-role="page">		
+	<div data-role="header">
+		<a href="javascript:PAGE_CONTROLLER.goBack();" data-direction="reverse">$$([gw_common_back_label])</a>	
+		<h1>$$([gw_schedule_equip_list_label])</h1>
+		<div class="ui-btn-right">
+			<a href="javascript:showSelectEquipment();" data-role="button">$$([gw_schedule_equipment_label])</a>
+			<a href="javascript:showSchAdd();" data-role="button">$$([gw_common_add_label])</a>
+		</div>
+		<div data-role='navbar'>
+			<ul>
+				<li><a id="DAILY" onclick="javascript:changeDateMode('DAILY');" class='ui-btn-active'>$$([gw_schedule_daily_label])</a></li>
+				<li><a id="WEEKLY" onclick="javascript:changeDateMode('WEEKLY');">$$([gw_schedule_weekly_label])</a></li>
+				<li><a id="MONTHLY" onclick="javascript:changeDateMode('MONTHLY');">$$([gw_schedule_monthly_label])</a></li>
+			</ul>
+		</div>
+	</div>
+	
+	<div class="dateallBar" style="display:none;">			
+		<span id="baseDateLabel">$$([gw_schedule_base_date_label])</span> <span id="baseDate"></span>
+		<a href="javascript:todayDate();" onclick="" class="today"></a>
+	</div>
+	
+	<div class="dateBar">
+		<a href="javascript:lastDate();" onclick="" class="datePre"></a>
+		<span id="curDate" class="dateNo"></span>
+		<a href="javascript:nextDate();" onclick="" class="dateNext"></a>
+		<a href="javascript:todayDate();" onclick="" class="btn_user gray"><span>$$([gw_schedule_today_label])</span></a>
+	</div>
+	
+	<div data-role="content" >
+        <div id="divList" data-role="none" class="divList"></div>
+		<ul id="list" data-role="listview" data-theme="d" class="equipList"></ul>
+	</div>
+	
+	<input type="hidden" id="apiCode" value="equiplist"/>
+	<input type="hidden" id="dateMode" value="DAILY"/>
+	<input type="hidden" id="isLoadedEquipment" value="false"/>
+</div>
+<div id="_TEMPLATE_sch_equiplistdetail" data-role="page">		
+	<div data-role="header">
+		<a href="javascript:PAGE_CONTROLLER.goBack();" data-direction="reverse">$$([gw_common_back_label])</a>	
+		<h1>$$([gw_schedule_equip_list_label])</h1>
+		<div class="ui-btn-right">
+			<a href="javascript:showSchAdd();" data-role="button">$$([gw_common_add_label])</a>
+		</div>
+		
+		<div data-role='navbar'>
+			<ul>
+				<li><a id="DAILY" onclick="javascript:changeDateMode('DAILY');" class='ui-btn-active'>$$([gw_schedule_daily_label])</a></li>
+				<li><a id="WEEKLY" onclick="javascript:changeDateMode('WEEKLY');">$$([gw_schedule_weekly_label])</a></li>
+				<li><a id="MONTHLY" onclick="javascript:changeDateMode('MONTHLY');">$$([gw_schedule_monthly_label])</a></li>
+			</ul>
+		</div>
+	</div>
+	
+	<div class="dateBar">
+		<a href="javascript:lastDate();" onclick="" class="datePre"></a>
+		<span id="baseDate" class="dateNo"></span>
+		<a href="javascript:nextDate();" onclick="" class="dateNext"></a>
+		<a href="javascript:todayDate();" onclick="" class="btn_user gray"><span>$$([gw_schedule_today_label])</span></a>
+	</div>
+	
+	<div data-role="content" >
+		<div id="divTitle" data-role="none" class="divList"></div>
+        <div id="divList" data-role="none" class="divList"></div>
+		<ul id="list" data-role="listview" data-theme="d"></ul>
+	</div>
+	
+	<input type="hidden" id="apiCode" value="equiplistdetail"/>
+	<input type="hidden" id="equipmentIDS" value=""/>
+	<input type="hidden" id="dateMode" value="DAILY"/>
+</div>
+<div id="_TEMPLATE_sch_schadd" data-role="page">	
+	<div data-role="header">
+		<a href="javascript:cancel_addSch('sch');" data-direction="reverse">$$([gw_common_cancel_label])</a>		
+		<h1>$$([gw_schedule_add_label])</h1>
+		<a href="javascript:checkReserveEquip();" data-direction="reverse">$$([gw_common_save_label])</a>
+	</div>
+	
+   	<ul id="list" data-role="listview" data-theme="d" class="schedule">
+		<li>
+    		<div class="grouping_left">$$([gw_schedule_title_label])</div>
+    		<div class="grouping_middle">
+    			<input id="title" name="title" type="text" data-role="none" class="txtCalendar txt">
+    		</div>
+    	</li>
+   		<li>
+    		<div class="grouping_left">$$([gw_schedule_start_date_label])</div>
+    		<div class="grouping_middle">
+    			<input id="txt_dtstart_date" class="txtCalendar" type="text" data-role="none" readonly="readonly"/>
+    			<a href="#" id="set_dtstart_date" class="btnCalendar"></a>
+    			<div style="display:none;">
+    				<input id="dtstart_date" name="dtstart_date" type="text" data-role="datebox" onchange="javascript:changeStartDate();"
+	   					data-options='{"noButton": true, "mode": "calbox", "centerHoriz": true, "overrideDateFormat": "%Y.%m.%d", "overrideHeaderFormat": "%Y.%m.%d"}' />
+	  			</div> 	
+	  			
+	   			<select name="dtstart_hour" id="dtstart_hour" data-role="none">
+    			</select>:
+    			<select name="dtstart_time" id="dtstart_time" data-role="none">
+    				<option value="00">00$$([gw_common_minute_label])</option>
+			  		<option value="30">30$$([gw_common_minute_label])</option>
+    			</select>
+    		</div>
+    	</li>
+    	<li>
+    		<div class="grouping_left">$$([gw_schedule_end_date_label])</div>
+    		<div class="grouping_middle">
+    			<input id="txt_dtend_date" class="txtCalendar" type="text" data-role="none" readonly="readonly"/>
+    			<a href="#" id="set_dtend_date" class="btnCalendar"></a>
+    			<div style="display:none;">
+    				<input id="dtend_date" name="dtend_date" type="text" data-role="datebox" onchange="javascript:changeEndDate();"
+	   					data-options='{"noButton": true, "mode": "calbox", "centerHoriz": true, "overrideDateFormat": "%Y.%m.%d", "overrideHeaderFormat": "%Y.%m.%d"}' />
+	  			</div> 	
+    		
+	   			<select name="dtend_hour" id="dtend_hour" data-role="none">
+    			</select>:
+    			<select name="dtend_time" id="dtend_time" data-role="none">
+    				<option value="00">00$$([gw_common_minute_label])</option>
+			  		<option value="30">30$$([gw_common_minute_label])</option>
+    			</select>
+    		</div>
+    	</li>
+    	<li>
+    		<div class="grouping_left">$$([gw_schedule_calendar_label])</div>
+    		<div class="grouping_middle">
+    			<select name="calendar_id" id="calendar_id" data-role="none"></select>
+    		</div>
+    	</li>
+    	<li>
+    		<div class="grouping_left">$$([gw_schedule_content_label])</div>
+    		<div class="grouping_middle">
+    			<textarea name="summary" id="summary" class="contextBody" data-role="none"  placeholder=""></textarea>
+    		</div>
+    	</li>
+    	<li>
+    		<div class="grouping_left">$$([gw_schedule_reserve_equipment_label])</div>
+    		<div class="grouping_middle">
+    			<label><input type='radio' name='rdoEquip' id='rdoEquipY' data-role='none' onClick='toggleEquip(true)' checked='checked' />Y</label>
+    			<label><input type='radio' name='rdoEquip' id='rdoEquipN' data-role='none' onClick='toggleEquip(false)'/>N</label>
+    			<div id="equipmentlist" class="equipmentDiv"></div>
+    		</div>
+    	</li>
+   	</ul>
+   	
+   	<input type="hidden" id="isUpdate" value=""/>
+   	<input type="hidden" id="event_id" value=""/>
+   	<input type="hidden" id="recur_id" value=""/>
+   	<input type="hidden" id="progressAddsch" name="progressAddsch" value="false"/>
+</div>
+<div id="_TEMPLATE_sch_schdetail" data-role="page">		
+	<div data-role="header">
+		<a href="javascript:PAGE_CONTROLLER.goBack();" data-direction="reverse">$$([gw_common_back_label])</a>	
+		<h1>$$([gw_schedule_schedule_view_label])</h1>
+		
+		<div id="headerBtn" class="ui-bar headerBtnBar" style="display:none;">
+			<a href="javascript:showSchAdd(true);" data-role="btn">$$([gw_common_modify_label])</a>	
+			<a href="javascript:deleteSch();" data-role="btn" data-theme="c">$$([gw_common_delete_label])</a>
+    	</div>
+	</div>
+	
+	
+	<div data-role="content">
+        <div id="divList" data-role="none" class="divList"></div>
+		<ul id="list" data-role="listview" data-theme="d" class="schDetail">
+			<li>
+				<div class='grouping_left'>$$([gw_schedule_title_label])</div>
+				<div id="li_title" class='grouping_middle'></div>
+			</li>
+			<li>
+				<div class='grouping_left'>$$([gw_schedule_writer_label])</div>
+				<div id="li_writer" class='grouping_middle'></div>
+			</li>
+			<li>
+				<div class='grouping_left'>$$([gw_schedule_repeat_label])</div>
+				<div id="li_repeat" class='grouping_middle'></div>
+			</li>
+			<li>
+				<div class='grouping_left'>$$([gw_schedule_term_label])</div>
+				<div id="li_term" class='grouping_middle'></div>
+			</li>
+			<li>
+				<div class='grouping_left'>$$([gw_schedule_calendar_label])</div>
+				<div id="li_calendar" class='grouping_middle'></div>
+			</li>
+			<li>
+				<div class='grouping_left'>$$([gw_schedule_equipment_label])</div>
+				<div id="li_equipment" class='grouping_middle'></div>
+			</li>
+			<li>
+				<div class='grouping_left'>$$([gw_schedule_content_label])</div>
+				<div class='grouping_middle'>
+					<div id="li_content" class='description'></div>
+				</div>
+			</li>
+		</ul>
+	</div>
+	
+	<input type="hidden" id="event_id" value=""/>
+	<input type="hidden" id="start_dt" value=""/>
+	<input type="hidden" id="apiCode" value="schdetail"/>
+</div>
+<div id="_TEMPLATE_sch_schlist" data-role="page">		
+	<div data-role="header">
+		<a href="javascript:PAGE_CONTROLLER.goBack();" data-direction="reverse">$$([gw_common_back_label])</a>	
+		<h1>$$([gw_schedule_list_label])</h1>
+		<div class="ui-btn-right">
+			<a href="javascript:showSchAdd();" data-role="button">$$([gw_common_add_label])</a>
+		</div>
+		
+		<div data-role='navbar'>
+			<ul>
+				<li><a id="DAILY" onclick="javascript:changeDateMode('DAILY');" class='ui-btn-active'>$$([gw_schedule_daily_label])</a></li>
+				<li><a id="WEEKLY" onclick="javascript:changeDateMode('WEEKLY');">$$([gw_schedule_weekly_label])</a></li>
+				<li><a id="MONTHLY" onclick="javascript:changeDateMode('MONTHLY');">$$([gw_schedule_monthly_label])</a></li>
+			</ul>
+		</div>
+	</div>
+
+	<div class="calendarBar">
+		<select id="calMode" name="calMode" onchange="javascript:changeCalMode()" data-role="none">
+			<option val="ALL">$$([gw_schedule_all_calendar_label])</option>
+		</select>
+		<span id="baseDate" style="display:none;"></span>
+	</div>
+	
+	<div class="dateBar">
+		<a href="javascript:lastDate();" onclick="" class="datePre"></a>
+		<span id="curDate" class="dateNo"></span>
+		<a href="javascript:nextDate();" onclick="" class="dateNext"></a>
+		<a href="javascript:todayDate();" onclick="" class="btn_user gray">
+			<span>$$([gw_schedule_today_label])</span></a>
+	</div>
+	
+	<div data-role="content">
+        <div id="divList" data-role="none" class="divList"></div>
+		<ul id="list" data-role="listview" data-theme="d" class="schList"></ul>
+	</div>
+	
+	<input type="hidden" id="apiCode" value="schlist"/>
+	<input type="hidden" id="isLoadedCalendar" value="false"/>
+	<input type="hidden" id="dateMode" value="DAILY"/>
+</div>
+<div id="_TEMPLATE_sch_schsearch" data-role="page">	
+	<div data-role="header">
+		<a href="javascript:PAGE_CONTROLLER.goBack();" data-direction="reverse">$$([gw_common_back_label])</a>	
+		<h1>$$([gw_schedule_search_label])</h1>
+		<div class="ui-btn-right">
+			<a href="javascript:searchSch();" data-role="button">$$([gw_common_search_label])</a>
+		</div>
+		
+		<div data-role='navbar'>
+			<ul>
+				<li><a id="schTab" onclick="javascript:selectSearchTab('sch')" class='ui-btn-active'>$$([gw_schedule_label])</a></li>
+				<li><a id="todoTab" onclick="javascript:selectSearchTab('todo')">$$([gw_schedule_todo_label])</a></li>
+			</ul>
+		</div>
+	</div>
+	
+	<ul id="list" data-role="listview" data-theme="d" class="schedule">
+		<li>
+    		<div class="grouping_left">$$([gw_schedule_title_label])</div>
+    		<div class="grouping_middle">
+    			<input id="title" name="title" type="text" data-role="none" class="txt" >
+    			<label><input type="checkbox" name="notitle" id="notitle" onclick="javascript:toggleNoTitle()" data-role="none" />$$([gw_msg_common_nosearch_title])</label>
+    		</div>
+    	</li>
+   		<li name='statusOption' style='display:none;'>
+    		<div class="grouping_left">$$([gw_schedule_status_label])</div>
+    		<div class="grouping_middle">
+    			<select name='status' id='status' data-role='none'>
+					<option value='0'>$$([gw_schedule_status_label])</option>
+					<option value='1'>$$([gw_schedule_status_progress_label])</option>
+					<option value='2'>$$([gw_schedule_status_finish_label])</option>
+					<option value='3'>$$([gw_schedule_status_delay_label])</option>
+					<option value='4'>$$([gw_schedule_status_cancel_label])</option>
+				</select>
+    		</div>
+   		</li>
+   		<li name='weightOption' style='display:none;'>
+    		<div class="grouping_left">$$([gw_schedule_importance_label])</div>
+    		<div class="grouping_middle">
+    			<select name='weight' id='weight' data-role='none'>
+					<option value='0'>$$([gw_schedule_importance_label])</option>
+					<option value='1'>$$([gw_schedule_weight_high])</option>
+					<option value='2'>$$([gw_schedule_weight_medium])</option>
+					<option value='3'>$$([gw_schedule_weight_low])</option>
+				</select>
+    		</div>
+   		</li>
+   		<li name='searchOption' style='display:none;'>
+    		<div class="grouping_left">$$([gw_common_option_label])</div>
+    		<div class="grouping_middle">
+    			<select name='select_option' id='select_option' data-role='none' onchange='toggleOption(this.value);'>
+    				<option value='3'>$$([gw_common_selectall_label])</option>
+					<option value='1'>$$([gw_schedule_equipment_label])</option>
+					<option value='2'>$$([gw_schedule_calendar_label])</option>
+				</select>
+				
+				<select name='calendar_id' id='calendar_id' data-role='none' style="display:none;">
+    				<option value='0'>$$([gw_schedule_all_calendar_label])</option>
+    			</select>
+    			
+    			<select name='equipment_id' id='equipment_id' data-role='none' style="display:none;">
+    				<option value='allequip'>$$([gw_schedule_all_equipment_label])</option>
+    			</select>
+    		</div>
+   		</li>
+   		<li>
+    		<div class="grouping_left">$$([gw_schedule_start_date_label])</div>
+    		<div class="grouping_middle">
+    			<input id="txt_dtstart_date" class="txtCalendar" type="text" data-role="none" readonly="readonly"/>
+    			<a href="#" id="set_dtstart_date" class="btnCalendar"></a>
+    			<div style="display:none;">
+    				<input id="dtstart_date" name="dtstart_date" type="text" data-role="datebox" onchange="javascript:changeStartDate();"
+	   					data-options='{"noButton": true, "mode": "calbox", "centerHoriz": true, "overrideDateFormat": "%Y.%m.%d", "overrideHeaderFormat": "%Y.%m.%d"}' />
+	  			</div> 	
+    		</div>
+    	</li>
+    	<li>
+    		<div class="grouping_left">$$([gw_schedule_end_date_label])</div>
+    		<div class="grouping_middle">
+    			<input id="txt_dtend_date" class="txtCalendar" type="text" data-role="none" readonly="readonly"/>
+    			<a href="#" id="set_dtend_date" class="btnCalendar"></a>
+    			<div style="display:none;">
+    				<input id="dtend_date" name="dtend_date" type="text" data-role="datebox" onchange="javascript:changeEndDate();"
+	   					data-options='{"noButton": true, "mode": "calbox", "centerHoriz": true, "overrideDateFormat": "%Y.%m.%d", "overrideHeaderFormat": "%Y.%m.%d"}' />
+	  			</div> 				
+	      	</div>
+    	</li>
+   		<li>
+    		<div class="grouping_left">$$([gw_schedule_period_label])</div>
+    		<div class="grouping_middle">
+    			<label><input type="radio" name="period" value="1" data-role="none" onclick="javascript:setPeriod(this.value)" checked="checked"/>$$([gw_schedule_period_day_1_label])</label>
+				<label><input type="radio" name="period" value="2" data-role="none" onclick="javascript:setPeriod(this.value)"/>$$([gw_schedule_period_day_2_label])</label>
+				<label><input type="radio" name="period" value="3" data-role="none" onclick="javascript:setPeriod(this.value)"/>$$([gw_schedule_period_day_3_label])</label>
+				<label><input type="radio" name="period" value="4" data-role="none" onclick="javascript:setPeriod(this.value)"/>$$([gw_schedule_period_day_4_label])</label>
+    		</div>
+   		</li>
+	</ul>
+	
+	<input type="hidden" id="currentTab" value=""/>
+	<input type="hidden" id="equipmentIds" value=""/>
+	<input type="hidden" id="companyCalendarIds" value=""/>
+	<input type="hidden" id="teamCalendarIds" value=""/>
+	<input type="hidden" id="privateCalendarIds" value=""/>
+</div>
+<div id="_TEMPLATE_sch_selectcalendar" data-role="page">		
+	<div data-role="header">
+		<a href="javascript:cancelSelectCalendar();" data-direction="reverse">$$([gw_common_cancel_label])</a>	
+		<h1>$$([gw_schedule_select_calendar])</h1>
+		<div class="ui-btn-right">
+			<a href="javascript:completeSelectCalendar();" data-role="button">$$([gw_schedule_status_finish_label])</a>
+		</div>
+	</div>
+
+	<div data-role="content" >
+		<ul id="list" data-role="listview" data-theme="d" class="equipList"></ul>
+	</div>
+	
+	<input type="hidden" id="dateMode" value="DAILY"/>
+	<input type="hidden" id="baseDate" value=""/>
+
+</div>
+<div id="_TEMPLATE_sch_selectequipment" data-role="page">		
+	<div data-role="header">
+		<a href="javascript:cancelSelectEquipment();" data-direction="reverse">$$([gw_common_cancel_label])</a>	
+		<h1>$$([gw_schedule_select_equipment])</h1>
+		<div class="ui-btn-right">
+			<a href="javascript:completeSelectEquipment();" data-role="button">$$([gw_schedule_status_finish_label])</a>
+		</div>
+	</div>
+
+	<div data-role="content" >
+		<ul id="list" data-role="listview" data-theme="d" class="equipList"></ul>
+	</div>
+	
+	<input type="hidden" id="dateMode" value="DAILY"/>
+	<input type="hidden" id="baseDate" value=""/>
+
+</div>
+<div id="_TEMPLATE_sch_todoadd" data-role="page">	
+	<div data-role="header">
+		<a href="javascript:cancel_addSch('todo');" data-direction="reverse">$$([gw_common_cancel_label])</a>		
+		<h1>$$([gw_schedule_todo_add_label])</h1>
+		<a href="javascript:addTodo();" data-direction="reverse">$$([gw_common_save_label])</a>
+	</div>
+	
+   	<ul data-role="listview" data-theme="d" class="schedule">
+		<li>
+    		<div class="grouping_left">$$([gw_schedule_title_label])</div>
+    		<div class="grouping_middle">
+    			<input id="title" name="title" type="text" data-role="none" class="txt">
+    		</div>
+    	</li>
+   		<li>
+    		<div class="grouping_left">$$([gw_schedule_start_date_label])</div>
+    		<div class="grouping_middle">
+    			<input id="txt_dtstart_date" class="txtCalendar" type="text" data-role="none" readonly="readonly"/>
+    			<a href="#" id="set_dtstart_date" class="btnCalendar"></a>
+    			<div style="display:none;">
+    				<input id="dtstart_date" name="dtstart_date" type="text" data-role="datebox" onchange="javascript:changeStartDate();"
+	   					data-options='{"noButton": true, "mode": "calbox", "centerHoriz": true, "overrideDateFormat": "%Y.%m.%d", "overrideHeaderFormat": "%Y.%m.%d"}' />
+	  			</div> 	
+    		</div>
+    	</li>
+    	<li>
+    		<div class="grouping_left">$$([gw_schedule_end_date_label])</div>
+    		<div class="grouping_middle">
+    			<input id="txt_dtend_date" class="txtCalendar" type="text" data-role="none" readonly="readonly"/>
+    			<a href="#" id="set_dtend_date" class="btnCalendar"></a>
+    			<div style="display:none;">
+    				<input id="dtend_date" name="dtend_date" type="text" data-role="datebox" onchange="javascript:changeEndDate();"
+	   					data-options='{"noButton": true, "mode": "calbox", "centerHoriz": true, "overrideDateFormat": "%Y.%m.%d", "overrideHeaderFormat": "%Y.%m.%d"}' />
+	  			</div> 	
+    		</div>
+    	</li>
+    	<li>
+    		<div class="grouping_left">$$([gw_schedule_calendar_label])</div>
+    		<div class="grouping_middle">
+    			<select name="calendar_id" id="calendar_id" data-role="none"></select>
+    		</div>
+    	</li>
+    	<li>
+    		<div class="grouping_left">$$([gw_schedule_importance_label])</div>
+    		<div class="grouping_middle">
+    			<select name="weight" id="weight" data-role="none">
+    				<option value="1">$$([gw_schedule_weight_high])</option>
+					<option value="2">$$([gw_schedule_weight_medium])</option>
+					<option value="3">$$([gw_schedule_weight_low])</option>
+    			</select>
+    		</div>
+    	</li>
+    	
+    	<li>
+    		<div class="grouping_left">$$([gw_schedule_status_label])</div>
+    		<div class="grouping_middle">
+    			<select name="status" id="status" data-role="none">
+    				<option value="1">$$([gw_schedule_status_progress_label])</option>
+					<option value="2">$$([gw_schedule_status_finish_label])</option>
+					<option value="4">$$([gw_schedule_status_cancel_label])</option>
+    			</select>
+    			<input id="progress" name="progress" type="text" size="3" value="0" data-role="none" class="txt" 
+    				style="width:70px;ime-mode=disabled;text-align:right;" maxlength="3">%
+    		</div>
+    	</li>
+    	<li>
+    		<div class="grouping_left">$$([gw_schedule_content_label])</div>
+    		<div class="grouping_middle">
+    			<textarea name="summary" id="summary" class="contextBody" data-role="none"  placeholder=""></textarea>
+    		</div>
+    	</li>
+   	</ul>
+   	
+   	<input type="hidden" id="isUpdate" value=""/>
+   	<input type="hidden" id="todo_id" value=""/>
+   	<input type="hidden" id="recur_id" value=""/>
+   	<input type="hidden" id="progressAddtodo" name="progressAddtodo" value="false"/>
+</div>
+<div id="_TEMPLATE_sch_tododetail" data-role="page">		
+	<div data-role="header">
+		<a href="javascript:PAGE_CONTROLLER.goBack();" data-direction="reverse">$$([gw_common_back_label])</a>	
+		<h1>$$([gw_schedule_todo_view_label])</h1>
+		
+		<div id="headerBtn" class="ui-bar headerBtnBar" style="display:none;">
+		  <a href="javascript:showTodoAdd(true);" data-role="btn">$$([gw_common_modify_label])</a>	
+		  <a href="javascript:deleteTodo();" data-role="btn" data-theme="c">$$([gw_common_delete_label])</a>
+    	</div>
+	</div>
+	
+	<div data-role="content">
+        <div id="divList" data-role="none" class="divList"></div>
+		<ul id="list" data-role="listview" data-theme="d" class="todoDetails"></ul>
+	</div>
+	
+	<input type="hidden" id="todo_id" value=""/>
+	<input type="hidden" id="start_dt" value=""/>
+	<input type="hidden" id="apiCode" value="tododetail"/>
+</div>
+<div id="_TEMPLATE_sch_todolist" data-role="page">	
+	<div data-role="header">
+		<a href="javascript:PAGE_CONTROLLER.goBack();" data-direction="reverse">$$([gw_common_back_label])</a>	
+		<h1>$$([gw_schedule_todo_list_label])</h1>
+		<div class="ui-btn-right">
+			<a href="javascript:showTodoAdd();" data-role="button">$$([gw_common_add_label])</a>
+		</div>
+		
+		<div data-role='navbar'>
+			<ul>
+				<li><a id="DAILY" onclick="javascript:changeDateMode('DAILY');" class='ui-btn-active'>$$([gw_schedule_daily_label])</a></li>
+				<li><a id="WEEKLY" onclick="javascript:changeDateMode('WEEKLY');">$$([gw_schedule_weekly_label])</a></li>
+				<li><a id="MONTHLY" onclick="javascript:changeDateMode('MONTHLY');">$$([gw_schedule_monthly_label])</a></li>
+			</ul>
+		</div>
+	</div>
+	
+	<div class="calendarBar">
+		<select id="calMode" name="calMode" onchange="javascript:changeCalMode()" data-role="none">
+			<option val="ALL">$$([gw_schedule_all_calendar_label])</option>
+		</select>
+		<span id="baseDate" style="display:none;"></span>
+		
+	</div>
+	
+	<div class="dateBar">
+		<a href="javascript:lastDate();" onclick="" class="datePre"></a>
+		<span id="curDate" class="dateNo"></span>
+		<a href="javascript:nextDate();" onclick="" class="dateNext"></a>
+		<a href="javascript:todayDate();" onclick="" class="btn_user gray"><span>$$([gw_schedule_today_label])</span></a>
+	</div>
+	 
+	<div data-role="content">
+        <div id="divList" data-role="none" class="divList"></div>
+		<ul id="list" data-role="listview" data-theme="d" class="todolist"></ul>
+	</div>
+	
+	<input type="hidden" id="apiCode" value="todolist"/>
+	<input type="hidden" id="isLoadedCalendar" value="false"/>
+	<input type="hidden" id="dateMode" value="DAILY"/>
+</div>
+<div id="_TEMPLATE_search_condition" data-role="page">
+	<div data-role="header">	
+		<a href="javascript:PAGE_CONTROLLER.goBack();" data-direction="reverse">$$([gw_common_back_label])</a>
+		<h1>$$([gw_common_search_label])</h1>
+	</div>
+	 
+	<input id="searchField" style="width:95%; margin:10px; font-size:14px;" type="search" value=""
+   		oninput="javascript:inputSearchCondition(this);" onchange="javascript:checkSearchCondition(this);"/>
+   	<ul id="list" data-role="listview" data-theme="d" class="serachCondition" style="margin-top:5px;">
+   	</ul>
+  	
+  	<input type="hidden" id="popupMode" name="popupMode" value="false"/>
+  	<input type="hidden" id="category" name="category" value=""/>
+  	<input type="hidden" id="apiCode" name="apiCode" value=""/>
+  	<input type="hidden" id="groupId" name="groupId" value=""/>
+</div><div id="_TEMPLATE_search_result" data-role="page">	
+	<div data-role="header">
+		<a href="javascript:PAGE_CONTROLLER.goBack();" data-direction="reverse">$$([gw_common_back_label])</a>		
+		<h1>$$([gw_common_search_result_label])</h1>
+		<a href="javascript:finishSearch();" style="display:none;">$$([gw_common_ok_label])</a>	
+	</div>
+	
+	<div class="targetUserDiv" style="display:none;">
+		<div class="targetUserList"></div>
+	</div>
+	
+	<div data-role="content">
+		<ul id="list" data-role="listview" data-theme="d" class="contactList orgTree"></ul>
+		
+		<div id="morelist" style="display:none">
+			<div style="margin:10px; height:5px;"></div>
+			<a href="javascript:getMoreSearchContact();" data-role="button" data-theme="d" class="btn_more">
+				<span>$$([gw_common_getmore_label])</span></a>
+		</div>
+	</div>
+	
+	<input type="hidden" id="pno" value="1"/>
+	<input type="hidden" id="hasMore" value="false"/>
+	<input type="hidden" id="popupMode" value="false"/>
+	<input type="hidden" id="apiCode" value=""/>
+	<input type="hidden" id="groupId" value=""/>
+	<input type="hidden" id="searchKey" value=""/>
+	<input type="hidden" id="searchValue" value=""/>
+</div>
+<div id="_TEMPLATE_settings2_absenceadd" data-role="page">	
+	<div data-role="header">
+		<a href="javascript:cancel_addSettings2();" data-direction="reverse">$$([gw_common_cancel_label])</a>		
+		<h1>$$([gw_settings_absence_absadd_label])</h1>
+		<a id="absenceButton" href="javascript:setAbsence2();" data-role="button">$$([gw_settings_absence_save_label])</a>
+		
+		<div class="ui-bar headerBtnBar">
+	      <a name="absenceDelete" href="javascript:deleteSettings2('add');" data-role="btn" data-theme="c">$$([gw_common_delete_label])</a>
+    	</div>
+	</div>
+	
+   	<ul id="list_set_absence" data-role="listview" data-theme="d" class="absence">
+<!-- 
+   		<li data-role='list-divider' class="group_input" style="padding-left:50px;">
+			<label><input type="radio" name="absent" id="absent1" data-role="none" onClick="toggleAbsence('enable')" value="absent1" />
+    		$$([gw_settings_absence_set_label])</label>
+    		<label><input type="radio" name="absent" id="absent2" data-role="none" onClick="toggleAbsence('disable')" value="absent2" />
+    		$$([gw_settings_absence_remove_label])</label>
+		</li>
+ -->
+   		<li>
+    		<div class="label_wrapper">
+				<div class="grouping_left"><span>$$([gw_settings_absence_period_start_label])</span></div>
+	    		<div class="grouping_middle" style="display:none;">
+	    			<input id="txt_dtstart_date" class="txtCalendar" type="text" data-role="none" readonly="readonly"/>
+	    			<a href="#" id="set_dtstart_date" class="btnCalendar"></a>
+	    			<div style="display:none;">
+	    				<input id="dtstart_date" name="dtstart_date" type="text" data-role="datebox" onchange="javascript:changeStartDate();"
+		   					data-options='{"noButton": true, "mode": "calbox", "centerHoriz": true, "overrideDateFormat": "%Y.%m.%d", "overrideHeaderFormat": "%Y.%m.%d"}' />
+		  			</div>
+<!-- 		  			
+		   			<select name="dtstart_time" id="dtstart_time" data-role="none" disabled="disabled">
+ -->
+		   			<select name="dtstart_time" id="dtstart_time" data-role="none">
+	    			</select>
+	    		</div>
+    		</div>
+    	</li>
+    	<li>
+    		<div class="label_wrapper">
+    			<div class="grouping_left"><span>$$([gw_settings_absence_period_end_label])</span></div>
+    			<div class='grouping_middle' style="display:none;">
+	    			<input id="txt_dtend_date" class="txtCalendar" type="text" data-role="none" readonly="readonly"/>
+	    			<a href="#" id="set_dtend_date" class="btnCalendar"></a>
+	    			<div style="display:none;">
+	    				<input id="dtend_date" name="dtend_date" type="text" data-role="datebox" onchange="javascript:changeEndDate();"
+		   					data-options='{"noButton": true, "mode": "calbox", "centerHoriz": true, "overrideDateFormat": "%Y.%m.%d", "overrideHeaderFormat": "%Y.%m.%d"}' />
+		  			</div> 	
+<!-- 
+		   			<select name="dtend_time" id="dtend_time" data-role="none" disabled="disabled">
+ -->
+		   			<select name="dtend_time" id="dtend_time" data-role="none">
+	    			</select>
+	    		</div>
+    		</div>
+    	</li>
+    	<li>
+    		<div class="label_wrapper">
+				<div class="grouping_left"><span>$$([gw_settings_absence_period_reason_label])</span></div>
+	    		<div class='grouping_middle'>
+<!-- 	    		
+	    			<select name="reason_code" id="reason_code" data-role="none" disabled="disabled"  style="min-width:150px;">
+ -->
+					<select name="reason_code" id="reason_code" data-role="none" style="min-width:150px;">
+	    			</select>
+	    		</div>
+	    	</div>
+    	</li>
+    	<li>
+    		<div class="label_wrapper">
+				<div class="grouping_left"><span>$$([gw_settings_absence_mail_reply_msg_label])</span></div>
+    			<div class='grouping_middle'>
+<!-- 
+				<input id="mail_reply_text" name="mail_reply_text" type="text" data-role="none" class="txt" disabled="disabled">
+ -->    				
+ 				<input id="mail_reply_text" name="mail_reply_text" type="text" data-role="none" class="txt">
+    			</div>
+    		</div>
+    	</li>
+   	</ul>
+   	<ul id="list_mail_absence" data-role="listview" data-theme="d" class="absence">
+   		<li data-role='list-divider' class="group_input" style="padding-left:50px;">$$([gw_settings_absence_mail_label])</li>
+    	<li name="li_mail">
+    		<div class="label_wrapper">
+				<div class="grouping_left"><span>$$([gw_settings_absence_mail_alt_rcpt_label])</span></div>
+    			<div class='grouping_middle'><a href="javascript:openUserSelect2('mail_alt_rcpt_id');" class="btn_cube"><span class="btn_more"></span></a>
+  					<div id="mail_alt_rcpt_id" name="mail_alt_rcpt_id" class="targetUserList" style="display:none;"></div>
+  				</div>
+  			</div>
+    	</li>
+   	</ul>
+   	<ul id="list_sanc_absence" data-role="listview" data-theme="d" class="absence">
+		<li data-role='list-divider' class="group_input" style="padding-left:50px;">$$([gw_settings_absence_sanc_label])</li>
+		
+		<li name="li_sanc">
+    		<div class="label_wrapper">
+				<div class="grouping_left" style="width:96px;"><span>$$([gw_settings_absence_sanc_alt_signer_label])</span></div>
+    			<div class='grouping_middle'><a href="javascript:openUserSelect2('sanc_alt_signer_id');" class="btn_cube"><span class="btn_more"></span></a>
+  					<div id="sanc_alt_signer_id" name="sanc_alt_signer_id" class="targetUserList" style="display:none;"></div>
+  				</div>
+  			</div>
+    	</li>
+    	<li>
+    		<div class="label_wrapper">
+				<div class="grouping_left"><span>$$([gw_settings_absence_sanc_handling1_label])</span></div>
+    			<div class='grouping_middle' style="padding-left:100px;">
+<!--
+    				<select name="sanc_handling1" id="sanc_handling1" data-role="none" disabled="disabled" >
+-->
+					<select name="sanc_handling1" id="sanc_handling1" data-role="none">
+						<option value="0">$$([gw_settings_absence_sanc_handling1_0_label])</option>
+						<option value="1">$$([gw_settings_absence_sanc_handling1_1_label])</option>
+						<option value="2">$$([gw_settings_absence_sanc_handling1_2_label])</option>
+					</select>
+				</div>
+    		</div>
+    	</li>
+    	<li>
+    		<div class="label_wrapper">
+				<div class="grouping_left"><span>$$([gw_settings_absence_sanc_handling2_label])</span></div>
+    			<div class='grouping_middle' style="padding-left:100px;">
+<!--
+    				<select name="sanc_handling2" id="sanc_handling2" data-role="none" disabled="disabled" >
+-->
+	    			<select name="sanc_handling2" id="sanc_handling2" data-role="none">
+						<option value="0">$$([gw_settings_absence_sanc_handling2_0_label])</option>
+						<option value="1">$$([gw_settings_absence_sanc_handling2_1_label])</option>
+					</select>
+				</div>
+    		</div>
+    	</li>
+   	</ul>
+   	<input type="hidden" id="absId" value=""/>
+   	<input type="hidden" id="isUserSelect" value="true"/>
+   	<input type="hidden" id="isCopy" value="false"/>
+   	<input type="hidden" id="isModify" value="false"/>
+   	<input type="hidden" id="saveMailUrl" value=""/>
+   	<input type="hidden" id="saveSancUrl" value=""/>
+</div>
+<div id="_TEMPLATE_settings2_absencelist" data-role="page">	
+	<div data-role="header">
+		<a href="javascript:PAGE_CONTROLLER.goBack();" data-direction="reverse">$$([gw_common_back_label])</a>	
+		<h1>$$([gw_settings_absence_list_label])</h1>
+		<div class="ui-btn-right">
+			<a href="javascript:showSettings2Add();" data-role="button">$$([gw_common_add_label])</a>
+		</div>
+		
+		<div class="ui-bar headerBtnBar">
+	      <a name="absenceDelete" href="javascript:deleteSettings2('list');" data-role="btn" data-theme="c">$$([gw_common_delete_label])</a>
+    	</div>
+	</div>
+	
+	<div data-role="content">
+		<ul id="list" data-role="listview" data-theme="d" class="absencelist">
+<!-- 		
+			<li>
+				<div class="grouping_left">
+				<input type='checkbox' data-role='none' name='checkAbsence' value="test">
+				</div>
+				<a href="javascript:;">
+					<div class="grouping_middle">
+						<p><strong>기간</strong> : 2014.02.10 10:10 ~ 2014.02.10 15:00</p>
+						<p><strong>사유</strong> : 교육</p>
+						<p><strong>대리 결재자</strong> : 이평복</p>
+						<p><strong>메세지</strong> : ㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇ</p>
+					</div>
+				</a>
+			</li>
+			<li>
+				<div class="grouping_left">
+				<input type='checkbox' data-role='none' name='checkAbsence'>
+				</div>
+				<a href="javascript:;">
+					<div class="grouping_middle">
+						<p><strong>기간</strong> : 2014.03.11 10:10 ~ 2014.03.12 15:00</p>
+						<p><strong>사유</strong> : 출장</p>
+						<p><strong>대리 결재자</strong> : 원유진</p>
+						<p><strong>메세지</strong> : 부탁좀 드려욥@@@@@@@@@@@@@@@@@@@@@@@@@@@@@ @_@</p>
+					</div>
+				</a>
+			</li>
+		</ul>
+ -->
+	</div>
+	
+	<input type="hidden" id="apiCode" value="todolist"/>
+	<input type="hidden" id="isLoadedCalendar" value="false"/>
+	<input type="hidden" id="dateMode" value="DAILY"/>
+	<input type="hidden" id="absId" value=""/>
+</div>
+<div id="_TEMPLATE_settings_absence" data-role="page">	
+	<div data-role="header">
+		<a href="javascript:PAGE_CONTROLLER.goBack();" data-direction="reverse">$$([gw_common_back_label])</a>		
+		<h1>$$([gw_settings_absence_label])</h1>
+		<a href="javascript:setAbsence();" data-direction="reverse">$$([gw_common_ok_label])</a>
+	</div>
+	
+   	<ul id="list_set_absence" data-role="listview" data-theme="d" class="absence">
+   		<li data-role='list-divider' class="group_input" style="padding-left:50px;">
+			<label><input type="radio" name="absent" id="absent1" data-role="none" onClick="toggleAbsence('enable')" value="absent1" />
+    		$$([gw_settings_absence_set_label])</label>
+    		<label><input type="radio" name="absent" id="absent2" data-role="none" onClick="toggleAbsence('disable')" value="absent2" />
+    		$$([gw_settings_absence_remove_label])</label>
+		</li>
+   		<li>
+    		<div class="label_wrapper">
+				<div class="grouping_left"><span>$$([gw_settings_absence_period_start_label])</span></div>
+	    		<div class="grouping_middle" style="display:none;">
+	    			<input id="txt_dtstart_date" class="txtCalendar" type="text" data-role="none" readonly="readonly"/>
+	    			<a href="#" id="set_dtstart_date" class="btnCalendar"></a>
+	    			<div style="display:none;">
+	    				<input id="dtstart_date" name="dtstart_date" type="text" data-role="datebox" onchange="javascript:changeStartDate();"
+		   					data-options='{"noButton": true, "mode": "calbox", "centerHoriz": true, "overrideDateFormat": "%Y.%m.%d", "overrideHeaderFormat": "%Y.%m.%d"}' />
+		  			</div>
+		   			<select name="dtstart_time" id="dtstart_time" data-role="none" disabled="disabled">
+	    			</select>
+	    		</div>
+    		</div>
+    	</li>
+    	<li>
+    		<div class="label_wrapper">
+    			<div class="grouping_left"><span>$$([gw_settings_absence_period_end_label])</span></div>
+    			<div class='grouping_middle' style="display:none;">
+	    			<input id="txt_dtend_date" class="txtCalendar" type="text" data-role="none" readonly="readonly"/>
+	    			<a href="#" id="set_dtend_date" class="btnCalendar"></a>
+	    			<div style="display:none;">
+	    				<input id="dtend_date" name="dtend_date" type="text" data-role="datebox" onchange="javascript:changeEndDate();"
+		   					data-options='{"noButton": true, "mode": "calbox", "centerHoriz": true, "overrideDateFormat": "%Y.%m.%d", "overrideHeaderFormat": "%Y.%m.%d"}' />
+		  			</div> 	
+		   			<select name="dtend_time" id="dtend_time" data-role="none" disabled="disabled">
+	    			</select>
+	    		</div>
+    		</div>
+    	</li>
+    	<li>
+    		<div class="label_wrapper">
+				<div class="grouping_left"><span>$$([gw_settings_absence_period_reason_label])</span></div>
+	    		<div class='grouping_middle'>
+	    			<select name="reason_code" id="reason_code" data-role="none" disabled="disabled"  style="min-width:150px;">
+	    			</select>
+	    		</div>
+	    	</div>
+    	</li>
+    	<li>
+    		<div class="label_wrapper">
+				<div class="grouping_left"><span>$$([gw_settings_absence_mail_reply_msg_label])</span></div>
+    			<div class='grouping_middle'>
+    				<input id="mail_reply_text" name="mail_reply_text" type="text" data-role="none" class="txt" disabled="disabled">
+    			</div>
+    		</div>
+    	</li>
+   	</ul>
+   	<ul id="list_mail_absence" data-role="listview" data-theme="d" class="absence">
+   		<li data-role='list-divider' class="group_input" style="padding-left:50px;">$$([gw_settings_absence_mail_label])</li>
+    	<li name="li_mail">
+    		<div class="label_wrapper">
+				<div class="grouping_left"><span>$$([gw_settings_absence_mail_alt_rcpt_label])</span></div>
+    			<div class='grouping_middle'><a href="javascript:openUserSelect('mail_alt_rcpt_id');" class="btn_cube"><span class="btn_more"></span></a>
+  					<div id="mail_alt_rcpt_id" name="mail_alt_rcpt_id" class="targetUserList" style="display:none;"></div>
+  				</div>
+  			</div>
+    	</li>
+   	</ul>
+   	<ul id="list_sanc_absence" data-role="listview" data-theme="d" class="absence">
+		<li data-role='list-divider' class="group_input" style="padding-left:50px;">$$([gw_settings_absence_sanc_label])</li>
+		
+		<li name="li_sanc">
+    		<div class="label_wrapper">
+				<div class="grouping_left" style="width:96px;"><span>$$([gw_settings_absence_sanc_alt_signer_label])</span></div>
+    			<div class='grouping_middle'><a href="javascript:openUserSelect('sanc_alt_signer_id');" class="btn_cube"><span class="btn_more"></span></a>
+  					<div id="sanc_alt_signer_id" name="sanc_alt_signer_id" class="targetUserList" style="display:none;"></div>
+  				</div>
+  			</div>
+    	</li>
+    	<li>
+    		<div class="label_wrapper">
+				<div class="grouping_left"><span>$$([gw_settings_absence_sanc_handling1_label])</span></div>
+    			<div class='grouping_middle' style="padding-left:100px;">
+					<select name="sanc_handling1" id="sanc_handling1" data-role="none" disabled="disabled" >
+						<option value="0">$$([gw_settings_absence_sanc_handling1_0_label])</option>
+						<option value="1">$$([gw_settings_absence_sanc_handling1_1_label])</option>
+						<option value="2">$$([gw_settings_absence_sanc_handling1_2_label])</option>
+					</select>
+				</div>
+    		</div>
+    	</li>
+    	<li>
+    		<div class="label_wrapper">
+				<div class="grouping_left"><span>$$([gw_settings_absence_sanc_handling2_label])</span></div>
+    			<div class='grouping_middle' style="padding-left:100px;">
+	    			<select name="sanc_handling2" id="sanc_handling2" data-role="none" disabled="disabled" >
+						<option value="0">$$([gw_settings_absence_sanc_handling2_0_label])</option>
+						<option value="1">$$([gw_settings_absence_sanc_handling2_1_label])</option>
+					</select>
+				</div>
+    		</div>
+    	</li>
+   	</ul>
+</div>
+<div id="_TEMPLATE_settings_licenseinfo" data-role="page">	
+	<div data-role="header">
+		<a href="javascript:PAGE_CONTROLLER.goBack();" data-direction="reverse">$$([gw_common_back_label])</a>		
+		<h1>$$([gw_settings_license_label])</h1>
+	</div>
+	
+	<ul id="list" data-role="listview" data-theme="d" class="profile">
+   		<li>
+   			<div class="grouping_left"><span>$$([gw_settings_license_label])</span></div>
+   			<div class='grouping_middle'>
+   				<textarea name="licenseinfo" id="licenseinfo" class="userInfoBody" data-role="none" readonly="readonly" placeholder=""></textarea>
+   			</div>
+   		</li>
+   	</ul>
+		
+</div>
+<div id="_TEMPLATE_settings_password" data-role="page">	
+	<div data-role="header">
+		<a href="javascript:PAGE_CONTROLLER.goBack();" data-direction="reverse">$$([gw_common_back_label])</a>		
+		<h1>$$([gw_settings_password_label])</h1>
+		<a href="javascript:setPassword();" data-direction="reverse">$$([gw_common_ok_label])</a>
+	</div>
+	
+   	<ul id="loginpasswd" data-role="listview" data-theme="d" class="password">
+		<li data-role='list-divider' class="group_input" style="padding-left:50px;">
+			<label><input type="checkbox" name="cbLoginPasswd" id="cbLoginPasswd" data-role="none" onclick="javascript:toogle(this, 'loginpasswd')"/>
+			$$([gw_settings_password_cbloginpasswd])</label>
+		</li>
+   		<li class="disable">
+    		<div class="label_wrapper">
+				<div class="grouping_left"><span>$$([gw_settings_password_txtoldloginpasswd])</span></div>
+    			<div class='grouping_middle'>
+	    			<input id="txtOldLoginPasswd" name="txtOldLoginPasswd" type="password" data-role="none" disabled="disabled" class="txt">
+	    		</div>
+    		</div>
+    	</li>
+    	<li class="disable">
+    		<div class="label_wrapper">
+				<div class="grouping_left"><span>$$([gw_settings_password_txtloginpasswd])</span></div>
+    			<div class='grouping_middle'>
+    				<input id="txtLoginPasswd" name="txtLoginPasswd" type="password" data-role="none" disabled="disabled" class="txt">
+    			</div>
+    		</div>
+    	</li>
+    	<li class="disable">
+    		<div class="label_wrapper">
+				<div class="grouping_left"><span>$$([gw_settings_password_txtloginpasswd_confirm])</span></div>
+    			<div class='grouping_middle'>
+    				<input id="txtLoginPasswdConfirm" name="txtLoginPasswdConfirm" type="password" data-role="none" disabled="disabled" class="txt">
+    			</div>
+    		</div>
+    	</li>
+    	
+    	<li class="disable">
+			<div class="label_wrapper">
+				<div class="grouping_left"><span>$$([gw_settings_password_rdosanc])</span></div>
+				<div class='grouping_middle' style="font-size:12px;"><span>
+					<input type="radio" name="rdoSanc" id="rdoSanc1" data-role="none" checked="checked" disabled="disabled" />
+					<label for="rdoSanc1">$$([gw_settings_password_rdosanc_same])</label>
+					</span> <span>
+					<input type="radio" name="rdoSanc" id="rdoSanc2" data-role="none" disabled="disabled" />
+					<label for="rdoSanc2">$$([gw_settings_password_rdosanc_cancel])</label>
+					</span> </div>
+			</div>
+		</li>
+
+   	</ul>
+   	
+   	<ul id="sancpasswd" data-role="listview" data-theme="d" class="password">
+		<li data-role='list-divider' class="group_input" style="padding-left:50px;">
+			<label><input type="checkbox" name="cbSancPasswd" id="cbSancPasswd" data-role="none" onclick="javascript:toogle(this, 'sancpasswd')"/>
+			$$([gw_settings_password_cbsancpasswd])</label>
+		</li>
+   		<li class="disable">
+    		<div class="label_wrapper">
+				<div class="grouping_left"><span>$$([gw_settings_password_txtoldsancpasswd])</span></div>
+    			<div class='grouping_middle'>
+    				<input id="txtOldSancPasswd" name="txtOldSancPasswd" type="password" data-role="none" disabled="disabled" class="txt">
+    			</div>
+    		</div>
+    	</li>
+    	<li class="disable">
+    		<div class="label_wrapper">
+				<div class="grouping_left"><span>$$([gw_settings_password_txtsancpasswd])</span></div>
+    			<div class='grouping_middle'>
+    				<input id="txtSancPasswd" name="txtSancPasswd" type="password" data-role="none" disabled="disabled" class="txt">
+    			</div>
+    		</div>
+    	</li>
+    	<li class="disable">
+    		<div class="label_wrapper">
+				<div class="grouping_left"><span>$$([gw_settings_password_txtsancpasswd_confirm])</span></div>
+    			<div class='grouping_middle'>
+    				<input id="txtSancPasswdConfirm" name="txtSancPasswdConfirm" type="password" data-role="none" disabled="disabled" class="txt">
+    			</div>
+    		</div>
+    	</li>
+   	</ul>
+   	
+   	<ul id="sancconfirm" data-role="listview" data-theme="d" class="password">
+		<li data-role='list-divider' class="group_input" style="padding-left:50px;">
+			<label><input type="checkbox" name="cbSancPasswdCheck" id="cbSancPasswdCheck" data-role="none" onclick="javascript:toogle(this, 'sancconfirm')"/>
+			$$([gw_settings_password_cbsancpasswd_check])</label>
+		</li>
+		<li class="disable">
+    		<div class="label_wrapper">
+				<div class="grouping_left"><span>$$([gw_settings_password_txtsancpasswd_check])</span></div>
+	    		<div class='grouping_middle'>
+	    			<input id="txtSancPasswdCheck" name="txtSancPasswdCheck" type="password" data-role="none" disabled="disabled" class="txt">
+	    		</div>
+	    	</div>
+    	</li>
+    	<li class="disable">
+    		<div class="label_wrapper">
+				<div class="grouping_left"><span>$$([gw_settings_password_rdosanc_confirm])</span></div>
+    			<div class='grouping_middle' style="font-size:12px;">
+	    			<label><input type="radio" name="rdoSancConfirm" id="rdoSancConfirm1" data-role="none" disabled="disabled" />
+	    			$$([gw_settings_password_rdosanc_confirm_confirm])</label>
+	    			<label><input type="radio" name="rdoSancConfirm" id="rdoSancConfirm2" data-role="none" disabled="disabled" />
+	    			$$([gw_settings_password_rdosanc_confirm_cancel])</label>
+	    		</div>
+    		</div>
+    	</li>
+   	</ul>
+</div>
+<div id="_TEMPLATE_settings_userinfo" data-role="page">	
+	<div data-role="header">
+		<a href="javascript:PAGE_CONTROLLER.goBack();" data-direction="reverse">$$([gw_common_back_label])</a>		
+		<h1>$$([gw_settings_userinfo_label])</h1>
+		<a href="javascript:setUserInfo();" data-direction="reverse">$$([gw_common_ok_label])</a>
+	</div>
+	
+	<div id="profile" class="profileHeader">
+	</div>
+	
+	<input id="alias" name="alias" type="hidden" data-role="none" class="userInfoTxt">
+	<ul id="list" data-role="listview" data-theme="d" class="profile">
+   		<!-- <li> tkofs kosmes 별칭 제거
+   			<div class="grouping_left"><span>$$([gw_settings_user_alias_label])</span></div>
+   			<div class='grouping_middle'>
+   				<input id="alias" name="alias" type="text" data-role="none" class="userInfoTxt">
+   			</div>
+   		</li> -->
+   		<li>
+   			<div class="grouping_left"><span>$$([gw_settings_user_phone_label])</span></div>
+   			<div class='grouping_middle'>
+   				<input id="phone" name="phone" type="text" data-role="none" class="userInfoTxt">
+   			</div>
+   		</li>
+   		<li>
+   			<div class="grouping_left"><span>$$([gw_settings_user_fax_label])</span></div>
+   			<div class='grouping_middle'>
+   				<input id="fax" name="fax" type="text" data-role="none" class="userInfoTxt">
+   			</div>
+   		</li>
+   		<li>
+   			<div class="grouping_left"><span>$$([gw_settings_user_mobile_label])</span></div>
+   			<div class='grouping_middle'>
+   				<input id="mobile" name="mobile" type="text" data-role="none" class="userInfoTxt">
+   			</div>
+   		</li>
+   		<li>
+   			<div class="grouping_left"><span>$$([gw_settings_user_business_label])</span></div>
+   			<div class='grouping_middle'>
+   				<textarea name="business" id="business" class="userInfoBody" data-role="none"  placeholder=""></textarea>
+   			</div>
+   		</li>
+   	</ul>
+		
+</div>
+<div id="_TEMPLATE_sign_apprflow" data-role="page">	
+	<div data-role="header">
+		<a href="javascript:PAGE_CONTROLLER.goBack();" data-direction="reverse">$$([gw_common_back_label])</a>		
+		<h1>$$([gw_sign_approve_flow_label])</h1>
+		<a href="javascript:refreshBoardComment();" style="display:none;">$$([gw_common_refresh_label])</a>
+	</div>
+	
+	<ul id="list" data-role="listview" data-theme="d" class="apprFlow"></ul>
+	
+</div>
+<div id="_TEMPLATE_sign_commentlist" data-role="page">
+	<div data-role="header">
+		<a href="javascript:PAGE_CONTROLLER.goBack();" data-direction="reverse">$$([gw_common_back_label])</a>
+		<h1>$$([gw_sign_show_comment_label])</h1>
+	</div>
+
+	<div data-role="content">
+		<ul id="list" data-role="listview" data-theme="d" class="SignCommentList"></ul>
+	</div>
+</div>
+<div id="_TEMPLATE_sign_details" data-role="page">	
+	<div data-role="header">
+		<a href="javascript:PAGE_CONTROLLER.goBack();" data-direction="reverse">$$([gw_common_back_label])</a>		
+		<h1>$$([gw_sign_details_label])</h1>
+		
+    	<div id="header" class="ui-bar headerBtnBar" style="display:none;">
+	    	<a id="approveBtn" href="javascript:apprApprove('approve');" data-role="btn" style="display:none;">$$([gw_sign_approve_label])</a>
+			<a id="rejectBtn" href="javascript:apprApprove('reject');" data-role="btn" style="display:none;">$$([gw_sign_reject_label])</a>
+			<a id="junkyulBtn" href="javascript:apprApprove('junkyul');" data-role="btn" style="display:none;">$$([gw_sign_junkyul_label])</a>
+			<a id="gongramBtn" href="javascript:apprApprove('gongram');" data-role="btn" style="display:none;">$$([gw_sign_gongram_label])</a>
+			<a id="confirmBtn" href="javascript:apprApprove('confirm');" data-role="btn" style="display:none;"><span>$$([gw_sign_confirm_label])</span></a>
+			<a id="postponeBtn" href="javascript:apprApprove('postpone');" data-role="btn" style="display:none;"><span>$$([gw_sign_postpone_label])</span></a>
+			<a id="commentWriteBtn" href="javascript:toggleWriteComment(true);" data-role="btn" style="display:none;">$$([gw_sign_write_comment_label])</a>
+			<a id="commentBtn" href="javascript:showSignCommentList();" data-role="btn" style="display:none;">$$([gw_sign_show_comment_label])</a>
+			<a id="aprrfolwBtn" href="javascript:showApprfolw();" data-role="btn">$$([gw_sign_approve_flow_label])</a>
+			<a id="summaryBtn" href="javascript:showSummaryDoc();" data-role="btn">$$([gw_sign_show_summary_label])</a>
+			<a id="linkdocBtn" href="javascript:showLinkDocList();" data-role="btn">$$([gw_sign_show_linkdoc_label])</a>
+			<a id="withdrawBtn" href="javascript:withdrawAppr();" data-role="btn">$$([gw_sign_withdraw_label])</a>
+			<a id="cancelBtn" href="javascript:cancelAppr();" data-role="btn">$$([gw_sign_cancel_label])</a>
+			<a id="dispatchBtn" href="javascript:apprApprove('dispatch');" data-role="btn" style="display:none;">$$([gw_sign_dispatch_label])</a>
+    	</div>
+	</div>
+	
+	<ul id="list" data-role="listview" data-theme="d" class="signDetails">
+		<li id=comment style="display:none;">
+  			<textarea id="commentBody" class="commentBody" data-role="none"></textarea>
+   		</li>
+   		<li id="attach" data-icon="false" style="display:none;">
+   			<a id="linkToggleAttach" href="javascript:toggleAttach('sign_details', true);">
+	   			<div class="grouping_left"><span>$$([gw_common_attach_label])</span></div>
+	  			<div class="attach_area">
+	  				<span id="attachInfo" class="onlyTxt"></span>
+	   				<div id="btnToggleAttach" class="btn_cube"><span class="btn_unfd"></span></div>
+	   				<ul id="attachList" style="display:none;"></ul>
+	  			</div>
+  			</a>
+   		</li>   		
+   		<li data-role="none" style="margin:0px;padding:0px">
+   			<div class="contents"></div>
+   		</li>
+   	</ul>
+	
+	
+	<input type="hidden" id="apiCode" value="sign_details"/>
+	<input type="hidden" id="apprid" />
+	<input type="hidden" id="applid" />
+	<input type="hidden" id="apprstatus" />
+	<input type="hidden" id="hasComment" />
+	<input type="hidden" id="writeCommentFlag" />
+	<input type="hidden" id="intoDocumentCommentFlag" />
+	<input type="hidden" id="wordtype" />
+	<input type="hidden" id="apprValue" />
+	<input type="hidden" id="additionalOfficeUserId" />
+	<input type="hidden" id="participantId" />
+	<input type="hidden" id="examId" />
+	<input type="hidden" id="examDeptId" />
+	<input type="hidden" id="enforceType" />
+</div>
+<div id="_TEMPLATE_sign_linkdoc_1" data-role="page">	
+	<div data-role="header">
+		<a href="javascript:PAGE_CONTROLLER.goBackLinkdocList(1);" data-direction="reverse">$$([gw_common_back_label])</a>		
+		<h1>$$([gw_sign_details_label])</h1>
+		
+    	<div id="header" class="ui-bar headerBtnBar" style="display:none;">
+	    	<a id="approveBtn" href="javascript:apprApprove('approve');" data-role="btn" style="display:none;">$$([gw_sign_approve_label])</a>
+			<a id="rejectBtn" href="javascript:apprApprove('reject');" data-role="btn" style="display:none;">$$([gw_sign_reject_label])</a>
+			<a id="gongramBtn" href="javascript:apprApprove('gongram');" data-role="btn" style="display:none;">$$([gw_sign_gongram_label])</a>
+			<a id="confirmBtn" href="javascript:apprApprove('confirm');" data-role="btn" style="display:none;"><span>$$([gw_sign_confirm_label])</span></a>
+			<a id="commentWriteBtn" href="javascript:toggleWriteComment(true);" data-role="btn" style="display:none;">$$([gw_sign_write_comment_label])</a>
+			<a id="commentBtn" href="javascript:showSignCommentList();" data-role="btn" style="display:none;">$$([gw_sign_show_comment_label])</a>
+			<a id="aprrfolwBtn" href="javascript:showApprfolw();" data-role="btn">$$([gw_sign_approve_flow_label])</a>
+			<a id="summaryBtn" href="javascript:showSummaryDoc();" data-role="btn">$$([gw_sign_show_summary_label])</a>
+			<a id="linkdocBtn" href="javascript:showLinkDocList();" data-role="btn">$$([gw_sign_show_linkdoc_label])</a>
+			<a id="withdrawBtn" href="javascript:withdrawAppr();" data-role="btn">$$([gw_sign_withdraw_label])</a>
+    	</div>
+	</div>
+	
+	<ul id="list" data-role="listview" data-theme="d" class="signDetails">
+		<li id=comment style="display:none;">
+  			<textarea id="commentBody" class="commentBody" data-role="none"></textarea>
+   		</li>
+   		<li id="attach" data-icon="false" style="display:none;">
+   			<a id="linkToggleAttach" href="javascript:toggleAttach('sign_linkdoc_1', true);">
+	   			<div class="grouping_left"><span>$$([gw_common_attach_label])</span></div>
+	  			<div class="attach_area">
+	  				<span id="attachInfo" class="onlyTxt"></span>
+	   				<div id="btnToggleAttach" class="btn_cube"><span class="btn_unfd"></span></div>
+	   				<ul id="attachList" style="display:none;"></ul>
+	  			</div>
+  			</a>
+   		</li>   		
+   		<li data-role="none" style="margin:0px;padding:0px">
+   			<div class="contents"></div>
+   		</li>
+   	</ul>
+	
+	
+	<input type="hidden" id="apiCode" value="sign_linkdoc_1"/>
+	<input type="hidden" id="apprid" />
+	<input type="hidden" id="applid" />
+	<input type="hidden" id="apprstatus" />
+	<input type="hidden" id="hasComment" />
+	<input type="hidden" id="writeCommentFlag" />
+	<input type="hidden" id="wordtype" />
+	<input type="hidden" id="additionalOfficeUserId" />
+</div>
+<div id="_TEMPLATE_sign_linkdoc_2" data-role="page">	
+	<div data-role="header">
+		<a href="javascript:PAGE_CONTROLLER.goBackLinkdocList(2);" data-direction="reverse">$$([gw_common_back_label])</a>		
+		<h1>$$([gw_sign_details_label])</h1>
+		
+    	<div id="header" class="ui-bar headerBtnBar" style="display:none;">
+	    	<a id="approveBtn" href="javascript:apprApprove('approve');" data-role="btn" style="display:none;">$$([gw_sign_approve_label])</a>
+			<a id="rejectBtn" href="javascript:apprApprove('reject');" data-role="btn" style="display:none;">$$([gw_sign_reject_label])</a>
+			<a id="gongramBtn" href="javascript:apprApprove('gongram');" data-role="btn" style="display:none;">$$([gw_sign_gongram_label])</a>
+			<a id="confirmBtn" href="javascript:apprApprove('confirm');" data-role="btn" style="display:none;"><span>$$([gw_sign_confirm_label])</span></a>
+			<a id="commentWriteBtn" href="javascript:toggleWriteComment(true);" data-role="btn" style="display:none;">$$([gw_sign_write_comment_label])</a>
+			<a id="commentBtn" href="javascript:showSignCommentList();" data-role="btn" style="display:none;">$$([gw_sign_show_comment_label])</a>
+			<a id="aprrfolwBtn" href="javascript:showApprfolw();" data-role="btn">$$([gw_sign_approve_flow_label])</a>
+			<a id="summaryBtn" href="javascript:showSummaryDoc();" data-role="btn">$$([gw_sign_show_summary_label])</a>
+			<a id="linkdocBtn" href="javascript:showLinkDocList();" data-role="btn">$$([gw_sign_show_linkdoc_label])</a>
+			<a id="withdrawBtn" href="javascript:withdrawAppr();" data-role="btn">$$([gw_sign_withdraw_label])</a>
+    	</div>
+	</div>
+	
+	<ul id="list" data-role="listview" data-theme="d" class="signDetails">
+		<li id=comment style="display:none;">
+  			<textarea id="commentBody" class="commentBody" data-role="none"></textarea>
+   		</li>
+   		<li id="attach" data-icon="false" style="display:none;">
+   			<a id="linkToggleAttach" href="javascript:toggleAttach('sign_linkdoc_2', true);">
+	   			<div class="grouping_left"><span>$$([gw_common_attach_label])</span></div>
+	  			<div class="attach_area">
+	  				<span id="attachInfo" class="onlyTxt"></span>
+	   				<div id="btnToggleAttach" class="btn_cube"><span class="btn_unfd"></span></div>
+	   				<ul id="attachList" style="display:none;"></ul>
+	  			</div>
+  			</a>
+   		</li>
+   		<li data-role="none" style="margin:0px;padding:0px">
+   			<div class="contents"></div>
+   		</li>
+   	</ul>
+	
+	
+	<input type="hidden" id="apiCode" value="sign_linkdoc_2"/>
+	<input type="hidden" id="apprid" />
+	<input type="hidden" id="applid" />
+	<input type="hidden" id="apprstatus" />
+	<input type="hidden" id="hasComment" />
+	<input type="hidden" id="writeCommentFlag" />
+	<input type="hidden" id="wordtype" />
+	<input type="hidden" id="additionalOfficeUserId" />
+</div>
+<div id="_TEMPLATE_sign_linkdoc_3" data-role="page">	
+	<div data-role="header">
+		<a href="javascript:PAGE_CONTROLLER.goBackLinkdocList(3);" data-direction="reverse">$$([gw_common_back_label])</a>		
+		<h1>$$([gw_sign_details_label])</h1>
+		
+    	<div id="header" class="ui-bar headerBtnBar" style="display:none;">
+	    	<a id="approveBtn" href="javascript:apprApprove('approve');" data-role="btn" style="display:none;">$$([gw_sign_approve_label])</a>
+			<a id="rejectBtn" href="javascript:apprApprove('reject');" data-role="btn" style="display:none;">$$([gw_sign_reject_label])</a>
+			<a id="gongramBtn" href="javascript:apprApprove('gongram');" data-role="btn" style="display:none;">$$([gw_sign_gongram_label])</a>
+			<a id="confirmBtn" href="javascript:apprApprove('confirm');" data-role="btn" style="display:none;"><span>$$([gw_sign_confirm_label])</span></a>
+			<a id="commentWriteBtn" href="javascript:toggleWriteComment(true);" data-role="btn" style="display:none;">$$([gw_sign_write_comment_label])</a>
+			<a id="commentBtn" href="javascript:showSignCommentList();" data-role="btn" style="display:none;">$$([gw_sign_show_comment_label])</a>
+			<a id="aprrfolwBtn" href="javascript:showApprfolw();" data-role="btn">$$([gw_sign_approve_flow_label])</a>
+			<a id="summaryBtn" href="javascript:showSummaryDoc();" data-role="btn">$$([gw_sign_show_summary_label])</a>
+			<a id="linkdocBtn" href="javascript:showLinkDocList();" data-role="btn">$$([gw_sign_show_linkdoc_label])</a>
+			<a id="withdrawBtn" href="javascript:withdrawAppr();" data-role="btn">$$([gw_sign_withdraw_label])</a>
+    	</div>
+	</div>
+	
+	<ul id="list" data-role="listview" data-theme="d" class="signDetails">
+		<li id=comment style="display:none;">
+  			<textarea id="commentBody" class="commentBody" data-role="none"></textarea>
+   		</li>
+   		<li id="attach" data-icon="false" style="display:none;">
+   			<a id="linkToggleAttach" href="javascript:toggleAttach('sign_linkdoc_3', true);">
+	   			<div class="grouping_left"><span>$$([gw_common_attach_label])</span></div>
+	  			<div class="attach_area">
+	  				<span id="attachInfo" class="onlyTxt"></span>
+	   				<div id="btnToggleAttach" class="btn_cube"><span class="btn_unfd"></span></div>
+	   				<ul id="attachList" style="display:none;"></ul>
+	  			</div>
+  			</a>
+   		</li>
+   		<li data-role="none" style="margin:0px;padding:0px">
+   			<div class="contents"></div>
+   		</li>
+   	</ul>
+	
+	
+	<input type="hidden" id="apiCode" value="sign_linkdoc_3"/>
+	<input type="hidden" id="apprid" />
+	<input type="hidden" id="applid" />
+	<input type="hidden" id="apprstatus" />
+	<input type="hidden" id="hasComment" />
+	<input type="hidden" id="writeCommentFlag" />
+	<input type="hidden" id="wordtype" />
+	<input type="hidden" id="additionalOfficeUserId" />
+</div>
+<div id="_TEMPLATE_sign_linkdoc_4" data-role="page">	
+	<div data-role="header">
+		<a href="javascript:PAGE_CONTROLLER.goBackLinkdocList(4);" data-direction="reverse">$$([gw_common_back_label])</a>		
+		<h1>$$([gw_sign_details_label])</h1>
+		
+    	<div id="header" class="ui-bar headerBtnBar" style="display:none;">
+	    	<a id="approveBtn" href="javascript:apprApprove('approve');" data-role="btn" style="display:none;">$$([gw_sign_approve_label])</a>
+			<a id="rejectBtn" href="javascript:apprApprove('reject');" data-role="btn" style="display:none;">$$([gw_sign_reject_label])</a>
+			<a id="gongramBtn" href="javascript:apprApprove('gongram');" data-role="btn" style="display:none;">$$([gw_sign_gongram_label])</a>
+			<a id="confirmBtn" href="javascript:apprApprove('confirm');" data-role="btn" style="display:none;"><span>$$([gw_sign_confirm_label])</span></a>
+			<a id="commentWriteBtn" href="javascript:toggleWriteComment(true);" data-role="btn" style="display:none;">$$([gw_sign_write_comment_label])</a>
+			<a id="commentBtn" href="javascript:showSignCommentList();" data-role="btn" style="display:none;">$$([gw_sign_show_comment_label])</a>
+			<a id="aprrfolwBtn" href="javascript:showApprfolw();" data-role="btn">$$([gw_sign_approve_flow_label])</a>
+			<a id="summaryBtn" href="javascript:showSummaryDoc();" data-role="btn">$$([gw_sign_show_summary_label])</a>
+			<a id="linkdocBtn" href="javascript:showLinkDocList();" data-role="btn">$$([gw_sign_show_linkdoc_label])</a>
+			<a id="withdrawBtn" href="javascript:withdrawAppr();" data-role="btn">$$([gw_sign_withdraw_label])</a>
+    	</div>
+	</div>
+	
+	<ul id="list" data-role="listview" data-theme="d" class="signDetails">
+		<li id=comment style="display:none;">
+  			<textarea id="commentBody" class="commentBody" data-role="none"></textarea>
+   		</li>
+   		<li id="attach" data-icon="false" style="display:none;">
+   			<a id="linkToggleAttach" href="javascript:toggleAttach('sign_linkdoc_4', true);">
+	   			<div class="grouping_left"><span>$$([gw_common_attach_label])</span></div>
+	  			<div class="attach_area">
+	  				<span id="attachInfo" class="onlyTxt"></span>
+	   				<div id="btnToggleAttach" class="btn_cube"><span class="btn_unfd"></span></div>
+	   				<ul id="attachList" style="display:none;"></ul>
+	  			</div>
+  			</a>
+   		</li>
+   		<li data-role="none" style="margin:0px;padding:0px">
+   			<div class="contents"></div>
+   		</li>
+   	</ul>
+	
+	
+	<input type="hidden" id="apiCode" value="sign_linkdoc_4"/>
+	<input type="hidden" id="apprid" />
+	<input type="hidden" id="applid" />
+	<input type="hidden" id="apprstatus" />
+	<input type="hidden" id="hasComment" />
+	<input type="hidden" id="writeCommentFlag" />
+	<input type="hidden" id="wordtype" />
+	<input type="hidden" id="additionalOfficeUserId" />
+</div>
+<div id="_TEMPLATE_sign_linkdoclist_0" data-role="page">
+	<div data-role="header">
+		<a href="javascript:PAGE_CONTROLLER.goBack();" data-direction="reverse">$$([gw_common_back_label])</a>
+		<h1></h1>
+	</div>
+
+	<div data-role="content">
+		<ul id="list" data-role="listview" data-theme="d" class="signList"></ul>
+
+		<div id="morelist" style="display:none">
+			<div style="margin:10px; height:5px;"></div>
+			<a href="javascript:getMoreSignList();" data-role="button" data-theme="d" class="btn_more">
+				<span>$$([gw_common_getmore_label])</span></a>
+		</div>
+		
+		<div data-role="popup" id="confirmSignPasswordDialog" data-overlay-theme="a" style="width:300px;" class="ui-corner-all">
+			<div data-role="header" data-theme="a" class="ui-corner-top">
+				<h1>$$([gw_sign_input_password_title])</h1>
+			</div>
+			<div data-role="content" data-theme="d" class="ui-corner-bottom ui-content">
+				<div class="popupMsg">$$([gw_msg_sign_input_password])</div>
+				
+				<input id="password" type="password" data-role="none" class="popupInput">
+				
+				<input type="hidden" id="signApiCode" value=""/>
+				<input type="hidden" id="link" value=""/>
+				<input type="hidden" id="applid" value=""/>
+				<input type="hidden" id="guid" value=""/>
+				<input type="hidden" id="participantapprtype" value=""/>
+				<input type="hidden" id="apprstatus" value=""/>
+				<input type="hidden" id="attachcnt" value=""/>
+				<input type="hidden" id="commentCk" value=""/>
+				<input type="hidden" id="postponeCk" value=""/>
+				<input type="hidden" id="externalDocFlag" value=""/>
+				<input type="hidden" id="summaryDocFlag" value=""/>
+				<input type="hidden" id="wordtype" value=""/>
+				<input type="hidden" id="additionalOfficeUserId" value=""/>
+				<input type="hidden" id="participantId" value=""/>
+				
+				
+				<div class="popupBtnArea">
+					<a href="javascript:confirmSignPassword();" class="btn_txt gray"><span>$$([gw_common_ok_label])</span></a>
+					<a href="javascript:closeSignPasswordDialog();" class="btn_txt gray"><span>$$([gw_common_cancel_label])</span></a>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<input type="hidden" id="applid" value="" />
+	<input type="hidden" id="hasMore" value="false"/>
+	<input type="hidden" id="pageno" value="1"/>
+</div>
+<div id="_TEMPLATE_sign_linkdoclist_1" data-role="page">
+	<div data-role="header">
+		<a href="javascript:PAGE_CONTROLLER.goBack();" data-direction="reverse">$$([gw_common_back_label])</a>
+		<h1></h1>
+	</div>
+
+	<div data-role="content">
+		<ul id="list" data-role="listview" data-theme="d" class="signList"></ul>
+
+		<div id="morelist" style="display:none">
+			<div style="margin:10px; height:5px;"></div>
+			<a href="javascript:getMoreSignList();" data-role="button" data-theme="d" class="btn_more">
+				<span>$$([gw_common_getmore_label])</span></a>
+		</div>
+		
+		<div data-role="popup" id="confirmSignPasswordDialog" data-overlay-theme="a" style="width:300px;" class="ui-corner-all">
+			<div data-role="header" data-theme="a" class="ui-corner-top">
+				<h1>$$([gw_sign_input_password_title])</h1>
+			</div>
+			<div data-role="content" data-theme="d" class="ui-corner-bottom ui-content">
+				<div class="popupMsg">$$([gw_msg_sign_input_password])</div>
+				
+				<input id="password" type="password" data-role="none" class="popupInput">
+				
+				<input type="hidden" id="signApiCode" value=""/>
+				<input type="hidden" id="link" value=""/>
+				<input type="hidden" id="applid" value=""/>
+				<input type="hidden" id="guid" value=""/>
+				<input type="hidden" id="participantapprtype" value=""/>
+				<input type="hidden" id="apprstatus" value=""/>
+				<input type="hidden" id="attachcnt" value=""/>
+				<input type="hidden" id="commentCk" value=""/>
+				<input type="hidden" id="postponeCk" value=""/>
+				<input type="hidden" id="externalDocFlag" value=""/>
+				<input type="hidden" id="summaryDocFlag" value=""/>
+				<input type="hidden" id="wordtype" value=""/>
+				<input type="hidden" id="additionalOfficeUserId" value=""/>
+				<input type="hidden" id="participantId" value=""/>
+				
+				
+				<div class="popupBtnArea">
+					<a href="javascript:confirmSignPassword();" class="btn_txt gray"><span>$$([gw_common_ok_label])</span></a>
+					<a href="javascript:closeSignPasswordDialog();" class="btn_txt gray"><span>$$([gw_common_cancel_label])</span></a>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<input type="hidden" id="applid" value="" />
+	<input type="hidden" id="hasMore" value="false"/>
+	<input type="hidden" id="pageno" value="1"/>
+</div>
+<div id="_TEMPLATE_sign_linkdoclist_2" data-role="page">
+	<div data-role="header">
+		<a href="javascript:PAGE_CONTROLLER.goBack();" data-direction="reverse">$$([gw_common_back_label])</a>
+		<h1></h1>
+	</div>
+
+	<div data-role="content">
+		<ul id="list" data-role="listview" data-theme="d" class="signList"></ul>
+
+		<div id="morelist" style="display:none">
+			<div style="margin:10px; height:5px;"></div>
+			<a href="javascript:getMoreSignList();" data-role="button" data-theme="d" class="btn_more">
+				<span>$$([gw_common_getmore_label])</span></a>
+		</div>
+		
+		<div data-role="popup" id="confirmSignPasswordDialog" data-overlay-theme="a" style="width:300px;" class="ui-corner-all">
+			<div data-role="header" data-theme="a" class="ui-corner-top">
+				<h1>$$([gw_sign_input_password_title])</h1>
+			</div>
+			<div data-role="content" data-theme="d" class="ui-corner-bottom ui-content">
+				<div class="popupMsg">$$([gw_msg_sign_input_password])</div>
+				
+				<input id="password" type="password" data-role="none" class="popupInput">
+				
+				<input type="hidden" id="signApiCode" value=""/>
+				<input type="hidden" id="link" value=""/>
+				<input type="hidden" id="applid" value=""/>
+				<input type="hidden" id="guid" value=""/>
+				<input type="hidden" id="participantapprtype" value=""/>
+				<input type="hidden" id="apprstatus" value=""/>
+				<input type="hidden" id="attachcnt" value=""/>
+				<input type="hidden" id="commentCk" value=""/>
+				<input type="hidden" id="postponeCk" value=""/>
+				<input type="hidden" id="externalDocFlag" value=""/>
+				<input type="hidden" id="summaryDocFlag" value=""/>
+				<input type="hidden" id="wordtype" value=""/>
+				<input type="hidden" id="additionalOfficeUserId" value=""/>
+				<input type="hidden" id="participantId" value=""/>
+				
+				
+				<div class="popupBtnArea">
+					<a href="javascript:confirmSignPassword();" class="btn_txt gray"><span>$$([gw_common_ok_label])</span></a>
+					<a href="javascript:closeSignPasswordDialog();" class="btn_txt gray"><span>$$([gw_common_cancel_label])</span></a>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<input type="hidden" id="applid" value="" />
+	<input type="hidden" id="hasMore" value="false"/>
+	<input type="hidden" id="pageno" value="1"/>
+</div>
+<div id="_TEMPLATE_sign_linkdoclist_3" data-role="page">
+	<div data-role="header">
+		<a href="javascript:PAGE_CONTROLLER.goBack();" data-direction="reverse">$$([gw_common_back_label])</a>
+		<h1></h1>
+	</div>
+
+	<div data-role="content">
+		<ul id="list" data-role="listview" data-theme="d" class="signList"></ul>
+
+		<div id="morelist" style="display:none">
+			<div style="margin:10px; height:5px;"></div>
+			<a href="javascript:getMoreSignList();" data-role="button" data-theme="d" class="btn_more">
+				<span>$$([gw_common_getmore_label])</span></a>
+		</div>
+		
+		<div data-role="popup" id="confirmSignPasswordDialog" data-overlay-theme="a" style="width:300px;" class="ui-corner-all">
+			<div data-role="header" data-theme="a" class="ui-corner-top">
+				<h1>$$([gw_sign_input_password_title])</h1>
+			</div>
+			<div data-role="content" data-theme="d" class="ui-corner-bottom ui-content">
+				<div class="popupMsg">$$([gw_msg_sign_input_password])</div>
+				
+				<input id="password" type="password" data-role="none" class="popupInput">
+				
+				<input type="hidden" id="signApiCode" value=""/>
+				<input type="hidden" id="link" value=""/>
+				<input type="hidden" id="applid" value=""/>
+				<input type="hidden" id="guid" value=""/>
+				<input type="hidden" id="participantapprtype" value=""/>
+				<input type="hidden" id="apprstatus" value=""/>
+				<input type="hidden" id="attachcnt" value=""/>
+				<input type="hidden" id="commentCk" value=""/>
+				<input type="hidden" id="postponeCk" value=""/>
+				<input type="hidden" id="externalDocFlag" value=""/>
+				<input type="hidden" id="summaryDocFlag" value=""/>
+				<input type="hidden" id="wordtype" value=""/>
+				<input type="hidden" id="additionalOfficeUserId" value=""/>
+				<input type="hidden" id="participantId" value=""/>
+				
+				
+				<div class="popupBtnArea">
+					<a href="javascript:confirmSignPassword();" class="btn_txt gray"><span>$$([gw_common_ok_label])</span></a>
+					<a href="javascript:closeSignPasswordDialog();" class="btn_txt gray"><span>$$([gw_common_cancel_label])</span></a>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<input type="hidden" id="applid" value="" />
+	<input type="hidden" id="hasMore" value="false"/>
+	<input type="hidden" id="pageno" value="1"/>
+</div>
+<div id="_TEMPLATE_sign_list" data-role="page">
+	<div data-role="header">
+		<a href="javascript:PAGE_CONTROLLER.goBack();" data-direction="reverse">$$([gw_common_back_label])</a>
+		<h1></h1>
+
+		<div id="header" class="ui-bar headerBtnBar" style="display:none;">
+			<select id="signType" name="signType" onchange="javascript:changeSignType()" data-mini="true">
+				<option value=''>$$([gw_sign_signlist_type_all_label])</option>
+				<option value='1'>$$([gw_sign_signlist_type_1_label])</option>
+				<option value='3'>$$([gw_sign_signlist_type_3_label])</option>
+				<option value='2'>$$([gw_sign_signlist_type_2_label])</option>
+				<option value='7'>$$([gw_sign_signlist_type_7_label])</option>
+				<option value='5'>$$([gw_sign_signlist_type_5_label])</option>
+				<option value='4'>$$([gw_sign_signlist_type_4_label])</option>
+			</select>
+		</div>
+		
+		<div id="headerProcAuthList" class="ui-bar headerBtnBar" style="display:none;">
+			<select id="procAuthList" name="procAuthList" onchange="javascript:changeProcAuthList()" data-mini="true">
+			</select>
+		</div>		
+	</div>
+
+	<div data-role="content">
+		<ul id="list" data-role="listview" data-theme="d" class="signList"></ul>
+
+		<div id="morelist" style="display:none">
+			<div style="margin:10px; height:5px;"></div>
+			<a href="javascript:getMoreSignList();" data-role="button" data-theme="d" class="btn_more">
+				<span>$$([gw_common_getmore_label])</span></a>
+		</div>
+		
+		<div data-role="popup" id="confirmSignPasswordDialog" data-overlay-theme="a" style="width:300px;" class="ui-corner-all">
+			<div data-role="header" data-theme="a" class="ui-corner-top">
+				<h1>$$([gw_sign_input_password_title])</h1>
+			</div>
+			<div data-role="content" data-theme="d" class="ui-corner-bottom ui-content">
+				<div class="popupMsg">$$([gw_msg_sign_input_password])</div>
+				
+				<input id="password" type="password" data-role="none" class="popupInput">
+				
+				<input type="hidden" id="signApiCode" value=""/>
+				<input type="hidden" id="link" value=""/>
+				<input type="hidden" id="applid" value=""/>
+				<input type="hidden" id="guid" value=""/>
+				<input type="hidden" id="participantapprtype" value=""/>
+				<input type="hidden" id="apprstatus" value=""/>
+				<input type="hidden" id="attachcnt" value=""/>
+				<input type="hidden" id="commentCk" value=""/>
+				<input type="hidden" id="postponeCk" value=""/>
+				<input type="hidden" id="externalDocFlag" value=""/>
+				<input type="hidden" id="summaryDocFlag" value=""/>
+				<input type="hidden" id="wordtype" value=""/>
+				<input type="hidden" id="additionalOfficeUserId" value=""/>
+				<input type="hidden" id="linkdoc" value=""/>
+				
+				
+				<div class="popupBtnArea">
+					<a href="javascript:confirmSignPassword();" class="btn_txt gray"><span>$$([gw_common_ok_label])</span></a>
+					<a href="javascript:closeSignPasswordDialog();" class="btn_txt gray"><span>$$([gw_common_cancel_label])</span></a>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<input type="hidden" id="apiCode" value="waitlist" />
+	<input type="hidden" id="hasMore" value="false"/>
+	<input type="hidden" id="pageno" value="1"/>
+</div>
+<div id="_TEMPLATE_sign_summarydoc" data-role="page">	
+	<div data-role="header">
+		<a href="javascript:PAGE_CONTROLLER.goBack();" data-direction="reverse">$$([gw_common_back_label])</a>		
+		<h1>$$([gw_sign_show_summary_label])</h1>
+		<a href="javascript:refreshBoardComment();" style="display:none;">$$([gw_common_refresh_label])</a>
+	</div>
+	
+	<ul id="list" data-role="listview" data-theme="d" class="signDetails">
+   		<li data-role="none" style="margin:0px;padding:0px">
+   			<div class="contents"></div>
+   		</li>
+   	</ul>
+</div>
+
+<!-- 전체메뉴 -->
+<div id="_TEMPLATE_menu_show_all" data-role="page">
+	<div data-role="header">
+		<a href="javascript:PAGE_CONTROLLER.goBack();" data-direction="reverse">$$([gw_common_back_label])</a>		
+		<h1>$$([menu_show_all]) / 전체메뉴</h1>
+		<a href="javascript:refreshBoardComment();">$$([gw_common_refresh_label])</a>
+	</div>
+	<div id="list" data-role="listview" data-theme="d" class="signDetails">
+		<div class='contents'>
+			
+		</div>
+	</div>
+	<ul id="list" data-role="listview" data-theme="d" class="signDetails">
+  
+   	</ul>
+</div>
+	
+

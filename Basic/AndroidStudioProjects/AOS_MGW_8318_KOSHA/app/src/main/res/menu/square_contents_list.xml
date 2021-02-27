@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android" >
+ 
+    <item
+        android:id="@+id/ID_MENU_SEARCH"
+        android:title="@string/label_square_menu_search"/>
+    <item
+        android:id="@+id/ID_MENU_FAVORITE"
+        android:title="@string/label_square_menu_favorite"/>
+    <item
+        android:id="@+id/ID_MENU_COMMAND"
+        android:title="@string/label_square_menu_command"/>
+    <item
+        android:id="@+id/ID_MENU_FILE"
+        android:title="@string/label_square_menu_file"/>
+
+    <item
+        android:id="@+id/ID_MENU_SETTING"
+        android:title="@string/label_square_group_info"/>
+
+</menu>

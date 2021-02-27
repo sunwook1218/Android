@@ -1,0 +1,130 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white"
+    android:focusable="true"
+    android:focusableInTouchMode="true"
+    android:orientation="vertical" >
+
+    <include layout="@layout/fragment_sub_header"></include>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="71dp"
+        android:paddingLeft="13.3dp"
+        android:paddingRight="13.3dp"
+        android:background="@drawable/border_bottom" >
+
+        <ImageView
+            android:id="@+id/ID_BTN_BACK"
+            android:layout_width="39dp"
+            android:layout_height="46.17dp"
+            android:layout_centerVertical="true"
+            android:layout_marginRight="10dp"
+            android:padding="15dp"
+            android:contentDescription="@string/dummy_string"
+            android:src="@drawable/style_btn_back" />
+
+        <ImageView
+            android:id="@+id/ID_BTN_MENU"
+            android:layout_width="17.3dp"
+            android:layout_height="14dp"
+            android:layout_centerVertical="true"
+            android:layout_marginRight="10dp"
+            android:layout_toRightOf="@id/ID_BTN_BACK"
+            android:contentDescription="@string/dummy_string"
+            android:src="@drawable/style_btn_menu"
+            android:visibility="gone"/>
+
+        <TextView
+            android:id="@+id/ID_TV_TITLE"
+            style="@style/header_title_style"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_centerInParent="true"
+            android:ellipsize="end"
+            android:gravity="center"
+            android:maxLines="2"
+            android:paddingLeft="45dp"
+            android:paddingRight="45dp"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            android:typeface="sans" />
+
+        <TextView
+            android:id="@+id/ID_BTN_MORE"
+            android:layout_width="62dp"
+            android:layout_height="27.3dp"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:background="@drawable/style_btn_basic_white_hu"
+            android:text="더보기"
+            android:gravity="center"
+            android:textColor="#056839"
+            android:textSize="12sp"
+            android:textStyle="bold"
+            />
+        <!--<ImageView
+            android:id="@+id/ID_BTN_MORE"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:layout_margin="5dp"
+            android:contentDescription="@string/dummy_string"
+            android:src="@drawable/btn_more_menu_set" />-->
+    </RelativeLayout>
+
+    <com.hs.mobile.gw.view.pulltorefresh.library.PullToRefreshListView
+        android:id="@+id/ID_LV_SQUARE_CONTENTS"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:fadingEdge="none"
+        android:paddingBottom="1dp"     
+        android:scrollingCache="false" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="#f1f1f1"></LinearLayout>
+    <LinearLayout
+        android:id="@+id/ID_LAY_L_INPUT"
+        android:layout_width="match_parent"
+        android:layout_height="50dip"
+        android:background="#fff"
+        android:gravity="center_vertical" >
+
+        <Button
+            android:id="@+id/ID_BTN_UPLOAD"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="5dip"
+            android:background="@drawable/btn_upload_set" />
+
+        <EditText
+            android:id="@+id/ID_ED_MESSAGE"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:background="@drawable/ed_input_message"
+            android:ems="10"
+            android:textSize="15sp"
+            android:hint="@string/label_square_message_hint"
+            android:maxLines="1" >
+        </EditText>
+
+        <Button
+            android:id="@+id/ID_BTN_SEND"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="5dip"
+            android:background="@drawable/btn_send_set"
+            android:text="@string/label_square_message_send"
+            android:textColor="@color/white"
+            android:textStyle="bold" />
+    </LinearLayout>
+
+</LinearLayout>
