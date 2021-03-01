@@ -3,4 +3,4 @@
 
 
 ## MEMo
-- git submodule
+- 태스크 관리
