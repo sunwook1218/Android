@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="28f3828b-0e07-4f6f-b9de-34df772ac021" name="Default Changelist" comment="" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
+  </component>
+  <component name="ProjectId" id="1p0fAbyCthhEj4Eq1uzFDXbmS7H" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="android.sdk.path" value="$PROJECT_DIR$/../../../android/sdk" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../../../sunwook_21/0.wksp/AndroidStudio/mtGuard" />
+    <property name="project.structure.last.edited" value="SDK Location" />
+    <property name="project.structure.proportion" value="0.17" />
+    <property name="project.structure.side.proportion" value="0.0" />
+    <property name="run.code.analysis.last.selected.profile" value="pProject Default" />
+    <property name="settings.editor.selected.configurable" value="AndroidSdkUpdater" />
+  </component>
+  <component name="SvnConfiguration">
+    <configuration>C:\Users\TH\AppData\Roaming\Subversion</configuration>
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="28f3828b-0e07-4f6f-b9de-34df772ac021" name="Default Changelist" comment="" />
+      <created>1614324785959</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1614324785959</updated>
+    </task>
+    <task id="LOCAL-00001" summary="bsw mtcm">
+      <created>1614325029396</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1614325029396</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
+    <servers />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="bsw mtcm" />
+    <option name="LAST_COMMIT_MESSAGE" value="bsw mtcm" />
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="705" y="371" key="ANALYSIS_DLG_com.intellij.analysis.BaseAnalysisAction$1" timestamp="1614324896992">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="705" y="371" key="ANALYSIS_DLG_com.intellij.analysis.BaseAnalysisAction$1/0.0.1920.1040/1920.0.1080.1880@0.0.1920.1040" timestamp="1614324896992" />
+    <state x="271" y="86" width="1437" height="867" key="CommitChangelistDialog2" timestamp="1614325028387">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="271" y="86" width="1437" height="867" key="CommitChangelistDialog2/0.0.1920.1040/1920.0.1080.1880@0.0.1920.1040" timestamp="1614325028387" />
+    <state x="92" y="92" width="1736" height="856" key="DiffContextDialog" timestamp="1614325976121">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="92" y="92" width="1736" height="856" key="DiffContextDialog/0.0.1920.1040/1920.0.1080.1880@0.0.1920.1040" timestamp="1614324818388" />
+    <state x="92" y="92" width="1736" height="856" key="DiffContextDialog/0.0.1920.1040/1920.0.1080.1880@1920.0.1080.1880" timestamp="1614325976121" />
+    <state x="739" y="260" key="FileChooserDialogImpl" timestamp="1614326028656">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="739" y="260" key="FileChooserDialogImpl/0.0.1920.1040/1920.0.1080.1880@0.0.1920.1040" timestamp="1614326028656" />
+    <state x="551" y="252" key="Vcs.Push.Dialog.v2" timestamp="1614325033724">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="551" y="252" key="Vcs.Push.Dialog.v2/0.0.1920.1040/1920.0.1080.1880@0.0.1920.1040" timestamp="1614325033724" />
+    <state x="764" y="432" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1614324794466">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="764" y="432" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.1920.1040/1920.0.1080.1880@0.0.1920.1040" timestamp="1614324794466" />
+    <state x="623" y="225" width="672" height="678" key="search.everywhere.popup" timestamp="1614325999613">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="623" y="225" width="672" height="678" key="search.everywhere.popup/0.0.1920.1040/1920.0.1080.1880@0.0.1920.1040" timestamp="1614325999613" />
+    <state x="767" y="420" key="svn.upgradeDialog" timestamp="1614326036873">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="767" y="420" key="svn.upgradeDialog/0.0.1920.1040/1920.0.1080.1880@0.0.1920.1040" timestamp="1614326036873" />
+    <state x="731" y="382" width="772" height="275" key="svn4idea.checkout.options" timestamp="1614326034952">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="731" y="382" width="772" height="275" key="svn4idea.checkout.options/0.0.1920.1040/1920.0.1080.1880@0.0.1920.1040" timestamp="1614326034952" />
+  </component>
+</project>
