@@ -7,7 +7,7 @@ android {
     buildToolsVersion "29.0.3"
 
     defaultConfig {
-        applicationId "ko.co.mtcm.fragmentsample0302"
+        applicationId "ko.co.mtcm.a0303fragmentimage"
         minSdkVersion 23
         targetSdkVersion 30
         versionCode 1
